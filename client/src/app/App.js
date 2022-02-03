@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import UserHistori from "../componets/UserHistore/UserHistore";
+import UserHistory from "../componets/UserHistory/UserHistory";
 import UserPage from "../componets/userPage/UserPage";
 
 function App() {
@@ -7,7 +7,7 @@ function App() {
    <>
     <Routes>
         <Route path="/user" element={< UserPage />} />
-        <Route path='/userHistori' element={< UserHistori />} />
+        <Route path='/UserHistory' element={< UserHistory />} />
       </Routes>
    </>
   );
