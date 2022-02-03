@@ -1,9 +1,12 @@
+import HomePage from "../components/HomePage/HomePage";
+
 
 function App() {
   return (
-   <>
-    Hello
-   </>
+   <div>
+       <HomePage/>
+   </div>
+
   );
 }
 
