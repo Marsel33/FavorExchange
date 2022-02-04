@@ -1,5 +1,4 @@
 import { Card, Avatar } from 'antd';
-import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
 
 const { Meta } = Card;
 
@@ -8,8 +7,9 @@ const { Meta } = Card;
 const CardTasck = () => {
   return (
     <>
+    все это дело будет подтягиваться с базы 
       <Card
-        style={{ width: 300 }}
+        style={{ width: 700 }}
         cover={
           <img
             alt="example"
@@ -20,8 +20,8 @@ const CardTasck = () => {
       >
         <Meta
           avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
-          title="Card title"
-          description="This is the description"
+          title="название таски"
+          description="описание работы которую ты сделал"
         />
       </Card>,
     </>

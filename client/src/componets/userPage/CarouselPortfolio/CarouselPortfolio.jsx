@@ -10,7 +10,7 @@ const CarouselPortfolio = () => {
   return (
     <>
       <Row>
-        <Col sm={12}>
+        <Col sm={8} offset={4} >
           <Carousel autoplay>
             <div>
               <h3 >{test}</h3>
@@ -24,16 +24,13 @@ const CarouselPortfolio = () => {
 
           </Carousel>,
         </Col>
-      <Col sm={12}>
-        <h1>who ds f fdsgt tg egergerg ergreg tger reg egerg erg ergrge</h1>
-        <h1>who ds f fdsgt tg egergerg ergreg tger reg egerg erg ergrge</h1>
-        <h1>who ds f fdsgt tg egergerg ergreg tger reg egerg erg ergrge</h1>
-        <h1>who ds f fdsgt tg egergerg ergreg tger reg egerg erg ergrge</h1>
-        <h1>who ds f fdsgt tg egergerg ergreg tger reg egerg erg ergrge</h1>
-        <h1>who ds f fdsgt tg egergerg ergreg tger reg egerg erg ergrge</h1>
-        <h1>who ds f fdsgt tg egergerg ergreg tger reg egerg erg ergrge</h1>
+        <Col sm={8}>
+          <h1>who ds f fdsgt tg egergerg ergreg tger reg egerg erg ergrge</h1>
+          <h1>who ds f fdsgt tg egergerg ergreg tger reg egerg erg ergrge</h1>
+          <h1>who ds f fdsgt tg egergerg ergreg tger reg egerg erg ergrge</h1>
+          <h1>who ds f fdsgt tg egergerg ergreg tger reg egerg erg ergrge</h1>
 
-      </Col>
+        </Col>
 
       </Row>
     </>

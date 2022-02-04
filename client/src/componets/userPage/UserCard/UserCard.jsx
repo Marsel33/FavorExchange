@@ -1,10 +1,15 @@
 import styles from '../styles.module.css'
 import { Card } from 'antd';
 import { Link } from 'react-router-dom';
+import { Button, Radio } from 'antd';
+import { DownloadOutlined } from '@ant-design/icons';
+
 const { Meta } = Card;
 
 
 const UserCard = () => {
+  const size = 'large'
+
   return (
     <>
       <div className={styles.s} >
@@ -24,7 +29,7 @@ const UserCard = () => {
           <Meta title="Егор" description="" />
 
           <Link to={'/UserHistory'}>
-            <button>history</button>
+          <Button style={{marginRight: '20px'}} size={size} >Default</Button>
           </Link>
 
         </Card>
