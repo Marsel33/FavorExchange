@@ -1,6 +1,6 @@
-import UserCard from './UserCard/UserCard';
+import UserCard from '../UserCard/UserCard';
 import styles from './styles.module.css'
-import CarouselPortfolio from './CarouselPortfolio/CarouselPortfolio';
+import CarouselPortfolio from '../CarouselPortfolio/CarouselPortfolio';
 
 
 const UserPage = () => {
