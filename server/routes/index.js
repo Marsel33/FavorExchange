@@ -8,8 +8,7 @@ const myProfilRouter = require('./myProfilRouter')
 
 router.use('/', indexRouter)
 router.use('/user', userRouter)
-router.use('/myprofil', myProfilRouter)
-
+// router.use('/myprofile',myProfilRouter)
 
 
 module.exports = router
