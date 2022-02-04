@@ -16,7 +16,7 @@ const HomePage = () => {
                         <div className="logo" />
                         <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
                             <div>
-                                SigIn
+                                 <Link to='/sigin'> SigIn </Link>
                             </div>
                             <div style={{margin: '0 10px'}}>
                                 SigUp
