@@ -1,24 +1,11 @@
 import React from 'react';
-import { Tabs, Radio, Space } from 'antd';
 
 
 const Chat = () => {
 
-    const { TabPane } = Tabs;
-
     return (
         <>
-            <Tabs tabPosition={tabPosition}>
-                <TabPane tab="user 1" key="1">
-                    Привет! Я строитель и могу зачистить твои уголки
-                </TabPane>
-                <TabPane tab="user 2" key="2">
-                    Стригу лапки 🐈
-                </TabPane>
-                <TabPane tab="user 3" key="3">
-                    Умею класть асфальт и делать педикюр
-                </TabPane>
-            </Tabs>
+           <img src='https://res.cloudinary.com/dte7upwcr/image/upload/f_auto/v1618935774/help/des/pic1-new.png' />
         </>
     );
 };
