@@ -1,9 +1,11 @@
 import { Layout, Menu } from 'antd';
 import { BellOutlined } from "@ant-design/icons";
 import { Routes, Route } from "react-router-dom";
+
 import HomePage from "../components/SearchCategory/Chat/HomePage/HomePage";
 import UserHistory from "../components/UserHistory/UserHistory";
 import UserPage from "../components/userPage/UserPage";
+
 
 const { Header, Content, Footer } = Layout;
 
@@ -31,6 +33,8 @@ function App() {
         <Route path='/' element={<HomePage />} />
         <Route path="/user" element={< UserPage />} />
         <Route path='/UserHistory' element={< UserHistory />} />
+          <Route path='/chat' element={< Chat/>} />
+
       </Routes>
 
     </>
