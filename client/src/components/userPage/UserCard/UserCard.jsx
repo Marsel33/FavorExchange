@@ -1,8 +1,7 @@
 import styles from '../styles.module.css'
 import { Card } from 'antd';
 import { Link } from 'react-router-dom';
-import { Button, Radio } from 'antd';
-import { DownloadOutlined } from '@ant-design/icons';
+import { Button } from 'antd';
 
 const { Meta } = Card;
 

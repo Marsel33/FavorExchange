@@ -1,6 +1,7 @@
 import {Row, Col, Slider, Typography } from 'antd'
 import { useState } from "react";
-import SearchCategory from '../SearchCategory.js/SearchCategory';
+// import SearchCategory from '../SearchCategory/SearchCategory';
+import SearchCategory from '../SearchCategory/SearchCategory'
 
 
 
