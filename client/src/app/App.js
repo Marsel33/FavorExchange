@@ -1,10 +1,11 @@
 import { Layout, Menu } from 'antd';
 import { BellOutlined } from "@ant-design/icons";
 import { Routes, Route } from "react-router-dom";
-import SearchLayout from "../Components/SearchLayout/SearchLayout";
-import HomePage from "../components/SearchCategory/Chat/HomePage/HomePage";
+import SearchLayout from "../components/SearchLayout/SearchLayout";
+import HomePage from "../components/HomePage/Chat/HomePage/HomePage";
 import UserHistory from "../components/UserHistory/UserHistory";
 import UserPage from "../components/userPage/UserPage";
+import Chat from '../components/HomePage/Chat/Chat';
 
 const { Header, Content, Footer } = Layout;
 
