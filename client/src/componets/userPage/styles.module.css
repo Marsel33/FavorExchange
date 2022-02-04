@@ -1,0 +1,29 @@
+.s {
+  display: inline-block;
+  display: flex;
+  justify-content: space-around;
+}
+
+
+.constainer {
+  padding: 10px;
+  height: 100vh;
+}
+
+
+.contentStyle  {
+  height: '250px';
+  width: '600px';
+  color: '#fff';
+  line-height: '160px';
+  text-align: 'center';
+  background: '#364d79';
+};
+
+.wrapper {
+  display: flex;
+}
+
+.a {
+  color: red;
+}

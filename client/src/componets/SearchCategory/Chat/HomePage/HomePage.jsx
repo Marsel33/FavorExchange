@@ -9,20 +9,7 @@ const { Header, Content, Footer } = Layout;
 const HomePage = () => {
   return (
     <Layout className="layout">
-      <Header>
-        <div className="logo" />
-        <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
-          <div>
-            SigIn
-          </div>
-          <div style={{ margin: '0 10px' }}>
-            SigUp
-          </div>
-          <div>
-            <BellOutlined />
-          </div>
-        </Menu>
-      </Header>
+      
       <Content style={{ padding: '0 30px' }}>
         {/*<Breadcrumb style={{ margin: '20px 0' }}>*/}
         {/*    <Breadcrumb.Item>Home</Breadcrumb.Item>*/}
