@@ -6,7 +6,7 @@ import { Button } from 'antd';
 const { Meta } = Card;
 
 
-const UserCard = () => {
+const UserCard = ({img, id, userId, description, name}) => {
   const size = 'large'
 
   return (
@@ -23,9 +23,9 @@ const UserCard = () => {
         <Card
           hoverable
           style={{ width: 240 }}
-          cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
+          cover={<img alt="example" src={img}/>}
         >
-          <Meta title="Егор" description="" />
+          <Meta title={name} description={description} />
 
           <Link to={'/UserHistory'}>
           <Button style={{marginRight: '20px'}} size={size} >Default</Button>

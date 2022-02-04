@@ -10,7 +10,7 @@ import SigIn from '../components/SigIn/SigIn'
 import SigUp from '../components/SigUp/SigUp'
 import { Link } from 'react-router-dom';
 
-const { Header, Content, Footer } = Layout;
+const { Header } = Layout;
 
 
 function App() {
