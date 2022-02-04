@@ -1,8 +1,5 @@
-// import UserCard from '../UserCard/UserCard';
-// import styles from './styles.module.css'
-import CarouselPortfolio from '../CarouselPortfolio/CarouselPortfolio';
-import useSelection from 'antd/lib/table/hooks/useSelection';
 import UserCard from '../UserCard/UserCard';
+import CarouselPortfolio from '../CarouselPortfolio/CarouselPortfolio';
 
 
 const UserPage = () => {

@@ -1,7 +1,6 @@
 import { DownloadOutlined } from "@ant-design/icons";
 import { Button } from "antd";
 import CardTasck from "../CardTasck/CardTasck";
-// import CardTasck from "./CardTasck/CardTasck";
 
 const UserHistory = () => {
   const size = 'large'

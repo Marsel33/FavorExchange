@@ -1,4 +1,4 @@
-import styles from '.././userPage/styles.module.css'
+import styles from '../userPage/styles.module.css'
 import { Card } from 'antd';
 import { Link } from 'react-router-dom';
 import { Button } from 'antd';
