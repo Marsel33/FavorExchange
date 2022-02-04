@@ -2,12 +2,15 @@ import { Layout, Menu } from 'antd';
 import { BellOutlined } from "@ant-design/icons";
 import { Routes, Route } from "react-router-dom";
 import SearchLayout from "../components/SearchLayout/SearchLayout";
-import HomePage from "../components/HomePage/Chat/HomePage/HomePage";
+// import HomePage from "../components/HomePage/Chat/HomePage/HomePage";
 import UserHistory from "../components/UserHistory/UserHistory";
-import UserPage from "../components/userPage/UserPage";
-import Chat from '../components/HomePage/Chat/Chat';
+// import UserPage from "../components/userPage/UserPage";
+// import Chat from '../components/HomePage/Chat/Chat';
+import HomePage from '../components/HomePage/HomePage';
+import UserPage from '../components/userPage/UserPage';
+import Chat from '../components/Chat/Chat';
 
-const { Header, Content, Footer } = Layout;
+const { Header } = Layout;
 
 
 function App() {
