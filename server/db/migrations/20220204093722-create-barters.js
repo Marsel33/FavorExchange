@@ -15,7 +15,7 @@ module.exports = {
           key:'id'
         }
       },
-      profil_id: {
+      initiator: {
         type: Sequelize.INTEGER,
         references:{
           model:'Profils',
@@ -23,6 +23,13 @@ module.exports = {
         }
 
       },
+      opponent:{
+        type: Sequelize.INTEGER,
+      },
+      status:{
+        type:Sequelize.STRING,
+      },
+
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
