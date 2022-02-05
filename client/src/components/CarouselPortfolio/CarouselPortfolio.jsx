@@ -14,7 +14,7 @@ const userPortfolio = [
   return (
     <>
       <Row>
-        <Col sm={8} offset={4} >
+        <Col sm={8} offset={2} >
           <Carousel autoplay>
             {userPortfolio.map(el => 
             <div>
