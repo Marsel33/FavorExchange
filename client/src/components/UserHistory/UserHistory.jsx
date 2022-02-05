@@ -1,19 +1,12 @@
-import { DownloadOutlined } from "@ant-design/icons";
-import { Button } from "antd";
 import CardTasck from "../CardTasck/CardTasck";
+import styles from '../userPage/styles.module.css'
 
 const UserHistory = () => {
-  const size = 'large'
   return (
-    <>
-       <Button type="primary" icon={<DownloadOutlined />} size={size}>
-          название таски которую ты завершил
-        </Button>
-
+    <div className={styles.userPage}>
         < CardTasck />
-    </>
+    </div>
   )
 }
-
 
 export default UserHistory;

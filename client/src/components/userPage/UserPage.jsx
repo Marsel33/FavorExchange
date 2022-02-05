@@ -1,6 +1,6 @@
 import UserCard from '../UserCard/UserCard';
 import CarouselPortfolio from '../CarouselPortfolio/CarouselPortfolio';
-
+import styles from './styles.module.css'
 
 const UserPage = () => {
 
@@ -19,7 +19,7 @@ const UserPage = () => {
 
 
   return (
-    <>
+    < div className={styles.userPage}>
       {meProfile.map(el =>
         <UserCard key={el.id} name={el.name} description={el.description} img={el.img} userId={el.user_id} id={el.id} />
       )}
@@ -28,7 +28,7 @@ const UserPage = () => {
 
       <CarouselPortfolio />
 
-    </>
+    </div>
   )
 
 }
