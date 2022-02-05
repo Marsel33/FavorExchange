@@ -11,6 +11,9 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
+    await queryInterface.bulkInsert('Users', [{
+      name: 'John Doe',createdAt: new Date(), updatedAt: new Date()
+    }], {});
 
   },
 
