@@ -43,4 +43,10 @@
   background-color: rgb(233, 233, 240);
 }
 
+.ava {
+  width: 400px;
+    height: 300px;
+    object-fit: cover;
+}
+
 
