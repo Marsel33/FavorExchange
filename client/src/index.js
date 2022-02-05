@@ -8,8 +8,9 @@ import { BrowserRouter } from "react-router-dom";
 import axios from 'axios';
 import store from './Redux/store/store';
 
-axios.default.baseURL = 'http://localhost:3001';
-axios.default.withCredentials = true;
+axios.defaults.baseURL = 'http://localhost:3001'
+
+// axios.default.withCredentials = true;
 
 ReactDOM.render(
   <React.StrictMode>
