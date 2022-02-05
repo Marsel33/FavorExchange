@@ -43,7 +43,7 @@ function App() {
 
       <Routes>
         <Route path='/' element={<HomePage />} />
-        <Route path='/user' element={< UserPage />} />
+        <Route path='/user/:id' element={< UserPage />} />
         <Route path='/searchPage' element={< SearchLayout />} />
         <Route path='/UserHistory' element={< UserHistory />} />
         <Route path='/chat' element={< Chat/>} />

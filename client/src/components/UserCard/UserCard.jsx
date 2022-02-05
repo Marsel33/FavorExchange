@@ -1,34 +1,27 @@
 import styles from '../userPage/styles.module.css'
-import { Card } from 'antd';
+import { Card, Button } from 'antd';
 import { Link } from 'react-router-dom';
-import { Button } from 'antd';
+import UserCat from '../UserCat/UserCat';
 
 const { Meta } = Card;
 
-
-const UserCard = ({img, id, userId, description, name}) => {
+const UserCard = ({ img, id, userId, description, name }) => {
   const size = 'large'
 
   return (
     <>
       <div className={styles.s} >
-
-        <div>
-          <h3>стригу</h3>
-          <h3>чиню</h3>
-          <h3>учу</h3>
-
-        </div>
-
+          < UserCat />
+       
         <Card
           hoverable
-          style={{ width: 240 }}
-          cover={<img alt="example" src={img}/>}
+          style={{ width: 400, fontSize: 24, height: 500 }}
+          cover={<img alt="example" src={img} />}
         >
           <Meta title={name} description={description} />
 
           <Link to={'/UserHistory'}>
-          <Button style={{marginRight: '20px'}} size={size} >Default</Button>
+            <Button danger size={size} className={styles.button} >закрытые зделки</Button>
           </Link>
 
         </Card>
