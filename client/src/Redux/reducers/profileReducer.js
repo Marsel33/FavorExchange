@@ -7,7 +7,7 @@ export const profileReducer = (state = [], action) => {
 
   switch (type) {
     case GET_PROFILE:
-      return [...state, { ...payload }]
+      return [ { ...payload }]
 
 
     default:
