@@ -1,10 +1,9 @@
 import styles from '../userPage/styles.module.css'
-import { Card, Col, Row } from 'antd';
+import { Card, Button } from 'antd';
 import { Link } from 'react-router-dom';
-import { Button } from 'antd';
+import UserCat from '../UserCat/UserCat';
 
 const { Meta } = Card;
-
 
 const UserCard = ({ img, id, userId, description, name }) => {
   const size = 'large'
@@ -12,27 +11,11 @@ const UserCard = ({ img, id, userId, description, name }) => {
   return (
     <>
       <div className={styles.s} >
-        <Col sm={1}>
-          <Row sm={12}>
-
-
-            <div>
-              <p className={styles.skill}>стригу</p>
-              <p className={styles.skill}>чиню</p>
-              <p className={styles.skill}>учу</p>
-              <p className={styles.skill}>учу</p>
-              <p className={styles.skill}>учу</p>
-              <p className={styles.skill}>учу</p>
-
-            </div>
-
-          </Row>
-        </Col>
-
-
+          < UserCat />
+       
         <Card
           hoverable
-          style={{ width: 400, fontSize: 24, height: 500}}
+          style={{ width: 400, fontSize: 24, height: 500 }}
           cover={<img alt="example" src={img} />}
         >
           <Meta title={name} description={description} />
