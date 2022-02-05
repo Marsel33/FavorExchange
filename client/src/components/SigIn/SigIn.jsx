@@ -10,7 +10,7 @@ const SigIn = () => {
 
     return (
         <Row justify="space-between">
-            <Col span={12} offset={6}>
+            <Col span={8} offset={8}>
                 <DemoBox value={50}/>
                 <Form
                     name="normal_login"
