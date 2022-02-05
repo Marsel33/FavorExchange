@@ -37,12 +37,10 @@ function App() {
               <Link to={'/chat'}> <BellOutlined /> </Link>
             </div>
 
-            <div>
-
-            </div>
           </Menu>
         </Header>
       </>
+
       <Routes>
         <Route path='/' element={<HomePage />} />
         <Route path='/user' element={< UserPage />} />
@@ -51,8 +49,8 @@ function App() {
         <Route path='/chat' element={< Chat/>} />
         <Route path='/sigin' element={< SigIn />} />
         <Route path='/sigup' element={< SigUp />} />
-
       </Routes>
+
     </>
 
   );

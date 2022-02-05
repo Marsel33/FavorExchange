@@ -2,22 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23da0012-25c8-4c42-b095-d8868aaec257" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/components/Paralax/Paralax.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/Paralax/ParalaxBoxOne.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/Paralax/ParalaxBoxThree.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/Paralax/ParalaxBoxTwo.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/Paralax/Text/Text.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/Paralax/img/ad_wall.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/Paralax/img/avrasya_large.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/Paralax/img/exchange.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/Paralax/img/i_want_i_can.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/Paralax/img/vstrechnye-postavki-tovara.jpeg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Redux/init/initState.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Redux/init/initState.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Redux/reducers/rootReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Redux/reducers/rootReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Redux/types/types.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Redux/types/types.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/HomePage/HomePage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/HomePage/HomePage.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/SigIn/SigIn.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/SigIn/SigIn.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/SigUp/SigUp.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/SigUp/SigUp.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +75,10 @@
       <workItem from="1643988738245" duration="4025000" />
       <workItem from="1643993337521" duration="447000" />
       <workItem from="1644046222777" duration="3224000" />
-      <workItem from="1644053990440" duration="1992000" />
+      <workItem from="1644053990440" duration="8048000" />
+      <workItem from="1644076315659" duration="3239000" />
+      <workItem from="1644081215446" duration="19000" />
+      <workItem from="1644081322753" duration="17000" />
     </task>
     <servers />
   </component>
