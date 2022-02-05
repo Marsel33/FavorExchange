@@ -5,10 +5,10 @@ import App from './app/App';
 import 'antd/dist/antd.min.css';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from "react-router-dom";
-import store from './Redux/store/store';
 import axios from 'axios';
 
-axios.defaults.baseURL = 'http://localhost:3001'
+axios.default.baseURL = 'http://localhost:3001';
+axios.default.withCredentials = true;
 
 ReactDOM.render(
   <React.StrictMode>
@@ -21,7 +21,5 @@ ReactDOM.render(
 
   document.getElementById('root')
 );
-
-
 
 
