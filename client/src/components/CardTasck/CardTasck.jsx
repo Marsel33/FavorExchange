@@ -1,5 +1,4 @@
 import { List, Avatar, Space } from 'antd';
-import { MessageOutlined, LikeOutlined, StarOutlined } from '@ant-design/icons';
 import React from 'react';
 import { Footer } from 'antd/lib/layout/layout';
 import { listData } from '../../listData'
@@ -8,17 +7,12 @@ import { listData } from '../../listData'
 
 const CardTasck = () => {
 
-
-
-
   return (
     <>
       <List
         itemLayout="vertical"
         size="large"
-        footer={
-          <Footer style={{ textAlign: 'center' }}>Favor_Exchange ©2022 Created by a group of united thinkers </Footer>
-        }
+       
         pagination={{
           onChange: page => {
             console.log(page);
@@ -45,6 +39,9 @@ const CardTasck = () => {
             {item.content}
           </List.Item>
         )}
+        footer={
+          <Footer style={{ textAlign: 'center' }}>Favor_Exchange ©2022 Created by a group of united thinkers </Footer>
+        }
       />,
     </>
   )
