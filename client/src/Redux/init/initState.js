@@ -2,7 +2,7 @@
   profile: [], 
 	user: null,
 	roles: [],
-  userCat: [],
+  userCat: [], 
 }
 
 
