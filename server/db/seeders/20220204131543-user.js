@@ -26,7 +26,9 @@ module.exports = {
                 updatedAt: new Date()
             }], {});
 
+
     },
+
 
     async down(queryInterface, Sequelize) {
         /**

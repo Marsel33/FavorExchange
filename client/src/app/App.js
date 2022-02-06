@@ -8,11 +8,14 @@ import UserHistory from "../Components/UserHistory/UserHistory";
 import Chat from "../Components/Chat/Chat";
 import SigIn from "../Components/SigIn/SigIn";
 import SigUp from "../Components/SigUp/SigUp";
+import TestPoly from "../Components/TestPoly/TestPoly";
 
 const {Header} = Layout;
 
 
 function App() {
+
+
     return (
         <>
             <>
@@ -36,12 +39,10 @@ function App() {
                             <Link to={'/chat'}> <BellOutlined/> </Link>
                         </div>
 
-                        <div>
-
-                        </div>
                     </Menu>
                 </Header>
             </>
+
             <Routes>
                 <Route path='/' element={<HomePage/>}/>
                 <Route path='/user/:id' element={< UserPage/>}/>
@@ -51,10 +52,14 @@ function App() {
                 <Route path='/sigin' element={< SigIn/>}/>
                 <Route path='/sigup' element={< SigUp/>}/>
 
+                <Route path='/test/:id' element={< TestPoly/>}/>
+
             </Routes>
+
         </>
 
     );
+
 }
 
 export default App;
