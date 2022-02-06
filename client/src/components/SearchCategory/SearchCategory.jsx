@@ -1,5 +1,8 @@
 import { Table, Typography } from 'antd'
-import { users } from '../../data'
+import { useEffect } from 'react'
+import { useSelector } from 'react-redux'
+import { allProfiles } from '../../Redux/actions/profileAction'
+// import { users } from '../../data'
 
 const columns = [
     {
@@ -10,8 +13,8 @@ const columns = [
     },
     {
         title: 'Username',
-        dataIndex: 'username',
-        key: 'username',
+        dataIndex: 'description',
+        key: 'description',
     },
     {
         title: 'Email',
@@ -44,17 +47,27 @@ const columns = [
 
 ]
 
-const dataSource = users.map(item => ({...item, key: item.id}))
+
+
 
 
 const SearchCategory = ({rows = 5}) => {
+  
+  const users = useSelector( state => state.profile)
+
+  const dataSource = users.map(item => ({...item, key: item.id}))
+  
+  useEffect(() => {
+    dispatchEvent(allProfiles())
+  }, [])
+
     return (
         <Table 
             dataSource={dataSource}
             columns = {columns}
             pagination = {{
                 // pageSize: rows,
-                pageSize: '5', 
+                // pageSize: '5', 
                 showSizeChanger: true, 
                 pageSizeOptions: [2, 3, 5, 10]
             }}
