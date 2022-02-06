@@ -1,7 +1,7 @@
 .s {
-  display: inline-block;
   display: flex;
   justify-content: space-around;
+  font-size: 18px;
 }
 
 
@@ -27,3 +27,26 @@
 .a {
   color: red;
 }
+
+
+.skill {
+  width: 400px;
+  border-bottom: 2px solid rgb(133, 133, 161);
+  border-radius: 3px;
+  font-size: 40px;
+}
+
+.userPage {
+  max-width: 1920px;
+  height: 100vh; 
+  padding: 20px;
+  background-color: rgb(233, 233, 240);
+}
+
+.ava {
+  width: 400px;
+    height: 300px;
+    object-fit: cover;
+}
+
+
