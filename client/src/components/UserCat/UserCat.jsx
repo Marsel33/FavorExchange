@@ -39,7 +39,7 @@ const UserCat = () => {
           name="basic"
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 16 }}
-          onSubmitCapture={submitHandler}
+          onSubmit={submitHandler}
         >
           <Form.Item
             label="title"

@@ -9,6 +9,7 @@ import Chat from '../components/Chat/Chat';
 import SigIn from '../components/SigIn/SigIn'
 import SigUp from '../components/SigUp/SigUp'
 import { Link } from 'react-router-dom';
+import EditPorofile from '../components/EditProfile/EditProfile';
 
 const { Header } = Layout;
 
@@ -49,6 +50,7 @@ function App() {
         <Route path='/chat' element={< Chat/>} />
         <Route path='/sigin' element={< SigIn />} />
         <Route path='/sigup' element={< SigUp />} />
+        <Route path='/editProfile' element={<EditPorofile />} />
       </Routes>
 
     </>
