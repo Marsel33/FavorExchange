@@ -16,5 +16,7 @@ export const oneProfile = (id) => async (dispatch) => {
 //
 export const allProfiles = () => async(dispatch) => {
   const res = await axios('/myprofile')
-  dispatch(setProfiles(res.data))
+  console.log(res.data.allProfiles);
+  dispatch(setProfiles(res.data.allProfiles))
+
 }
