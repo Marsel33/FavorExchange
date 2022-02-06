@@ -6,6 +6,8 @@ import { allProfiles } from '../../Redux/actions/profileAction';
 // import SearchCategory from '../SearchCategory/SearchCategory';
 import SearchCategory from '../SearchCategory/SearchCategory'
 import SearchMap from '../SearchMap/SearchMap';
+import { MapCollectionTest } from '../SearchMap/MapCollectionTest';
+import { TestMap } from '../SearchMap/TestMap';
 
 
 
@@ -25,7 +27,9 @@ const SearchLayout = () => {
             </Col>
 
             <Col >
-              <SearchMap />
+              {/* <SearchMap /> */}
+              < MapCollectionTest />
+              {/* <TestMap /> */}
             </Col>
         </Row>
 
