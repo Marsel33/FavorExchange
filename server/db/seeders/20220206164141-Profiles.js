@@ -11,24 +11,24 @@ module.exports = {
          *   isBetaMember: false
          * }], {});
          */
-        await queryInterface.bulkInsert('Users', [{
-            name: 'John Doe',
-            email: '1@1',
-            password: '$2a$10$9mEpp4RJ0mBUEjhY/0AunezhqXvs0UVRDAfJ9xr73FtFAgASLqUKa',
+        await queryInterface.bulkInsert('Profils', [{
+            img: 'https://www.youloveit.ru/uploads/posts/2016-09/1473331574_youloveit_ru_girly_m_devushki_kartinki01.jpg',
+            user_id: 1,
+            name: 'poly',
+            description: 'strigy',
             createdAt: new Date(),
             updatedAt: new Date()
         },
             {
-                name: 'John ',
-                email: '2@2',
-                password: '$2a$10$9mEpp4RJ0mBUEjhY/0AunezhqXvs0UVRDAfJ9xr73FtFAgASLqUKa',
+                img: 'https://i0.wp.com/steepmen.ru/wp-content/uploads/2021/05/erwe.jpg?resize=557%2C603&ssl=1',
+                user_id: 2,
+                name: 'leha',
+                description: 'uchu',
                 createdAt: new Date(),
                 updatedAt: new Date()
-            }], {});
-
-
+            }
+        ], {})
     },
-
 
     async down(queryInterface, Sequelize) {
         /**
