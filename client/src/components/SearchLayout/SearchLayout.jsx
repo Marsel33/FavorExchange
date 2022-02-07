@@ -1,18 +1,21 @@
 import { ContainerFilled } from '@ant-design/icons';
 import {Row, Col, Slider, Typography, Container } from 'antd'
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from 'react-redux';
+import { allProfiles } from '../../Redux/actions/profileAction';
 // import SearchCategory from '../SearchCategory/SearchCategory';
 import SearchCategory from '../SearchCategory/SearchCategory'
 import SearchMap from '../SearchMap/SearchMap';
+import { MapCollectionTest } from '../SearchMap/MapCollectionTest';
+import { TestMap } from '../SearchMap/TestMap';
 
 
 
 
 const SearchLayout = () => {
 
-    const [rows, setRows ] = useState(5)
-
-
+  const [rows, setRows ] = useState(5)  
+  
     return (
       
 
@@ -24,7 +27,9 @@ const SearchLayout = () => {
             </Col>
 
             <Col >
-              <SearchMap />
+              {/* <SearchMap /> */}
+              < MapCollectionTest />
+              {/* <TestMap /> */}
             </Col>
         </Row>
 

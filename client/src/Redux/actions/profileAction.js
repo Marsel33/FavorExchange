@@ -30,5 +30,12 @@ export const getAvatar = (value, id) => async (dispatch) => {
 
 export const allProfiles = () => async(dispatch) => {
   const res = await axios('/myprofile')
-  dispatch(setProfiles(res.data))
+  // console.log(res.data.allProfiles);
+  dispatch(setProfiles(res.data.allProfiles))
+
 }
+
+// export const getCoordinates = () => async(dispatch) => {
+//   const res = await axios('https://geocode-maps.yandex.ru/1.x/?apikey=5a0ef838-8ef3-4449-8f30-5a93bdf47ddd&geocode=Москва,Тверская+улица,+дом+7&format=json')
+//   console.log(res.response);
+// }

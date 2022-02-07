@@ -1,5 +1,7 @@
 import CarouselPortfolio from '../CarouselPortfolio/CarouselPortfolio';
+
 import styles from './styles.module.css'
+
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { oneProfile } from '../../Redux/actions/profileAction';
@@ -13,23 +15,29 @@ const UserPage = () => {
 
 
 
+    useEffect(() => {
+        dispatch(oneProfile(id))
+    }, [])
+
   useEffect(() => {
     dispatch(oneProfile(id))
   }, [])
 
 
-  return (
-    < div className={styles.userPage}>
-      {meProfile.map(el =>
-        <UserCard key={el.id} name={el.name} description={el.description} img={el.img} userId={el.user_id} id={el.id} />
-      )}
+    return (
+        < div className={styles.userPage}>
+            {meProfile.map(el =>
+                <UserCard key={el.id} name={el.name} description={el.description} img={el.img} userId={el.user_id}
+                          id={el.id}/>
+            )}
 
-      <h2 >Портфолио</h2>
+            <CarouselPortfolio/>
 
-      <CarouselPortfolio />
 
-    </div>
-  )
+            <CarouselPortfolio/>
+
+        </div>
+    )
 
 }
 
