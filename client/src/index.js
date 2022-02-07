@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import 'antd/dist/antd.css'
+import './firebase';
 import App from './app/App';
 import 'antd/dist/antd.min.css';
 import { Provider } from 'react-redux';

@@ -1,12 +1,14 @@
 import { Button } from "antd";
 import Modal from "antd/lib/modal/Modal";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getAvatar } from "../../Redux/actions/profileAction";
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { storage } from '../../firebase';
 
-const EditPorofile = ({name, description}) => {
 
 
+const EditPorofile = ({ id }) => {
 
   const [isModalVisible, setIsModalVisible] = useState(false);
 
@@ -21,50 +23,61 @@ const EditPorofile = ({name, description}) => {
   const handleCancel = () => {
     setIsModalVisible(false);
   };
-  const inputRef = useRef(null);
 
   const dispatch = useDispatch()
-  const [imgUser, setImgUser] = useState({ img: '', name: '', description: '' });
+  const [image, setImage] = useState(null)
+  const [imgUser, setImgUser] = useState({ description: '', name: '', img: '' });
 
-  const imgHandler = (e) => {
-    let imgUrl = inputRef.current.files[0];
-    console.log('------------>', inputRef.current.files[0])
-    console.log(imgUrl)
-    if (imgUrl) {
-      const img = URL.createObjectURL(imgUrl);
-      console.log('img-------------__>', img)
-      setImgUser(prev => ({ ...prev, [e.target.name]: e.target.value }))
+  const handleChange = (e) => {
+    if (e.target.files[0]) {
+      setImage(e.target.files[0])
     }
   }
 
-  console.log(imgUser)
+  const handleUpload = () => {
+    console.log('handleUpload')
+    const storageRef = ref(storage, `/images/${image.name}`)
+    const uploadTask = uploadBytesResumable(storageRef, image);
+    uploadTask.on(
+      "state_changed",
+      snapshot => {
+        console.log('snapshot')
+      },
+      error => {
+        console.log(error)
+      },
+      () => {
+        getDownloadURL(uploadTask.snapshot.ref)
+          .then(url => {
+            setImgUser(prev => ({ ...prev, img: url }))
+          })
+      }
+    )
 
-
-  const submitHandler = (e) => {
-    e.preventDefault();
-
-    dispatch(getAvatar(imgUser));
   }
+
+  const imgHandler = (e) => {
+    setImgUser(prev => ({ ...prev, [e.target.name]: e.target.value }))
+  }
+
+  const submitHandler = () => {
+    dispatch(getAvatar(imgUser, id));
+  }
+
   return (
     <>
-
       <>
-
         <Button type="primary" onClick={showModal}>
           редактировать профиль
         </Button>
         <Modal title="Basic Modal" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
-
-          <form onSubmit={submitHandler}>
-
-            <input type='file' name="img" ref={inputRef} onChange={imgHandler} />
-            <input type='text' name="name" placeholder="name" onChange={imgHandler} value={name} />
-            <input type='text' name="description" placeholder="description" onChange={imgHandler} value={description} />
-
-          </form>
+          <input type='file' name="img" accept="image/*" onChange={handleChange} />
+          <input type='text' name="name" placeholder="name" onChange={imgHandler} />
+          <input type='text' name="description" placeholder="description" onChange={imgHandler} />
+          <button onClick={handleUpload}>go</button>
+          <button onClick={submitHandler}>править</button>
         </Modal>
       </>
-
     </>
   )
 }

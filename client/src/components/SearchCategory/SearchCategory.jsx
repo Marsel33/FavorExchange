@@ -1,6 +1,6 @@
 import { Table, Typography } from 'antd'
 import { useEffect } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { allProfiles } from '../../Redux/actions/profileAction'
 // import { users } from '../../data'
 
@@ -54,11 +54,11 @@ const columns = [
 const SearchCategory = ({rows = 5}) => {
   
   const users = useSelector( state => state.profile)
-
+  const dispatch = useDispatch()
   const dataSource = users.map(item => ({...item, key: item.id}))
   
   useEffect(() => {
-    dispatchEvent(allProfiles())
+    dispatch(allProfiles())
   }, [])
 
     return (

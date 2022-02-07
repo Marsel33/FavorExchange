@@ -10,7 +10,7 @@ export const setProfiles = (value) => {
   }
 }
 
-export const oneProfile = (id) => async (dispatch) => {
+export const oneProfile = (id) => (dispatch) => {
   axios(`/myprofile/${id}`)
     .then(res => dispatch({ type: GET_PROFILE, payload: res.data.profile }))
 }
@@ -23,10 +23,8 @@ export const setAvatar = (value) => {
 }
 
 export const getAvatar = (value, id) => async (dispatch) => {
-  console.log('2')
-  console.log('value ====================>',value)
-  const res = await axios.put(`/myprofile/${id}`, value)
-  dispatch(setAvatar(res.data))
+  const res = await axios.put(`/myprofile/${id}`,  value )
+  dispatch(setAvatar(value))
 }
 
 
