@@ -1,4 +1,3 @@
-
 import {Layout, Menu} from 'antd';
 import {BellOutlined} from "@ant-design/icons";
 import {Link, Route, Routes} from "react-router-dom";
@@ -54,14 +53,13 @@ function App() {
                 <Route path='/signin' element={< SigIn/>}/>
                 <Route path='/signup' element={< SigUp/>}/>
                 <Route path='/test/:id' element={< TestPoly/>}/>
-                <Route path='/editProfile' element={<EditPorofile />} />  
+                <Route path='/editProfile' element={<EditPorofile />} />
 
             </Routes>
 
         </>
 
     );
-
 
 }
 
