@@ -16,11 +16,9 @@ const TestPoly = () => {
     const meProfile = useSelector(state => state.profile);
     const reqBarters = useSelector(state => state.reqBarters)
     const activeBarters = useSelector(state => state.activeBarters)
-
     const [title, setTitle] = useState('')
     const [service, setService] = useState('')
     const [offer, setOffer] = useState('')
-
     useEffect(() => {
         dispatch(oneProfile(id))
 
@@ -31,6 +29,8 @@ const TestPoly = () => {
             dispatch(thunkGetAllActiveBartersAction(meProfile[0].id))
         }
     }, [])
+
+    console.log(activeBarters)
 
     function requestHandler(e) {
         e.preventDefault()
@@ -116,7 +116,10 @@ const TestPoly = () => {
                         {activeBarters && activeBarters.map(e => {
                             console.log(e)
                             if (e.status == 'active') {
-                                return (<div>{e.offer}</div>)
+                                return (<div>
+                                    {e.offer}
+                                    <button>end</button>
+                                </div>)
                             }
                         })}
                     </div>

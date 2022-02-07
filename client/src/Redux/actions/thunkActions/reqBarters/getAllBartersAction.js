@@ -1,4 +1,4 @@
-import {GET_ALL_BARTERS} from "../types/types";
+import {GET_ALL_BARTERS} from "../../../types/types";
 
 export const getAllBartersAction = (data) => {
     return {
