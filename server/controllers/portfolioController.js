@@ -1,10 +1,25 @@
 const {Portfolios} = require('../db/models')
 
 class PortfolioController {
-    async getPortfolio(req, res) {
+    // async getPortfolio(req, res) {
+    //     try {
+    //         const {id} = req.params
+    //         const portfolio = await Portfolios.findOne({where: Number(id)})
+    //         if (portfolio) {
+    //             res.json({portfolio})
+    //         } else {
+    //             res.json('Пожалуйста, дополните информацию о себе')
+    //         }
+    //         // res.sendStatus(200)
+    //     } catch (e) {
+    //         console.log(e);
+    //     }
+    // }
+
+    async getAllPortfolio(req, res) {
         try {
             const {id} = req.params
-            const portfolio = await Portfolios.findOne({where: Number(id)})
+            const portfolio = await Portfolios.findAll({where: Number(id)})
             if (portfolio) {
                 res.json({portfolio})
             } else {

@@ -46,7 +46,7 @@ class TagsController {
         const {id} = req.params
         const {title, catId} = req.body
         try {
-            const tag = await Tags.create({title, catId, profil_id: id})
+            const tag = await Tags.create({title, catId, profil_id: Number(id)})
             res.json({tag})
         } catch (e) {
             console.log(e)
