@@ -5,6 +5,7 @@ import {rolesReducer} from './rolesReducer';
 import {userCatReducer} from './userCatReducer';
 import {reqBarterReducer} from "./reqBarterReducer";
 import {activeBartersReducer} from "./activeBartersReducer";
+import {declinedBarterReducer} from "./declinedBarterReducer";
 
 
 export const rootReducer = combineReducers({
@@ -14,6 +15,7 @@ export const rootReducer = combineReducers({
     userCat: userCatReducer,
     reqBarters: reqBarterReducer,
     activeBarters: activeBartersReducer,
+    declinedBarters: declinedBarterReducer
 })
 
 

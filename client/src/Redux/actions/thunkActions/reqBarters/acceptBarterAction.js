@@ -1,4 +1,4 @@
-import {ACCEPT_BARTER} from "../types/types";
+import {ACCEPT_BARTER} from "../../../types/types";
 
 export const acceptBarterAction = (id) => {
     return {

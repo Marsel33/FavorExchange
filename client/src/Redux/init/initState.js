@@ -5,6 +5,8 @@ const initState = {
     userCat: [],
     reqBarters: [],
     activeBarters: [],
+    endedBarters: [],
+    declinedBarters: []
 }
 
 

@@ -1,11 +1,11 @@
 import axios from "axios";
-import {acceptBarterAction} from "../../acceptBarterAction";
+import {declinedBarterAction} from "../declinedBarters/declinedBarterAction";
 
 export const thunkDeclineBarterAction = (id) => async (dispatch) => {
     console.log(id)
-    const response = await axios.put(`/deals/ended/${id}`)
+    const response = await axios.put(`/deals/declined/${id}`)
     console.log(response)
     if (response.status === 200) {
-        dispatch(acceptBarterAction(id))
+        dispatch(declinedBarterAction(response.data))
     }
 }
