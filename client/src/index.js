@@ -6,10 +6,12 @@ import 'antd/dist/antd.min.css';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from "react-router-dom";
 import axios from 'axios';
-import store from "./Redux/store/store";
+
+import store from './Redux/store/store';
 
 axios.defaults.baseURL = 'http://localhost:3001';
-axios.defaults.withCredentials = true;
+axios.default.withCredentials = true;
+
 
 ReactDOM.render(
   <React.StrictMode>

@@ -1,35 +1,37 @@
 import UserCard from '../UserCard/UserCard';
 import CarouselPortfolio from '../CarouselPortfolio/CarouselPortfolio';
+
 import styles from './styles.module.css'
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { oneProfile } from '../../Redux/actions/profileAction';
-import { useParams } from 'react-router-dom';
+import {useEffect} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {oneProfile} from '../../Redux/actions/profileAction';
+import {useParams} from 'react-router-dom';
 
 const UserPage = () => {
-const {id} = useParams()
-  const dispatch = useDispatch()
-  const meProfile = useSelector(state => state.profile);
+    const {id} = useParams()
+    const dispatch = useDispatch()
+    const meProfile = useSelector(state => state.profile);
 
 
+    useEffect(() => {
+        dispatch(oneProfile(id))
+    }, [])
 
-  useEffect(() => {
-    dispatch(oneProfile(id))
-  },[])
+
+    return (
+        < div className={styles.userPage}>
+            {meProfile.map(el =>
+                <UserCard key={el.id} name={el.name} description={el.description} img={el.img} userId={el.user_id}
+                          id={el.id}/>
+            )}
+
+            <CarouselPortfolio/>
 
 
-  return (
-    < div className={styles.userPage}>
-      {meProfile.map(el =>
-        <UserCard key={el.id} name={el.name} description={el.description} img={el.img} userId={el.user_id} id={el.id} />
-      )}
+            <CarouselPortfolio/>
 
-      <h2 >Портфолио</h2>
-
-      <CarouselPortfolio />
-
-    </div>
-  )
+        </div>
+    )
 
 }
 
