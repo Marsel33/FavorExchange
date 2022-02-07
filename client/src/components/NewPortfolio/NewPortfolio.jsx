@@ -67,7 +67,7 @@ const NewPortfoliio = () => {
           добавить фото в портфолио
         </Button>
         <Modal title="Basic Modal" visible={isModalVisible} onOk={handleUpload} onCancel={handleCancel}>
-          <input type='file' name="img" accept="image/*" onChange={handleChange} />
+          <input type='file' name="img" onChange={handleChange} />
         </Modal>
     </>
   )

@@ -1,19 +1,23 @@
 
 import { Carousel } from 'antd';
 import { Row, Col } from 'antd';
+import axios from 'axios';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { useDispatch, useSelector, useStore } from 'react-redux';
+import { allProfile } from '../../Redux/actions/portfolioAction';
 import NewPortfoliio from '../NewPortfolio/NewPortfolio';
 
-const CarouselPortfolio = () => {
+const CarouselPortfolio = ({ id }) => {
 
-const dispatch = useDispatch()
- const [userPortfolio, setUserPortfolio] = useStore([]);
+  const dispatch = useDispatch()
+  const userPortfolio = useSelector(state => state.portfolio)
 
- useEffect(() => {
-   dispatch()
- },[])
+  console.log(userPortfolio)
+  useEffect(() => {
+
+    dispatch(allProfile(id))
+  }, [])
   // const test = <img style={{ height: '400px', width: '400px' }} src='https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png' />
 
   // const userPortfolio = [
@@ -34,9 +38,8 @@ const dispatch = useDispatch()
               </div>
 
             )}
-
-
           </Carousel>,
+
         </Col>
 
       </Row>

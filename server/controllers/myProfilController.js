@@ -32,8 +32,9 @@ class MyProfileController {
     async createProfile(req, res) {
         try {
             const {id} = req.params
-            const {img, name, description} = req.body
+            const {img, name, description, adress} = req.body
             const newProfile = await Profils.create({img, name, description, user_id: Number(id)})
+            const geolocation = await MapProfil.create({adress, profil_id: Number(id)})
             if (newProfile) {
                 res.json({newProfile})
             } else {

@@ -27,8 +27,9 @@ const UserPage = () => {
                 <UserCard key={el.id} name={el.name} description={el.description} img={el.img} userId={el.user_id}
                           id={el.id}/>
             )}
-
-            <CarouselPortfolio/>
+{meProfile.map(el => 
+            <CarouselPortfolio key={el.id} id={el.id}/>
+  )}
 
 
 

@@ -1,5 +1,5 @@
 import axios from "axios"
-import { GET_PORTFOLIO } from "../types/types"
+import { ALL_USER_PORTFOLIO, GET_PORTFOLIO} from "../types/types"
 
 
 
@@ -16,3 +16,11 @@ export const getPortfolio = (img, id) => async (dispatch) => {
   const res = await axios.post(`/portfolio/${id}`, { img })
   dispatch(setPprtfolio(res.data))
 }
+
+
+
+export const allProfile = (id) => (dispatch) => {
+  axios(`/portfolio/${id}`)
+    .then(res => dispatch({ type: ALL_USER_PORTFOLIO, payload: res.data.portfolio }))
+}
+

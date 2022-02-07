@@ -1,4 +1,4 @@
-import { GET_PORTFOLIO } from "../types/types";
+import { GET_PORTFOLIO, ALL_USER_PORTFOLIO } from "../types/types";
 
 export const portfolioReducer = (state = [], action) => {
   const { type, payload } = action;
@@ -8,6 +8,8 @@ export const portfolioReducer = (state = [], action) => {
     case GET_PORTFOLIO:
       return [...state, { ...payload }]
 
+    case ALL_USER_PORTFOLIO:
+      return [ ...state, ...payload]
 
     default:
       return state;
