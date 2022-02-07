@@ -61,9 +61,10 @@ class DealsController {
 
     async updateBarterStatusOnEnded(req, res) {
         const {id} = req.params
-
+        console.log(id)
         try {
             const barter = await Barters.update({status: 'ended'}, {where: {id: Number(id)}})
+            console.log(barter)
             if (barter) {
                 res.sendStatus(200)
             } else {
