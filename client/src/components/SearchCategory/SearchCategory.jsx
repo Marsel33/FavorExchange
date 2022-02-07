@@ -54,7 +54,9 @@ const columns = [
 
 const SearchCategory = ({rows = 5}) => {
 
+
   const dispatch = useDispatch()
+
   
   const users = useSelector(state => state.profile)
 

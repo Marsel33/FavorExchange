@@ -1,4 +1,5 @@
 
+
 import {Layout, Menu} from 'antd';
 import {BellOutlined} from "@ant-design/icons";
 import {Link, Route, Routes} from "react-router-dom";
@@ -10,12 +11,13 @@ import Chat from "../Components/Chat/Chat";
 import SigIn from "../Components/SigIn/SigIn";
 import SigUp from "../Components/SigUp/SigUp";
 import TestPoly from "../Components/TestPoly/TestPoly";
-
+import EditPorofile from '../components/EditProfile/EditProfile';
 
 const {Header} = Layout;
 
 
 function App() {
+
 
     return (
         <>
@@ -53,12 +55,14 @@ function App() {
                 <Route path='/sigin' element={< SigIn/>}/>
                 <Route path='/sigup' element={< SigUp/>}/>
                 <Route path='/test/:id' element={< TestPoly/>}/>
+                <Route path='/editProfile' element={<EditPorofile />} />  
 
             </Routes>
 
         </>
 
     );
+
 
 }
 
