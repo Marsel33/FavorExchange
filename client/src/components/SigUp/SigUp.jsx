@@ -156,4 +156,4 @@ const SigUp = () => {
   )
 }
 
-export default SigUp
+export default SigUp;

@@ -8,4 +8,5 @@ router.put('/declined/:id', DealsController.updateBarterStatusOnDeclined)
 router.get('/all-barters/:id', DealsController.getAllBarters)
 
 
+
 module.exports = router;
