@@ -1,51 +1,15 @@
-import React, { useState } from "react"
+import {useNavigate} from 'react-router-dom'
+import React, { useState} from "react"
 import {
   Form,
   Input,
-  InputNumber,
-  Cascader,
-  Select,
   Row,
   Col,
-  Checkbox,
   Button,
-  AutoComplete,
 } from "antd"
-const { Option } = Select
-const residences = [
-  {
-    value: "zhejiang",
-    label: "Zhejiang",
-    children: [
-      {
-        value: "hangzhou",
-        label: "Hangzhou",
-        children: [
-          {
-            value: "xihu",
-            label: "West Lake",
-          },
-        ],
-      },
-    ],
-  },
-  {
-    value: "jiangsu",
-    label: "Jiangsu",
-    children: [
-      {
-        value: "nanjing",
-        label: "Nanjing",
-        children: [
-          {
-            value: "zhonghuamen",
-            label: "Zhong Hua Men",
-          },
-        ],
-      },
-    ],
-  },
-]
+import {useDispatch} from "react-redux";
+import {getUser} from "../../Redux/actions/userAction";
+
 const formItemLayout = {
   labelCol: {
     xs: {
@@ -78,52 +42,27 @@ const tailFormItemLayout = {
 }
 
 const SigUp = () => {
+  const [inputs, setInputs] = useState({name: '', email:'', password:''})
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
   const [form] = Form.useForm()
 
   const onFinish = (values) => {
+    dispatch(getUser(inputs))
+    setInputs({name: '', email:'', password:''})
     console.log("Received values of form: ", values)
+    navigate('/user/2')
   }
 
-  const prefixSelector = (
-    <Form.Item name="prefix" noStyle>
-      <Select
-        style={{
-          width: 70,
-        }}
-      >
-        <Option value="86">+86</Option>
-        <Option value="87">+87</Option>
-      </Select>
-    </Form.Item>
-  )
-  const suffixSelector = (
-    <Form.Item name="suffix" noStyle>
-      <Select
-        style={{
-          width: 70,
-        }}
-      >
-        <Option value="USD">$</Option>
-        <Option value="CNY">¥</Option>
-      </Select>
-    </Form.Item>
-  )
-  const [autoCompleteResult, setAutoCompleteResult] = useState([])
 
-  const onWebsiteChange = (value) => {
-    if (!value) {
-      setAutoCompleteResult([])
-    } else {
-      setAutoCompleteResult([".com", ".org", ".net"].map((domain) => `${value}${domain}`))
-    }
-  }
-
-  const websiteOptions = autoCompleteResult.map((website) => ({
-    label: website,
-    value: website,
-  }))
 
   const DemoBox = (props) => <p className={`height-${props.value}`}>{props.children}</p>
+
+
+  const inputHandler = (e) => {
+    setInputs(prev => ({...prev, [e.target.name]: e.target.value}))
+  }
+
 
   return (
     <>
@@ -142,7 +81,7 @@ const SigUp = () => {
             scrollToFirstError
           >
             <Form.Item
-              name="nickname"
+              name="name"
               label="Nickname"
               tooltip="What do you want others to call you?"
               rules={[
@@ -153,8 +92,15 @@ const SigUp = () => {
                 },
               ]}
             >
-              <Input />
+              <Input
+                  id='name'
+                  type='text'
+                  name='name'
+                  onChange={inputHandler}
+                  value={inputs.name}
+              />
             </Form.Item>
+
             <Form.Item
               name="email"
               label="E-mail"
@@ -169,7 +115,13 @@ const SigUp = () => {
                 },
               ]}
             >
-              <Input />
+              <Input
+                  id='email'
+                  type='email'
+                  name='email'
+                  onChange={inputHandler}
+                  value={inputs.email}
+              />
             </Form.Item>
 
             <Form.Item
@@ -183,26 +135,15 @@ const SigUp = () => {
               ]}
               hasFeedback
             >
-              <Input.Password />
+              <Input.Password
+                  id='password'
+                  type='password'
+                  name='password'
+                  onChange={inputHandler}
+                  value={inputs.password}
+              />
             </Form.Item>
 
-            <Form.Item
-              name="agreement"
-              valuePropName="checked"
-              rules={[
-                {
-                  validator: (_, value) =>
-                    value
-                      ? Promise.resolve()
-                      : Promise.reject(new Error("Should accept agreement")),
-                },
-              ]}
-              {...tailFormItemLayout}
-            >
-              <Checkbox>
-                I have read the <a href="">agreement</a>
-              </Checkbox>
-            </Form.Item>
             <Form.Item {...tailFormItemLayout}>
               <Button type="primary" htmlType="submit">
                 Register

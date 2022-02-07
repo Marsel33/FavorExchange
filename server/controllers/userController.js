@@ -28,12 +28,14 @@ class UserController{
  }
 
 async signin(req, res){
-  const {email, password} = req.body;
-  if(email && password){
-      try{
-          const currentUser = await Users.findOne({where:{email}})
-          if(currentUser && await bcrypt.compare(password, currentUser.password)){
-              req.session.user = {id:currentUser.id, name:currentUser.name}
+    console.log(req.body)
+    const {email, password} = req.body;
+    if(email && password){
+        try{
+            const currentUser = await Users.findOne({where:{email}})
+            console.log('------->>>>',currentUser)
+            if (bcrypt.compare(password, currentUser.dataValues.password)) {
+                req.session.user = {id:currentUser.id, name:currentUser.name}
               return res.json({user:{id:currentUser.id, name:currentUser.name}})
           } else {
               return res.sendStatus(500)
@@ -42,15 +44,10 @@ async signin(req, res){
           console.log(err)
           return res.sendStatus(500)
       }
-  }else{
-      return res.sendStatus(500)
+    }else{
+        return res.sendStatus(500)
   }
-
 }
-
-
 }
-
-
 
 module.exports = new UserController()

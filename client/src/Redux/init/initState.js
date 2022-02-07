@@ -1,9 +1,6 @@
  const initState = {
-  profile: [], 
-	user: null,
-	roles: [],
+  profile: [],
+     user: null,
   userCat: [],
 }
-
-
 export default initState;
