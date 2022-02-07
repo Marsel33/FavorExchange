@@ -16,6 +16,7 @@ import React from 'react';
       return (
         
           <div style={{ width: '600px', height: '580px', borderRadius: '7px' }} id="map" ></div>
+          
         
       );
     }  
