@@ -1,3 +1,4 @@
+
 import {Layout, Menu} from 'antd';
 import {BellOutlined} from "@ant-design/icons";
 import {Link, Route, Routes} from "react-router-dom";
@@ -10,11 +11,11 @@ import SigIn from "../Components/SigIn/SigIn";
 import SigUp from "../Components/SigUp/SigUp";
 import TestPoly from "../Components/TestPoly/TestPoly";
 
+
 const {Header} = Layout;
 
 
 function App() {
-
 
     return (
         <>
@@ -51,7 +52,6 @@ function App() {
                 <Route path='/chat' element={< Chat/>}/>
                 <Route path='/sigin' element={< SigIn/>}/>
                 <Route path='/sigup' element={< SigUp/>}/>
-
                 <Route path='/test/:id' element={< TestPoly/>}/>
 
             </Routes>

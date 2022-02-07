@@ -1,12 +1,28 @@
-import React from "react"
+import React, {useState} from "react"
 import { Form, Input, Button, Checkbox, Row, Col } from "antd"
 import { UserOutlined, LockOutlined } from "@ant-design/icons"
 import { Link } from "react-router-dom"
+import {useDispatch} from "react-redux";
+import {signUpUser} from "../../Redux/actions/userAction";
 
 const SigIn = () => {
-  const onFinish = (values) => {
-    console.log("Received values of form: ", values)
+
+  const [inputs, setInputs] = useState({email:'', password:''});
+  const dispatch = useDispatch();
+
+
+  const inputsHandler = (e) => {
+
+    setInputs( prev => ({...prev, [e.target.name]: e.target.value}))
   }
+
+  const onFinish = (values) => {
+    dispatch(signUpUser(inputs))
+    console.log("Received values of form: ", values)
+
+  }
+
+
   const DemoBox = (props) => <p className={`height-${props.value}`}>{props.children}</p>
 
   return (
@@ -30,7 +46,14 @@ const SigIn = () => {
               },
             ]}
           >
-            <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="E-mail" />
+            <Input prefix={<UserOutlined className="site-form-item-icon" />}
+                   placeholder="E-mail"
+                   id='email'
+                   type='email'
+                   name='email'
+                   value={inputs.name}
+                   onChange={inputsHandler}
+            />
           </Form.Item>
 
           <Form.Item
@@ -44,7 +67,11 @@ const SigIn = () => {
           >
             <Input
               prefix={<LockOutlined className="site-form-item-icon" />}
-              type="password"
+              id='password'
+              type='password'
+              name='password'
+              value={inputs.password}
+              onChange={inputsHandler}
               placeholder="Password"
             />
           </Form.Item>
@@ -62,7 +89,7 @@ const SigIn = () => {
             <Button type="primary" htmlType="submit" className="login-form-button">
               Log in
             </Button>
-            Or <Link to="/sigup">register now!</Link>
+            Or <Link to="/signup">register now!</Link>
           </Form.Item>
         </Form>
       </Col>
