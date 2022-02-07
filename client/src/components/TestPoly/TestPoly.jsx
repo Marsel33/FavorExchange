@@ -127,6 +127,9 @@ const TestPoly = () => {
                 <div style={{width: '30%'}}>
                     ENDED BARTERS
                 </div>
+                <div style={{width: '30%'}}>
+                    declinedBarters
+                </div>
             </div>
         </div>
     );
