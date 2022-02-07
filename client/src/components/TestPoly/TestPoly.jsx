@@ -9,6 +9,10 @@ import {thunkDeclineBarterAction} from "../../Redux/actions/thunkActions/reqBart
 import {
     thunkGetAllActiveBartersAction
 } from "../../Redux/actions/thunkActions/activeBarters/thunkGetAllActiveBartersAction";
+import {
+    thunkGetAllDecliendBartersAction
+} from "../../Redux/actions/thunkActions/declinedBarters/thunkGetAllDecliendBartersAction";
+import {thunkGetAllEndedBarterAction} from "../../Redux/actions/thunkActions/endedBarters/thunkGetAllEndedBarterAction";
 
 const TestPoly = () => {
     const {id} = useParams()
@@ -16,6 +20,7 @@ const TestPoly = () => {
     const meProfile = useSelector(state => state.profile);
     const reqBarters = useSelector(state => state.reqBarters)
     const activeBarters = useSelector(state => state.activeBarters)
+    const declinedBarters = useSelector(state => state.declinedBarters)
     const [title, setTitle] = useState('')
     const [service, setService] = useState('')
     const [offer, setOffer] = useState('')
@@ -23,12 +28,15 @@ const TestPoly = () => {
         dispatch(oneProfile(id))
 
     }, [])
-
+    console.log('prooooooofile', meProfile)
     useEffect(() => {
+        console.log('hueta')
         if (meProfile[0]) {
             dispatch(thunkGetAllActiveBartersAction(meProfile[0].id))
+            dispatch(thunkGetAllDecliendBartersAction(meProfile[0].id))
+            dispatch(thunkGetAllEndedBarterAction(meProfile[0].id))
         }
-    }, [])
+    }, [meProfile[0]])
 
     console.log(activeBarters)
 
@@ -64,11 +72,14 @@ const TestPoly = () => {
         e.preventDefault()
         console.log(e.target.id)
         dispatch(thunkAcceptBarterAction(e.target.id))
+        dispatch(thunkGetAllActiveBartersAction(meProfile[0].id))
     }
 
     function declineHandler(e) {
         e.preventDefault()
         dispatch(thunkDeclineBarterAction(e.target.id.slice(4)))
+        dispatch(thunkGetAllDecliendBartersAction(meProfile[0].id))
+        dispatch(thunkGetAllBarterAction(Number(meProfile[0].id)))
     }
 
     return (
@@ -126,9 +137,32 @@ const TestPoly = () => {
                 </div>
                 <div style={{width: '30%'}}>
                     ENDED BARTERS
+                    {/*<div>*/}
+                    {/*    {activeBarters && activeBarters.map(e => {*/}
+                    {/*        console.log(e)*/}
+                    {/*        if (e.status == 'active') {*/}
+                    {/*            return (<div>*/}
+                    {/*                {e.offer}*/}
+                    {/*                <button>end</button>*/}
+                    {/*            </div>)*/}
+                    {/*        }*/}
+                    {/*    })}*/}
+                    {/*</div>*/}
                 </div>
                 <div style={{width: '30%'}}>
                     declinedBarters
+                    <div>
+                        {declinedBarters && declinedBarters.map(e => {
+                            console.log(e)
+                            if (e.status == 'declined') {
+                                return (<div>
+                                    {e.offer}
+                                    <button>del</button>
+
+                                </div>)
+                            }
+                        })}
+                    </div>
                 </div>
             </div>
         </div>
