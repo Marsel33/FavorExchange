@@ -3,9 +3,22 @@ const {Profils, MapProfil} = require('../db/models')
 class MyProfileController {
     async getAllProfiles(req, res) {
         try {
-            const allProfiles = await Profils.findAll({include: MapProfil})
+            const allProfiles = await Profils.findAll({include: {model: MapProfil}, raw: true})
+            const temp = []
+            
+            for ( let i = 0; i < allProfiles.length; i++) {
+              temp.push({
+                id: allProfiles[i].id,
+                name: allProfiles[i].name,
+                description: allProfiles[i].description,
+                img: allProfiles[i].img,
+                adress: allProfiles[i]['MapProfil.adress']
+
+              })
+            }
+
             if (allProfiles) {
-                res.json({allProfiles})
+                res.json(temp)
             } else {
                 res.sendStatus(500)
             }

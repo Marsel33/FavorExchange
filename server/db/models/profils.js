@@ -23,7 +23,7 @@ module.exports = (sequelize, DataTypes) => {
 
     Profils.init({
         img: DataTypes.TEXT,
-        user_id: DataTypes.INTEGER,
+        user_id: DataTypes.INTEGER, 
         name: DataTypes.STRING,
         description: DataTypes.TEXT
     }, {

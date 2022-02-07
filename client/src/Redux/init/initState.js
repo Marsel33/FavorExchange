@@ -7,12 +7,11 @@ const initState = {
     activeBarters: [],
     endedBarters: [],
     declinedBarters: [],
-  userCat: [],
+    userCat: [],
 }
 
+  
 
-      
 
 
-}
 export default initState;

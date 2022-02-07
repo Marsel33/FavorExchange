@@ -27,7 +27,7 @@ class UserController {
         }
     }
 
- }
+ 
 
 async signin(req, res){
     console.log(req.body)

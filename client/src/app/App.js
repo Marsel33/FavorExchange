@@ -3,15 +3,24 @@
 import {Layout, Menu} from 'antd';
 import {BellOutlined} from "@ant-design/icons";
 import {Link, Route, Routes} from "react-router-dom";
-import HomePage from "../Components/HomePage/HomePage";
-import UserPage from "../Components/userPage/UserPage";
-import SearchLayout from "../Components/SearchLayout/SearchLayout";
-import UserHistory from "../Components/UserHistory/UserHistory";
-import Chat from "../Components/Chat/Chat";
-import SigIn from "../Components/SigIn/SigIn";
-import SigUp from "../Components/SigUp/SigUp";
-import TestPoly from "../Components/TestPoly/TestPoly";
+import HomePage from '../components/HomePage/HomePage';
+import SearchLayout from '../components/SearchLayout/SearchLayout';
+import TestPoly from '../components/TestPoly/TestPoly';
 import EditPorofile from '../components/EditProfile/EditProfile';
+import SigUp from '../components/SigUp/SigUp';
+import SigIn from '../components/SigIn/SigIn';
+import Chat from '../components/Chat/Chat';
+import UserHistory from '../components/UserHistory/UserHistory';
+import UserPage from '../components/userPage/UserPage';
+// import HomePage from "../Components/HomePage/HomePage";
+// import UserPage from "../Components/userPage/UserPage";
+// import SearchLayout from "../Components/SearchLayout/SearchLayout";
+// import UserHistory from "../Components/UserHistory/UserHistory";
+// import Chat from "../Components/Chat/Chat";
+// import SigIn from "../Components/SigIn/SigIn";
+// import SigUp from "../Components/SigUp/SigUp";
+// import TestPoly from "../Components/TestPoly/TestPoly";
+// import EditPorofile from '../components/EditProfile/EditProfile';
 
 const {Header} = Layout;
 

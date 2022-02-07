@@ -12,7 +12,6 @@ import {declinedBarterReducer} from "./declinedBarterReducer";
 export const rootReducer = combineReducers({
     profile: profileReducer,
     user: usersReducer,
-    roles: rolesReducer,
     userCat: userCatReducer,
     reqBarters: reqBarterReducer,
     activeBarters: activeBartersReducer,
