@@ -1,8 +1,8 @@
 import styles from '../userPage/styles.module.css'
-import { Card, Button, Input } from 'antd';
-import { Link } from 'react-router-dom';
+import { Card, Button, Input, Form } from 'antd';
+import { Link, useParams } from 'react-router-dom';
 import UserCat from '../UserCat/UserCat';
-import { useState } from 'react';
+import EditPorofile from '../EditProfile/EditProfile';
 
 const { Meta } = Card;
 
@@ -10,34 +10,17 @@ const UserCard = ({ img, id, userId, description, name }) => {
   const size = 'large'
 
 
-  // const [imgUser, setImgUser] = useState('');
-
-let file = ''
-
-  const imgHendler = (e) => {
-     file = e.target.value
-  }
-
-  const reader = new FileReader();
-
-  console.log(reader)
-  reader.onload = ev => {
-    console.log(ev)
-  }
-
-  // reader.readAsDataURL(file) 
-
-  // console.log(imgUser)
-
+  const noAvatar = 'https://osipbove.ru/design/image/otzyvy/no_avatar.jpg'
   return (
     <>
+{console.log(img)}
       <div className={styles.s} >
-          < UserCat />
+        < UserCat />
        
         <Card
           hoverable
           style={{ width: 400, fontSize: 24, height: 500 }}
-          cover={<img className={styles.ava} alt="example" src={file} />}
+          cover={ <img className={styles.ava} alt="example" src={img} />}
         >
           <Meta title={name} description={description} />
 
@@ -45,15 +28,9 @@ let file = ''
             <Button danger size={size} className={styles.button} >закрытые зделки</Button>
           </Link>
 
-          <Input 
-          name='img'
-          type='file'
-          onChange={imgHendler}
-           />
+          <EditPorofile key={id} description={description} name={name} id={id}/>
 
         </Card>
-
-
       </div>
     </>
   )
