@@ -6,7 +6,8 @@ const initState = {
     userCat: [],
     reqBarters: [],
     activeBarters: [],
-      userCat: [],
+    userCat: [],
+    portfolio: [],
 
 }
 export default initState;

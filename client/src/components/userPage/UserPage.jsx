@@ -9,6 +9,7 @@ import { useParams } from 'react-router-dom';
 import UserCard from '../UserCard/UserCard';
 
 const UserPage = () => {
+  
   const { id } = useParams();
   const dispatch = useDispatch();
   const meProfile = useSelector(state => state.profile);
@@ -18,10 +19,6 @@ const UserPage = () => {
     useEffect(() => {
         dispatch(oneProfile(id))
     }, [])
-
-  useEffect(() => {
-    dispatch(oneProfile(id))
-  }, [])
 
 
     return (
@@ -34,7 +31,6 @@ const UserPage = () => {
             <CarouselPortfolio/>
 
 
-            <CarouselPortfolio/>
 
         </div>
     )
