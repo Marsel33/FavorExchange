@@ -50,7 +50,7 @@ class MyProfileController {
             const {img, name, description} = req.body
             const {id} = req.params
             const refreshProfile = await Profils.update({img, name, description}, {where: {user_id: Number(id)}})
-            res.sendStatus(200).json({refreshProfile})
+            res.json({refreshProfile})
         } catch (e) {
             console.log(e);
         }

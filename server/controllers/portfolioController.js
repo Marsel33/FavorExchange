@@ -17,6 +17,7 @@ class PortfolioController {
     }
 
     async createPortfolio(req, res) {
+      console.log(req.body)
         try {
             const {id} = req.params
             const portfolio = await Portfolios.create({...req.body, profil_id: Number(id)})
