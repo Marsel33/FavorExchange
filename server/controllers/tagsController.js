@@ -2,6 +2,20 @@ const {Tags, Categories} = require('../db/models')
 
 
 class TagsController {
+    async getCategories(req, res) {
+        try {
+            const allCategories = await Categories.findAll()
+            if (allCategories) {
+                res.json({allCategories})
+            } else {
+                res.sendStatus(500)
+            }
+        } catch (e) {
+            console.log(e)
+            res.sendStatus(500)
+        }
+    }
+
     async updateTag(req, res) {
         const {id} = req.params
         const {title, catId} = req.body

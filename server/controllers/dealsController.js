@@ -75,101 +75,21 @@ class DealsController {
         }
     }
 
-    async getRequestedBarterInit(req, res) {
+    async updateBarterStatusOnDeclined(req, res) {
         const {id} = req.params
         try {
-            const barterALL = await Barters.findAll({where: {initiator: Number(id)}})
-
-            if (barterALL) {
-                const barter = barterALL.filter(el => el.status === 'request')
-                res.json({barter})
+            const barter = await Barters.update({status: 'declined'}, {where: {id: Number(id)}})
+            if (barter) {
+                res.sendStatus(200)
             } else {
-                res.json('Пожалуйста, дополните информацию о себе')
+                res.json({message: 'Пожалуйста, дополните информацию о себе'})
             }
+
         } catch (e) {
             console.log(e)
         }
     }
 
-    async getActiveBarterInit(req, res) {
-        const {id} = req.params
-        try {
-            const barterALL = await Barters.findAll({where: {initiator: Number(id)}})
-
-            if (barterALL) {
-                const barter = barterALL.filter(el => el.status === 'active')
-                res.json({barter})
-            } else {
-                res.json('Пожалуйста, дополните информацию о себе')
-            }
-        } catch (e) {
-            console.log(e)
-        }
-    }
-
-    async getEndedBarterInit(req, res) {
-        const {id} = req.params
-        try {
-            const barterALL = await Barters.findAll({where: {initiator: Number(id)}})
-
-            if (barterALL) {
-                const barter = barterALL.filter(el => el.status === 'ended')
-                res.json({barter})
-            } else {
-                res.json('Пожалуйста, дополните информацию о себе')
-            }
-        } catch (e) {
-            console.log(e)
-        }
-    }
-
-    async getRequestedBarterOpponent(req, res) {
-        const {id} = req.params
-        try {
-            const barterALL = await Barters.findAll({where: {initiator: Number(id)}})
-
-            if (barterALL) {
-                const barter = barterALL.filter(el => el.status === 'request')
-                res.json({barter})
-            } else {
-                res.json('Пожалуйста, дополните информацию о себе')
-            }
-        } catch (e) {
-            console.log(e)
-        }
-    }
-
-    async getActiveBarterOpponent(req, res) {
-        const {id} = req.params
-        try {
-            const barterALL = await Barters.findAll({where: {initiator: Number(id)}})
-
-            if (barterALL) {
-                const barter = barterALL.filter(el => el.status === 'active')
-                res.json({barter})
-            } else {
-                res.json('Пожалуйста, дополните информацию о себе')
-            }
-        } catch (e) {
-            console.log(e)
-        }
-    }
-
-    async getEndedBarterOpponent(req, res) {
-        const {id} = req.params
-        try {
-            const barterALL = await Barters.findAll({where: {initiator: Number(id)}})
-
-            if (barterALL) {
-                const barter = barterALL.filter(el => el.status === 'ended')
-                res.json({barter})
-            } else {
-                res.json('Пожалуйста, дополните информацию о себе')
-            }
-        } catch (e) {
-            console.log(e)
-        }
-    }
 
 }
 

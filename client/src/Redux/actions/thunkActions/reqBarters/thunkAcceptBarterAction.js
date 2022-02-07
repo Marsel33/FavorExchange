@@ -1,5 +1,5 @@
 import axios from "axios";
-import {acceptBarterAction} from "../../acceptBarterAction";
+import {acceptBarterAction} from "./acceptBarterAction";
 
 export const thunkAcceptBarterAction = (id) => async (dispatch) => {
     console.log(id)
