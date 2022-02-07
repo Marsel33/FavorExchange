@@ -76,7 +76,7 @@ const SearchCategory = ({rows = 5}) => {
                 // pageSize: rows,
                 // pageSize: '5', 
                 showSizeChanger: true, 
-                pageSizeOptions: [2, 3, 5, 10]
+                pageSizeOptions: [1, 2, 3, 5, 10]
             }}
         />
     )
