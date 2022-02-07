@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { Card, Col, Input, Row, Form, Button } from 'antd';
+import {  Input, Form, Button } from 'antd';
 import { useState } from 'react';
 import { getCat } from "../../Redux/actions/userCatAction";
 
@@ -39,7 +39,7 @@ const UserCat = () => {
           name="basic"
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 16 }}
-          onSubmitCapture={submitHandler}
+          onSubmit={submitHandler}
         >
           <Form.Item
             label="title"

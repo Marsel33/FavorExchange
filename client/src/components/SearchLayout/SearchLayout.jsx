@@ -1,32 +1,28 @@
-import { ContainerFilled } from '@ant-design/icons';
-import {Row, Col, Slider, Typography, Container } from 'antd'
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from 'react-redux';
-import { allProfiles } from '../../Redux/actions/profileAction';
-// import SearchCategory from '../SearchCategory/SearchCategory';
+import {Row, Col, Slider, Typography } from 'antd'
+import { useState } from "react";
 import SearchCategory from '../SearchCategory/SearchCategory'
-import SearchMap from '../SearchMap/SearchMap';
+import { MapCollectionTest } from '../SearchMap/MapCollectionTest';
 
 
 
 
 const SearchLayout = () => {
 
-  const [rows, setRows ] = useState(5)  
+  const [rows, setRows ] = useState(5)   
   
     return (
       
 
-        <Row>
-            <Col xs={24} md={{ span:12, offset:6 }}>
+        <Row xs={24} md={{ span:12, offset:6 }} style={{'margin': '30px'}}>
+            <Col >
                 <Typography.Title level={4}>Количество пользователей на странице</Typography.Title>
                 <Slider min={1} max={10} defaultValue={rows} onChange={setRows}/>
                 <SearchCategory rows={rows}/>
             </Col>
-
-            <Col >
-              <SearchMap />
-            </Col>
+        
+            <Col style={{'margin-left': '60px'}}>
+              < MapCollectionTest />
+            </Col>            
         </Row>
 
         

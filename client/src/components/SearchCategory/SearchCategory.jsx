@@ -54,7 +54,9 @@ const columns = [
 
 const SearchCategory = ({rows = 5}) => {
 
+
   const dispatch = useDispatch()
+
   
   const users = useSelector(state => state.profile)
 
@@ -76,7 +78,7 @@ const SearchCategory = ({rows = 5}) => {
                 // pageSize: rows,
                 // pageSize: '5', 
                 showSizeChanger: true, 
-                pageSizeOptions: [2, 3, 5, 10]
+                pageSizeOptions: [1, 2, 3, 5, 10]
             }}
         />
     )

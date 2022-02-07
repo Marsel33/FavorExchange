@@ -1,4 +1,4 @@
-import { GET_ALL_PROFILES, GET_PROFILE } from "../types/types";
+import { GET_PROFILE, SET_IMG, GET_ALL_PROFILES } from "../types/types";
 
 
 export const profileReducer = (state = [], action) => {
@@ -7,10 +7,15 @@ export const profileReducer = (state = [], action) => {
 
   switch (type) {
     case GET_PROFILE:
-      return [ { ...payload }]
+      return [{ ...payload }]
+
+    case SET_IMG:
+      return [ payload ]
 
     case GET_ALL_PROFILES:
+
         return payload
+
 
     default:
       return state;

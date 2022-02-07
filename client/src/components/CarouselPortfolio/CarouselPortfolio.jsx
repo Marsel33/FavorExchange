@@ -26,14 +26,7 @@ const userPortfolio = [
 
           </Carousel>,
         </Col>
-        {/* <Col sm={8}>
-          <h1>who ds f fdsgt tg egergerg ergreg tger reg egerg erg ergrge</h1>
-          <h1>who ds f fdsgt tg egergerg ergreg tger reg egerg erg ergrge</h1>
-          <h1>who ds f fdsgt tg egergerg ergreg tger reg egerg erg ergrge</h1>
-          <h1>who ds f fdsgt tg egergerg ergreg tger reg egerg erg ergrge</h1>
-
-        </Col> */}
-
+      
       </Row>
     </>
 
