@@ -2,7 +2,7 @@
 
 module.exports = {
     async up(queryInterface, Sequelize) {
-        await queryInterface.bulkInsert("Products", [
+        await queryInterface.bulkInsert("MapProfils", [
             {adress: 'Тверская 22', profil_id: 1, createdAt: new Date(), updatedAt: new Date()},
             {adress: 'Орджоникидзе 11 стр10', profil_id: 2, createdAt: new Date(), updatedAt: new Date()},
             {adress: 'Болотная наб., 9/1', profil_id: 3, createdAt: new Date(), updatedAt: new Date()},
