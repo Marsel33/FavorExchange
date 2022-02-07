@@ -1,23 +1,17 @@
 
 const initState = {
-    profile: [],
-    user: null,
-    userCat: [],
-    reqBarters: [],
-    activeBarters: [],
-<<<<<<< HEAD
-    userCat: [],
-    portfolio: [],
-=======
-    endedBarters: [],
-    declinedBarters: [],
+  profile: [],
+  user: null,
   userCat: [],
+  reqBarters: [],
+  activeBarters: [],
+  endedBarters: [],
+  declinedBarters: [],
+  userCat: [],
+  portfolio: [],
 }
 
 
       
 
->>>>>>> b1ea90a271e6a4501997ebba494371e499c30c97
-
-}
 export default initState;
