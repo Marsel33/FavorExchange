@@ -4,7 +4,7 @@ export const SET_IMG = 'SET_IMG';
 export const GET_ALL_PROFILES = 'GET_ALL_PROFILES';
 export const GET_CAT = 'GET_CAT';
 
-
+export const SET_CAT = 'SET_CAT';
 export const GET_ALL_BARTERS = 'GET_ALL_BARTERS'
 
 export const ACCEPT_BARTER = 'ACCEPT_BARTER'
@@ -14,6 +14,11 @@ export const DECLINE_BARTER = 'DECLINE_BARTER'
 export const ALL_USER_PORTFOLIO = 'ALL_USER_PORTFOLIO'
 export const GET_PORTFOLIO = 'GET_PORTFOLIO'
 export const GET_ALL_DECLINE_BARTERS = 'GET_ALL_DECLINE_BARTERS'
+export const USER_REGISTER = 'USER_REGISTER'
+export const USER_LOGIN = 'USER_LOGIN'
+export const USER_LOGOUT = 'USER_LOGOUT'
+export const GET_ALL_CAT = 'GET_ALL_CAT';
+export const GET_USER_TAGS = 'USER_TAGS';
 
 
 export const END_BARTER = 'END_BARTER'

@@ -27,16 +27,17 @@ class UserController {
         }
     }
 
+
     async signin(req, res) {
         console.log(req.body)
         const {email, password} = req.body;
         if (email && password) {
             try {
                 const currentUser = await Users.findOne({where: {email}})
-                console.log('------->>>>', currentUser)
+                console.log(currentUser)
                 if (bcrypt.compare(password, currentUser.dataValues.password)) {
-                    req.session.user = {id: currentUser.id, name: currentUser.name}
-                    return res.json({user: {id: currentUser.id, name: currentUser.name}})
+                    req.session.user = {id: currentUser.dataValues.id, name: currentUser.dataValues.name}
+                    return res.json({user: {id: currentUser.dataValues.id, name: currentUser.dataValues.name}})
                 } else {
                     return res.sendStatus(500)
                 }

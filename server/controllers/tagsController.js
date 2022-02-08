@@ -45,7 +45,7 @@ class TagsController {
     async getAllTags(req, res) {
         const {id} = req.params
         try {
-            const allTags = await Categories.findAll({include: Tags})
+            const allTags = await Tags.findAll({include: {model:Categories},where:{profil_id:Number(id)}})
             if (allTags) {
                 res.json({allTags})
             } else {
@@ -61,6 +61,7 @@ class TagsController {
         const {title, catId} = req.body
         try {
             const tag = await Tags.create({title, catId, profil_id: Number(id)})
+            console.log(tag)
             res.json({tag})
         } catch (e) {
             console.log(e)

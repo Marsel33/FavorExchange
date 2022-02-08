@@ -1,10 +1,11 @@
-import { Button } from "antd";
+import { Button, Input } from "antd";
 import Modal from "antd/lib/modal/Modal";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getAvatar } from "../../Redux/actions/profileAction";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { storage } from '../../firebase';
+import style from './style.css'
 
 
 
@@ -16,17 +17,13 @@ const EditPorofile = ({ id }) => {
     setIsModalVisible(true);
   };
 
-  const handleOk = () => {
-    setIsModalVisible(false);
-  };
-
   const handleCancel = () => {
     setIsModalVisible(false);
   };
 
   const dispatch = useDispatch()
   const [image, setImage] = useState(null)
-  const [imgUser, setImgUser] = useState({ description: '', name: '', img: '' });
+  const [inputs, setInputs] = useState({ description: '', name: '', img: '' });
 
   const handleChange = (e) => {
     if (e.target.files[0]) {
@@ -35,7 +32,6 @@ const EditPorofile = ({ id }) => {
   }
 
   const handleUpload = () => {
-    console.log('handleUpload')
     const storageRef = ref(storage, `/images/${image.name}`)
     const uploadTask = uploadBytesResumable(storageRef, image);
     uploadTask.on(
@@ -49,7 +45,8 @@ const EditPorofile = ({ id }) => {
       () => {
         getDownloadURL(uploadTask.snapshot.ref)
           .then(url => {
-            setImgUser(prev => ({ ...prev, img: url }))
+            setInputs(prev => ({ ...prev, img: url }))
+            dispatch(getAvatar({...inputs, img: url}, id));
           })
       }
     )
@@ -57,28 +54,20 @@ const EditPorofile = ({ id }) => {
   }
 
   const imgHandler = (e) => {
-    setImgUser(prev => ({ ...prev, [e.target.name]: e.target.value }))
-  }
-
-  const submitHandler = () => {
-    dispatch(getAvatar(imgUser, id));
+    setInputs(prev => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
   return (
-    <>
       <>
         <Button type="primary" onClick={showModal}>
           редактировать профиль
         </Button>
-        <Modal title="Basic Modal" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
-          <input type='file' name="img"  onChange={handleChange} />
-          <input type='text' name="name" placeholder="name" onChange={imgHandler} />
-          <input type='text' name="description" placeholder="description" onChange={imgHandler} />
-          <button onClick={handleUpload}>go</button>
-          <button onClick={submitHandler}>править</button>
+        <Modal className="ant-modal-content" title="Редактировать профиль" visible={isModalVisible} onOk={handleUpload} onCancel={handleCancel}>
+          <Input className="ant-input" type='file' name="img" onChange={handleChange} />
+          <Input className="ant-input" type='text' name="name" placeholder="name" onChange={imgHandler} />
+          <Input className="ant-input" type='text' name="description" placeholder="description" onChange={imgHandler} />
         </Modal>
       </>
-    </>
   )
 }
 

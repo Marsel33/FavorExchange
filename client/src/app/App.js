@@ -1,4 +1,4 @@
-import {Layout, Menu} from 'antd';
+import {Layout, Menu, Statistic} from 'antd';
 import {BellOutlined} from "@ant-design/icons";
 import {Link, Route, Routes} from "react-router-dom";
 
@@ -11,6 +11,10 @@ import SigIn from "../сomponents/SigIn/SigIn";
 import SigUp from '../сomponents/SigUp/SigUp';
 import TestPoly from "../сomponents/TestPoly/TestPoly";
 import EditPorofile from '../сomponents/EditProfile/EditProfile';
+import Notefication from '../сomponents/Notefication'
+import {thunkLogoutAction} from "../Redux/actions/thunkActions/userActions/thunkLogoutAction";
+import {useDispatch, useSelector} from "react-redux";
+import {thunkGetAllBarterAction} from '../Redux/actions/thunkActions/reqBarters/thunkGetAllBarterAction';
 
 
 const {Header} = Layout;
@@ -19,32 +23,50 @@ const {Header} = Layout;
 function App() {
 
 
+    const meProfile = useSelector(state => state.profile);
+
+    const dispatch = useDispatch()
+
+
+    function requestHandler(e) {
+        e.preventDefault()
+        dispatch(thunkGetAllBarterAction(Number(meProfile[0].id)))
+
+    }
+
+    function plohoiLogout(e) {
+        e.preventDefault()
+        dispatch(thunkLogoutAction())
+    }
+
     return (
         <>
-            <>
-                <Header>
-                    <div className="logo"/>
-                    <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
+            <Header>
+                <div className="logo"/>
+                <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
 
-                        <div style={{margin: '0 10px 0 0'}}>
-                            <Link to={'/'}> Home </Link>
-                        </div>
+                    <Menu.Item key='2' style={{margin: '0 10px 0 0'}}>
+                        <Link to={'/'}> Home </Link>
+                    </Menu.Item>
 
-                        <div>
-                            <Link to={'/signin'}> SigIn </Link>
-                        </div>
+                    <Menu.Item key='3'>
+                        <Link to={'/signin'}> SigIn </Link>
+                    </Menu.Item>
 
-                        <div style={{margin: '0 10px'}}>
-                            <Link to={'/signup'}> SigUp </Link>
-                        </div>
+                    <Menu.Item key='4' style={{margin: '0 10px'}}>
+                        <Link to={'/signup'}> SigUp </Link>
+                    </Menu.Item>
 
-                        <div style={{margin: '0 10px'}}>
-                            <Link to={'/chat'}> <BellOutlined/> </Link>
-                        </div>
 
-                    </Menu>
-                </Header>
-            </>
+                    <div style={{margin: '0 10px'}}>
+                        <Link to={'/notefication'}>
+                            <Statistic style={{backgroundColor: 'red'}} value={2}
+                                       prefix={<BellOutlined type="primary" onClick={requestHandler}/>}/>
+                        </Link>
+
+                    </div>
+                </Menu>
+            </Header>
 
             <Routes>
                 <Route path='/' element={<HomePage/>}/>
@@ -55,12 +77,12 @@ function App() {
                 <Route path='/signin' element={< SigIn/>}/>
                 <Route path='/signup' element={< SigUp/>}/>
                 <Route path='/test/:id' element={< TestPoly/>}/>
-
                 <Route path='/editProfile' element={<EditPorofile/>}/>
-
+                <Route path='/logout' element={<HomePage/>}/>
+                <Route path='/notefication' element={<Notefication/>}/>
             </Routes>
-
         </>
+
 
     );
 
