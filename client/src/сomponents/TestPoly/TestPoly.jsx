@@ -112,7 +112,7 @@ const TestPoly = () => {
 
     function reitingHandler(e) {
         e.preventDefault()
-        const data = {comment, star} //
+        const data = {comment, star}
         // console.log('pisem sanky', {comment, star})
         dispatch(thunkCreateFeedbackAC(data))
     }
