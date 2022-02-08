@@ -1,4 +1,4 @@
-const {Barters,}
+// const {Barters,}
 
 class CommentController {
     async createComment(req, res) {
