@@ -1,4 +1,4 @@
-import {Layout, Menu} from 'antd';
+import {Layout, Menu, Statistic} from 'antd';
 import {BellOutlined , SearchOutlined} from "@ant-design/icons";
 import {Link, Route, Routes} from "react-router-dom";
 import UserPage from "../components/userPage/UserPage";
@@ -67,10 +67,10 @@ function App() {
                         </Menu.Item>
 
                         <Menu.Item style={{ margin: '0 10px' }}>
-              <Link to={'/notefication'}>
-                <Statistic style={{ backgroundColor: 'red' }} value={2} prefix={<BellOutlined type="primary" onClick={requestHandler} />} />
-              </Link>
-            </Menu.Item>
+                            <Link to={'/notefication'}>
+                               <Statistic style={{ backgroundColor: 'red' }} value={2} prefix={<BellOutlined type="primary" onClick={requestHandler} />} />
+                            </Link>
+                        </Menu.Item>
 
                     </Menu>
                 </Header>
