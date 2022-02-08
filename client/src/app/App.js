@@ -10,14 +10,32 @@ import SigIn from "../components/SigIn/SigIn";
 import SigUp from "../components/SigUp/SigUp";
 import TestPoly from "../components/TestPoly/TestPoly";
 import EditPorofile from "../components/EditProfile/EditProfile";
+import Notefication from '../components/Notefication/Notefication';
 import {thunkLogoutAction} from "../Redux/actions/thunkActions/userActions/thunkLogoutAction";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import { thunkGetAllBarterAction } from '../Redux/actions/thunkActions/reqBarters/thunkGetAllBarterAction';
 
-const {Header} = Layout;
+
+
+
+const { Header } = Layout;
 
 
 function App() {
-    const dispatch = useDispatch()
+
+
+
+  const meProfile = useSelector(state => state.profile);
+
+  const dispatch = useDispatch()
+
+
+  function requestHandler(e) {
+    e.preventDefault()
+    dispatch(thunkGetAllBarterAction(Number(meProfile[0].id)))
+
+  }
+
     function plohoiLogout(e){
         e.preventDefault()
         dispatch(thunkLogoutAction())
@@ -48,9 +66,12 @@ function App() {
                             <Link to={'/searchPage'} > <SearchOutlined /> </Link>
                         </Menu.Item>
 
-                        <Menu.Item  key='6' style={{margin: '0 10px'}}>
-                            <Link to={'/chat'}> <BellOutlined/> </Link>
-                        </Menu.Item>
+                        <Menu.Item style={{ margin: '0 10px' }}>
+              <Link to={'/notefication'}>
+                <Statistic style={{ backgroundColor: 'red' }} value={2} prefix={<BellOutlined type="primary" onClick={requestHandler} />} />
+              </Link>
+            </Menu.Item>
+
                     </Menu>
                 </Header>
 
@@ -65,10 +86,12 @@ function App() {
                 <Route path='/test/:id' element={< TestPoly/>}/>
                 <Route path='/editProfile' element={<EditPorofile />} />
                 <Route path='/logout' element={<HomePage/>}/>
+                <Route path='/notefication' element={<Notefication />} />
             </Routes>
         </>
 
-    );
+
+  );
 
 }
 
