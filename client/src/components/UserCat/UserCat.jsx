@@ -1,7 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
-import {  Input, Form, Button } from 'antd';
+import { Input, Form, Button, Select } from 'antd';
 import { useState } from 'react';
 import { getCat } from "../../Redux/actions/userCatAction";
+import { Option } from "antd/lib/mentions";
+
+
+
 
 
 
@@ -10,7 +14,7 @@ const UserCat = () => {
 
   const dispatch = useDispatch();
 
-  const [inputValue, setDropInput] = useState('');
+  const [inputValue, setDropInput] = useState({});
   const [click, setClick] = useState(false);
 
   const clickHandler = () => {
@@ -31,9 +35,9 @@ const UserCat = () => {
 
 
 
+
   return (
     <>
-
       {click ?
         <Form
           name="basic"
@@ -41,6 +45,18 @@ const UserCat = () => {
           wrapperCol={{ span: 16 }}
           onSubmit={submitHandler}
         >
+          <Form.Item>
+            <Select
+              showSearch
+              placeholder="Select a person"
+              optionFilterProp="children"
+              filterOption={(input, option) =>
+                option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+              }
+            >
+              <Option value="jack">Jack</Option>
+            </Select>
+          </Form.Item>
           <Form.Item
             label="title"
             name="title"
@@ -51,6 +67,7 @@ const UserCat = () => {
               style={{ width: '200px' }}
               onChange={inputHendler} />
           </Form.Item>
+
 
           <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
             <Button type="submit" htmlType="submit">

@@ -71,7 +71,7 @@ const EditPorofile = ({ id }) => {
           редактировать профиль
         </Button>
         <Modal title="Basic Modal" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
-          <input type='file' name="img" accept="image/*" onChange={handleChange} />
+          <input type='file' name="img"  onChange={handleChange} />
           <input type='text' name="name" placeholder="name" onChange={imgHandler} />
           <input type='text' name="description" placeholder="description" onChange={imgHandler} />
           <button onClick={handleUpload}>go</button>
