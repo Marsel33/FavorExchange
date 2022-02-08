@@ -40,8 +40,6 @@ const UserCard = ({ img, id, userId, description, name }) => {
     setIsModalVisible(false);
   };
 
-  //////
-
   useEffect(() => {
     console.log('hueta')
     if (meProfile[0]) {
