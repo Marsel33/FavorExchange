@@ -49,13 +49,13 @@ const columns = [
 
 
 
-const SearchCategory = ({rows = 5, users}) => {
+const SearchCategory = ({rows = 5, users, key}) => {
 
-  console.log(users);
+  // console.log(users);
   
   const dataSource = users.map(item => (item))  
   
-  console.log(dataSource); 
+  // console.log(dataSource);
 
     return (
         <Table 

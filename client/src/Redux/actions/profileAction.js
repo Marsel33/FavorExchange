@@ -30,7 +30,7 @@ export const getAvatar = (value, id) => async (dispatch) => {
 
 export const allProfiles = () => async(dispatch) => {
   const res = await axios('/myprofile')
-  console.log(res.data);
+  // console.log(res.data);
   dispatch(setProfiles(res.data))
 
 }

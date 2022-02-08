@@ -3,46 +3,64 @@ import { useEffect, useState } from 'react';
 export const MapCollectionTest = ({users}) => {
   var myMap;
   var placemarkCollections = {};
-  var placemarkList = {};
-
-  // Список городов и магазинов в них
-  // var shopList = [
-  //   {
-  //     cityName: 'Москва',
-  //     shops: [
-  //       { name: 'Рязанский проспект6Ас21', des: 'The best place' },
-  //       { name: 'Ленинский проспект, 47с2', des: 'Good place as well' },
-  //       { name: 'ул. Тверская, 7', des: 'Have a good time' },
-  //       { name: 'ул. Академика Королева, 12', des: 'Что? Где? Когда?' },
-  //     ],
-  //   },
-  // ];
+  var placemarkList = {};  
 
   const profilesAddress = users.map(item => (item))  
-  console.log(profilesAddress);
-
 
   let ymaps = window.ymaps;
-
-  const [map, setMap] = useState();  
-   
-  // ymaps.ready(init);     
-
-  console.log(users);
-
-  useEffect(() => {
-    if (profilesAddress.length > 1) 
-    setMap(ymaps.ready(init));   
+                                          
+  // const [map, setMap] = useState();  
+  
+  const [show, setShow] = useState(true)   
+                                               
+  useEffect(() => {                         
+    if (profilesAddress.length && show)                 
+    ymaps.ready(init);   
   }, [profilesAddress.length]);
 
   function init() {
     // Создаем карту
+    setShow(prev => !prev)
     myMap = new ymaps.Map('map', {
       center: [55.76, 37.64],
       zoom: 10,
-      controls: ['zoomControl'],
+      controls: ['zoomControl','geolocationControl', 'routeButtonControl'],      
       zoomMargin: [20],
     });
+
+
+
+    var control = myMap.controls.get('routeButtonControl');
+
+    // Зададим координаты пункта отправления с помощью геолокации.
+    control.routePanel.geolocate('from');
+
+    // Откроем панель для построения маршрутов.
+    control.state.set('expanded', true);
+
+
+
+    const location = ymaps.geolocation;
+        location.get({
+          mapStateAutoApply: true
+      })
+    .then(
+      function(result) {
+          // Получение местоположения пользователя.
+          var userAddress = result.geoObjects.get(0).properties.get('text');
+          var userCoodinates = result.geoObjects.get(0).geometry.getCoordinates();
+          // Пропишем полученный адрес в балуне.
+          result.geoObjects.get(0).properties.set({
+              balloonContentBody: '<h4>Я здесь</h4>' 
+      });
+          myMap.geoObjects.add(result.geoObjects)
+      },
+      function(err) {
+          console.log('Ошибка: ' + err)
+      }
+    );
+
+
 
     for (var i = 0; i < profilesAddress.length; i++) {
       // Создаём коллекцию меток для города
@@ -67,12 +85,15 @@ export const MapCollectionTest = ({users}) => {
             const coordinates = res.geoObjects.get(0).geometry.getCoordinates();
 
             const placemark = new ymaps.Placemark(coordinates, {
+              hintContent: address,
               iconContent: name,              
               balloonContentBody: [
                 '<address>',
                 `<strong>${name}</strong>`,
                 '<br/>',
                 `Адрес: ${address}`,
+                '<br/>',
+                `Описание: ${description}`,
                 '<br/>',
                 `Подробнее: <a href="http://localhost:3000/user/${id}">Страница профиля</a>`,
                 '</address>'
