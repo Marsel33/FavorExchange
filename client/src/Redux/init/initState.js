@@ -12,5 +12,4 @@ const initState = {
   userTags: [],
 }
 
-
 export default initState;

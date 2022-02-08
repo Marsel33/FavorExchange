@@ -10,6 +10,7 @@ import {
 import {useDispatch, useSelector} from "react-redux";
 import {getUser} from "../../Redux/actions/userAction";
 import CreateModalForm from "../CreateModalForm/CreateModalForm";
+import {thunkUserRegisterAction} from "../../Redux/actions/thunkActions/userActions/thunkUserRegisterAction";
 
 const formItemLayout = {
   labelCol: {
@@ -54,13 +55,11 @@ const SigUp = () => {
 
 
   const onFinish = (values) => {
-    dispatch(getUser(inputs))
+    dispatch(thunkUserRegisterAction(inputs))
     setInputs({name: '', email:'', password:''})
     console.log("Received values of form: ", values)
     setVisible(true)
   }
-
-
 
   const DemoBox = (props) => <p className={`height-${props.value}`}>{props.children}</p>
 

@@ -4,8 +4,6 @@ import { Link, useParams } from 'react-router-dom';
 import UserCat from '../UserCat/UserCat';
 import EditPorofile from '../EditProfile/EditProfile';
 import { StarOutlined } from '@ant-design/icons';
-
-
 import style from './UserCard.css'
 import Modal from 'antd/lib/modal/Modal';
 import { useEffect, useState } from 'react';
@@ -15,10 +13,12 @@ import { thunkSetNewBarterAction } from '../../Redux/actions/thunkActions/reqBar
 import { thunkGetAllActiveBartersAction } from '../../Redux/actions/thunkActions/activeBarters/thunkGetAllActiveBartersAction';
 import { thunkGetAllEndedBarterAction } from '../../Redux/actions/thunkActions/endedBarters/thunkGetAllEndedBarterAction';
 import { thunkGetAllDecliendBartersAction } from '../../Redux/actions/thunkActions/declinedBarters/thunkGetAllDecliendBartersAction';
+
 const { Meta } = Card;
 
 const UserCard = ({ img, id, userId, description, name }) => {
   const size = 'large'
+
 
   const dispatch = useDispatch()
   const [title, setTitle] = useState('')
@@ -40,7 +40,7 @@ const UserCard = ({ img, id, userId, description, name }) => {
     setIsModalVisible(false);
   };
 
-  //////
+
 
   useEffect(() => {
     console.log('hueta')
@@ -78,8 +78,10 @@ const UserCard = ({ img, id, userId, description, name }) => {
   return (
     <>
       {console.log(img)}
+
       <div className={"mywrapper"} >
         < UserCat />
+
 
         <Card
           hoverable
@@ -98,10 +100,12 @@ const UserCard = ({ img, id, userId, description, name }) => {
           <StarOutlined />
           <StarOutlined />
           <StarOutlined />
+
           <Button type="primary" onClick={showModal}>
             сотрудничать
           </Button>
           <Modal title="Basic Modal" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
+
 
             <form
               onSubmit={barterHandler}
