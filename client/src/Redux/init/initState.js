@@ -1,5 +1,6 @@
 
 const initState = {
+
   profile: [],
   user: null,
   userCat: [],
@@ -10,8 +11,6 @@ const initState = {
   portfolio: [],
   userTags: [],
 }
-
-
 
 
 export default initState;

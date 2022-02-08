@@ -14,6 +14,7 @@ import { thunkGetAllBarterAction } from '../Redux/actions/thunkActions/reqBarter
 import { useDispatch, useSelector } from 'react-redux';
 import Notefication from '../components/Notefication/Notefication';
 
+
 const { Header } = Layout;
 
 
