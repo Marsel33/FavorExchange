@@ -1,22 +1,43 @@
-import {Layout, Menu} from 'antd';
+
+import {Layout, Menu, Col,  Statistic} from 'antd';
 import {BellOutlined} from "@ant-design/icons";
 import {Link, Route, Routes} from "react-router-dom";
 import UserPage from "../Components/userPage/UserPage";
 import HomePage from "../Components/HomePage/HomePage";
 import SearchLayout from "../Components/SearchLayout/SearchLayout";
 import UserHistory from "../Components/UserHistory/UserHistory";
+import Notefication from '../components/Notefication/Notefication';
+
 import Chat from "../Components/Chat/Chat";
 import SigIn from "../Components/SigIn/SigIn";
 import SigUp from "../Components/SigUp/SigUp";
 import TestPoly from "../Components/TestPoly/TestPoly";
 import EditPorofile from "../Components/EditProfile/EditProfile";
 import {thunkLogoutAction} from "../Redux/actions/thunkActions/userActions/thunkLogoutAction";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import { thunkGetAllBarterAction } from '../Redux/actions/thunkActions/reqBarters/thunkGetAllBarterAction';
 
-const {Header} = Layout;
+
+
+
+const { Header } = Layout;
 
 
 function App() {
+  
+  
+  
+  const meProfile = useSelector(state => state.profile);
+
+  const dispatch = useDispatch()
+
+
+  function requestHandler(e) {
+    e.preventDefault()
+    dispatch(thunkGetAllBarterAction(Number(meProfile[0].id)))
+
+  }
+  
     const dispatch = useDispatch()
     function plohoiLogout(e){
         e.preventDefault()
@@ -44,9 +65,13 @@ function App() {
                             <Link onClick={plohoiLogout} to={'/logout'} > Logout </Link>
                         </Menu.Item>
 
-                        <Menu.Item  key='6' style={{margin: '0 10px'}}>
-                            <Link to={'/chat'}> <BellOutlined/> </Link>
-                        </Menu.Item>
+                       
+            <div style={{ margin: '0 10px' }}>
+              <Link to={'/notefication'}>
+                <Statistic style={{ backgroundColor: 'red' }} value={2} prefix={<BellOutlined type="primary" onClick={requestHandler} />} />
+              </Link>
+
+            </div>
                     </Menu>
                 </Header>
 
@@ -61,10 +86,12 @@ function App() {
                 <Route path='/test/:id' element={< TestPoly/>}/>
                 <Route path='/editProfile' element={<EditPorofile />} />
                 <Route path='/logout' element={<HomePage/>}/>
+                <Route path='/notefication' element={<Notefication />} />
             </Routes>
         </>
 
-    );
+
+  );
 
 }
 

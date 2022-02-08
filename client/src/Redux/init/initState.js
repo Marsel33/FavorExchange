@@ -1,5 +1,6 @@
 
 const initState = {
+
   profile: [],
   user: null,
   userCat: [],
@@ -7,12 +8,8 @@ const initState = {
   activeBarters: [],
   endedBarters: [],
   declinedBarters: [],
-  userCat: [],
   portfolio: [],
+  userTags: [],
 }
-
-
-
-
 
 export default initState;
