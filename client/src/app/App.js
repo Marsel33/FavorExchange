@@ -1,48 +1,54 @@
 import {Layout, Menu} from 'antd';
 import {BellOutlined} from "@ant-design/icons";
 import {Link, Route, Routes} from "react-router-dom";
-import HomePage from "../components/HomePage/HomePage";
-import UserPage from "../components/userPage/UserPage";
-import SearchLayout from "../components/SearchLayout/SearchLayout";
-import UserHistory from "../components/UserHistory/UserHistory";
-import Chat from '../components/Chat/Chat';
-import SigIn from "../components/SigIn/SigIn";
-import SigUp from '../components/SigUp/SigUp';
-import TestPoly from "../components/TestPoly/TestPoly";
-import EditPorofile from '../components/EditProfile/EditProfile';
+import UserPage from "../Components/userPage/UserPage";
+import HomePage from "../Components/HomePage/HomePage";
+import SearchLayout from "../Components/SearchLayout/SearchLayout";
+import UserHistory from "../Components/UserHistory/UserHistory";
+import Chat from "../Components/Chat/Chat";
+import SigIn from "../Components/SigIn/SigIn";
+import SigUp from "../Components/SigUp/SigUp";
+import TestPoly from "../Components/TestPoly/TestPoly";
+import EditPorofile from "../Components/EditProfile/EditProfile";
+import {thunkLogoutAction} from "../Redux/actions/thunkActions/userActions/thunkLogoutAction";
+import {useDispatch} from "react-redux";
 
 const {Header} = Layout;
 
 
 function App() {
-
-
+    const dispatch = useDispatch()
+    function plohoiLogout(e){
+        e.preventDefault()
+        dispatch(thunkLogoutAction())
+    }
     return (
         <>
-            <>
-                <Header>
+            <Header>
                     <div className="logo"/>
                     <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
 
-                        <div style={{margin: '0 10px 0 0'}}>
+                        <Menu.Item key='2' style={{margin: '0 10px 0 0'}}>
                             <Link to={'/'}> Home </Link>
-                        </div>
+                        </Menu.Item>
 
-                        <div>
+                        <Menu.Item key='3'>
                             <Link to={'/signin'}> SigIn </Link>
-                        </div>
+                        </Menu.Item>
 
-                        <div style={{margin: '0 10px'}}>
+                        <Menu.Item key='4' style={{margin: '0 10px'}}>
                             <Link to={'/signup'}> SigUp </Link>
-                        </div>
+                        </Menu.Item>
 
-                        <div style={{margin: '0 10px'}}>
+                        <Menu.Item key='5' style={{margin: '0 10px'}}>
+                            <Link onClick={plohoiLogout} to={'/logout'} > Logout </Link>
+                        </Menu.Item>
+
+                        <Menu.Item  key='6' style={{margin: '0 10px'}}>
                             <Link to={'/chat'}> <BellOutlined/> </Link>
-                        </div>
-
+                        </Menu.Item>
                     </Menu>
                 </Header>
-            </>
 
             <Routes>
                 <Route path='/' element={<HomePage/>}/>
@@ -54,9 +60,8 @@ function App() {
                 <Route path='/signup' element={< SigUp/>}/>
                 <Route path='/test/:id' element={< TestPoly/>}/>
                 <Route path='/editProfile' element={<EditPorofile />} />
-
+                <Route path='/logout' element={<HomePage/>}/>
             </Routes>
-
         </>
 
     );
