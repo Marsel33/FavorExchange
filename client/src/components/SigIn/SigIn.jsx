@@ -1,14 +1,19 @@
-import React, {useState} from "react"
+import React, {useEffect, useState} from "react"
 import { Form, Input, Button, Checkbox, Row, Col } from "antd"
 import { UserOutlined, LockOutlined } from "@ant-design/icons"
-import { Link } from "react-router-dom"
-import {useDispatch} from "react-redux";
+import {Link, useNavigate} from "react-router-dom"
+import {useDispatch, useSelector} from "react-redux";
 import {signUpUser} from "../../Redux/actions/userAction";
+import {thunkUserLoginAction} from "../../Redux/actions/thunkActions/userActions/thunkUserLoginAction";
+import {userLoginAction} from "../../Redux/actions/thunkActions/userActions/userLoginAction";
 
 const SigIn = () => {
 
   const [inputs, setInputs] = useState({email:'', password:''});
   const dispatch = useDispatch();
+  const user = useSelector( state => state.user)
+  const navigate = useNavigate()
+
 
 
   const inputsHandler = (e) => {
@@ -17,11 +22,19 @@ const SigIn = () => {
   }
 
   const onFinish = (values) => {
-    dispatch(signUpUser(inputs))
+    console.log(inputs)
+    dispatch(thunkUserLoginAction(inputs))
+    // console.log(user)
+    // navigate(`/user/${user.id}`)
     console.log("Received values of form: ", values)
-
   }
-
+  useEffect(() => {
+    // dispatch(userLoginAction(user.id))
+    console.log(user)
+    if(user){
+      navigate(`/user/${user.id}`)
+    }
+  }, [user])
 
   const DemoBox = (props) => <p className={`height-${props.value}`}>{props.children}</p>
 

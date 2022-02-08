@@ -1,4 +1,3 @@
-
 export const GET_PROFILE = 'GET_PROFILE';
 export const SET_USER = 'SET_USER';
 export const SET_IMG = 'SET_IMG';
@@ -12,7 +11,11 @@ export const DECLINE_BARTER = 'DECLINE_BARTER'
 export const ALL_USER_PORTFOLIO = 'ALL_USER_PORTFOLIO'
 export const GET_PORTFOLIO = 'GET_PORTFOLIO'
 export const GET_ALL_DECLINE_BARTERS = 'GET_ALL_DECLINE_BARTERS'
+export const USER_REGISTER = 'USER_REGISTER'
+export const USER_LOGIN = 'USER_LOGIN'
+export const USER_LOGOUT = 'USER_LOGOUT'
 export const GET_ALL_CAT = 'GET_ALL_CAT';
 export const GET_USER_TAGS = 'USER_TAGS';
+
 
 
