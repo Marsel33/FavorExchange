@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { Layout, Menu, Breadcrumb } from 'antd';
-import { BellOutlined, BellTwoTone } from "@ant-design/icons";
 import ParalaxBoxOne from '../Paralax/ParalaxBoxOne'
 import ParalaxBoxTwo from '../Paralax/ParalaxBoxTwo'
 import ParalaxBoxThree from '../Paralax/ParalaxBoxThree'
@@ -14,6 +13,7 @@ const HomePage = () => {
   return (
     <Layout className="layout">
       <Content style={{ padding: '0 30px' }}>
+          <Text/>
           <ParalaxBoxOne/>
           <Text/>
           <ParalaxBoxTwo/>

@@ -1,15 +1,17 @@
 import {Layout, Menu} from 'antd';
 import {BellOutlined} from "@ant-design/icons";
 import {Link, Route, Routes} from "react-router-dom";
-import HomePage from "../Components/HomePage/HomePage";
-import UserPage from "../Components/userPage/UserPage";
-import SearchLayout from "../Components/SearchLayout/SearchLayout";
-import UserHistory from "../Components/UserHistory/UserHistory";
-import Chat from "../Components/Chat/Chat";
-import SigIn from "../Components/SigIn/SigIn";
-import SigUp from "../Components/SigUp/SigUp";
-import TestPoly from "../Components/TestPoly/TestPoly";
-import EditPorofile from "../Components/EditProfile/EditProfile";
+
+import HomePage from "../сomponents/HomePage/HomePage";
+import UserPage from "../сomponents/userPage/UserPage";
+import SearchLayout from "../сomponents/SearchLayout/SearchLayout";
+import UserHistory from "../сomponents/UserHistory/UserHistory";
+import Chat from '../сomponents/Chat/Chat';
+import SigIn from "../сomponents/SigIn/SigIn";
+import SigUp from '../сomponents/SigUp/SigUp';
+import TestPoly from "../сomponents/TestPoly/TestPoly";
+import EditPorofile from '../сomponents/EditProfile/EditProfile';
+
 
 const {Header} = Layout;
 
@@ -29,11 +31,11 @@ function App() {
                         </div>
 
                         <div>
-                            <Link to={'/sigin'}> SigIn </Link>
+                            <Link to={'/signin'}> SigIn </Link>
                         </div>
 
                         <div style={{margin: '0 10px'}}>
-                            <Link to={'/sigup'}> SigUp </Link>
+                            <Link to={'/signup'}> SigUp </Link>
                         </div>
 
                         <div style={{margin: '0 10px'}}>
@@ -50,9 +52,10 @@ function App() {
                 <Route path='/searchPage' element={< SearchLayout/>}/>
                 <Route path='/UserHistory' element={< UserHistory/>}/>
                 <Route path='/chat' element={< Chat/>}/>
-                <Route path='/sigin' element={< SigIn/>}/>
-                <Route path='/sigup' element={< SigUp/>}/>
+                <Route path='/signin' element={< SigIn/>}/>
+                <Route path='/signup' element={< SigUp/>}/>
                 <Route path='/test/:id' element={< TestPoly/>}/>
+
                 <Route path='/editProfile' element={<EditPorofile/>}/>
 
             </Routes>
@@ -60,7 +63,6 @@ function App() {
         </>
 
     );
-
 
 }
 

@@ -1,8 +1,5 @@
 import { Image, Table, Typography } from 'antd'
-import { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { allProfiles } from '../../Redux/actions/profileAction'
-// import { users } from '../../data'
+
 
 const columns = [
     {
@@ -33,15 +30,15 @@ const columns = [
     //     onFilter: (value, item) => item.email.includes(value)
     // },
     {
-        title: 'Address',
-        dataIndex: '',
-        key: '',
+        title: 'Адрес',
+        dataIndex: 'adress',
+        key: 'adress',
         // render: (website) => <Image src={image} alt="" width={150} />
     },
     {
         title: 'Фото',
-        dataIndex: 'img',
-        key: 'img',
+        dataIndex: '',
+        key: '',
         // sorter: (a, b) => a.phone - b.phone,
         render: (img) => <Image src={img} alt="Your photo" width={100}/>
     },
@@ -52,23 +49,13 @@ const columns = [
 
 
 
-const SearchCategory = ({rows = 5}) => {
+const SearchCategory = ({rows = 5, users}) => {
 
-
-  const dispatch = useDispatch()
-
+  console.log(users);
   
-  const users = useSelector(state => state.profile)
-
-  const dataSource = users.map(item => (item))
-
-  // const dataSource = {item}
-
-
- 
-  useEffect(() => {
-    dispatch(allProfiles())
-  }, [])
+  const dataSource = users.map(item => (item))  
+  
+  console.log(dataSource); 
 
     return (
         <Table 

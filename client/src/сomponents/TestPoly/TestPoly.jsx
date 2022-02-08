@@ -28,7 +28,7 @@ const TestPoly = () => {
     const [service, setService] = useState('')
     const [offer, setOffer] = useState('')
     useEffect(() => {
-        dispatch(onePr ofile(id))
+        dispatch(oneProfile(id))
 
     }, [])
     console.log('prooooooofile', meProfile)

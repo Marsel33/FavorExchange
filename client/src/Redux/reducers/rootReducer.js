@@ -7,6 +7,7 @@ import {reqBarterReducer} from "./reqBarterReducer";
 import {activeBartersReducer} from "./activeBartersReducer";
 import {declinedBarterReducer} from "./declinedBarterReducer";
 import {endedBarterReducer} from "./endedBarterReducer";
+import {portfolioReducer} from './portfolioReducer';
 
 
 export const rootReducer = combineReducers({
@@ -16,9 +17,10 @@ export const rootReducer = combineReducers({
     reqBarters: reqBarterReducer,
     activeBarters: activeBartersReducer,
     declinedBarters: declinedBarterReducer,
-    endedBarters: endedBarterReducer
+    endedBarters: endedBarterReducer,
 
 
+    portfolio: portfolioReducer,
 })
 
 
