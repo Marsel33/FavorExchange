@@ -1,4 +1,4 @@
-import { GET_CAT } from "../types/types";
+import { GET_ALL_CAT, SET_CAT } from "../types/types";
 
 
 
@@ -8,10 +8,10 @@ export const userCatReducer = (state = [], action) => {
 
 
   switch (type) {
-    case GET_CAT:
-      return [...state, ...payload]
+    
 
-
+    case GET_ALL_CAT:
+      return [...payload]
     default:
       return state;
   }
