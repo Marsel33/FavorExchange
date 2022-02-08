@@ -10,6 +10,12 @@ import SigIn from "../components/SigIn/SigIn";
 import SigUp from '../components/SigUp/SigUp';
 import TestPoly from "../components/TestPoly/TestPoly";
 import EditPorofile from '../components/EditProfile/EditProfile';
+import SigUp from '../components/SigUp/SigUp';
+import SigIn from '../components/SigIn/SigIn';
+import Chat from '../components/Chat/Chat';
+import UserHistory from '../components/UserHistory/UserHistory';
+import UserPage from '../components/userPage/UserPage';
+
 
 const {Header} = Layout;
 
