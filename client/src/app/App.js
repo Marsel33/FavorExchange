@@ -1,15 +1,15 @@
 import {Layout, Menu} from 'antd';
-import {BellOutlined} from "@ant-design/icons";
+import {BellOutlined , SearchOutlined} from "@ant-design/icons";
 import {Link, Route, Routes} from "react-router-dom";
-import UserPage from "../Components/userPage/UserPage";
-import HomePage from "../Components/HomePage/HomePage";
-import SearchLayout from "../Components/SearchLayout/SearchLayout";
-import UserHistory from "../Components/UserHistory/UserHistory";
-import Chat from "../Components/Chat/Chat";
-import SigIn from "../Components/SigIn/SigIn";
-import SigUp from "../Components/SigUp/SigUp";
-import TestPoly from "../Components/TestPoly/TestPoly";
-import EditPorofile from "../Components/EditProfile/EditProfile";
+import UserPage from "../components/userPage/UserPage";
+import HomePage from "../components/HomePage/HomePage";
+import SearchLayout from "../components/SearchLayout/SearchLayout";
+import UserHistory from "../components/UserHistory/UserHistory";
+import Chat from "../components/Chat/Chat";
+import SigIn from "../components/SigIn/SigIn";
+import SigUp from "../components/SigUp/SigUp";
+import TestPoly from "../components/TestPoly/TestPoly";
+import EditPorofile from "../components/EditProfile/EditProfile";
 import {thunkLogoutAction} from "../Redux/actions/thunkActions/userActions/thunkLogoutAction";
 import {useDispatch} from "react-redux";
 
@@ -42,6 +42,10 @@ function App() {
 
                         <Menu.Item key='5' style={{margin: '0 10px'}}>
                             <Link onClick={plohoiLogout} to={'/logout'} > Logout </Link>
+                        </Menu.Item>
+
+                        <Menu.Item key='5' style={{margin: '0 10px'}}>
+                            <Link to={'/searchPage'} > <SearchOutlined /> </Link>
                         </Menu.Item>
 
                         <Menu.Item  key='6' style={{margin: '0 10px'}}>
