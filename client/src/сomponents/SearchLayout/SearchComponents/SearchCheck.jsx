@@ -1,18 +1,14 @@
 import { Card } from "antd"
 import Checkbox from "antd/lib/checkbox/Checkbox"
 
-const temp = [1, 2, 3 ,4, 5]
 
 const SearchCheck = () => {
-
+  
+  const temp = ['The', 'Show', 'Must', 'Go', 'On']
    
 
   return (
-    <Card>
-      <Checkbox></Checkbox>
-      <Checkbox></Checkbox>      
-      <Checkbox></Checkbox>
-      <Checkbox></Checkbox>
+    <Card> {temp.map((item) => <div><Checkbox>{item}</Checkbox></div>)}      
     </Card>
   )
 }

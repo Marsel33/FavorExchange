@@ -32,13 +32,13 @@ const columns = [
     {
         title: 'Адрес',
         dataIndex: 'adress',
-        key: 'adress',
+        key:'adress',
         // render: (website) => <Image src={image} alt="" width={150} />
     },
     {
         title: 'Фото',
-        dataIndex: '',
-        key: '',
+        dataIndex: 'img',
+        key: 'img',
         // sorter: (a, b) => a.phone - b.phone,
         render: (img) => <Image src={img} alt="Your photo" width={100}/>
     },
@@ -49,13 +49,9 @@ const columns = [
 
 
 
-const SearchCategory = ({rows = 5, users}) => {
-
-  console.log(users);
-  
-  const dataSource = users.map(item => (item))  
-  
-  console.log(dataSource); 
+const SearchCategory = ({rows = 5, users, key}) => {
+ 
+  const dataSource = users.map(item => (item))    
 
     return (
         <Table 

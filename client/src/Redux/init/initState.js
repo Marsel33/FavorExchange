@@ -10,6 +10,7 @@ const initState = {
     declinedBarters: [],
     portfolio: [],
     userTags: [],
+    categories:[]
 }
 
 export default initState;

@@ -11,10 +11,11 @@ import SigIn from "../сomponents/SigIn/SigIn";
 import SigUp from '../сomponents/SigUp/SigUp';
 import TestPoly from "../сomponents/TestPoly/TestPoly";
 import EditPorofile from '../сomponents/EditProfile/EditProfile';
-import Notefication from '../сomponents/Notefication'
+// import Notefication from '../сomponents/Notefication'
 import {thunkLogoutAction} from "../Redux/actions/thunkActions/userActions/thunkLogoutAction";
 import {useDispatch, useSelector} from "react-redux";
 import {thunkGetAllBarterAction} from '../Redux/actions/thunkActions/reqBarters/thunkGetAllBarterAction';
+import Notefication from '../сomponents/Notefication/Notefication';
 
 
 const {Header} = Layout;

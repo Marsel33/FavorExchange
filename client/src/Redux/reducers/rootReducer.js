@@ -9,6 +9,7 @@ import {declinedBarterReducer} from "./declinedBarterReducer";
 import {endedBarterReducer} from "./endedBarterReducer";
 import {portfolioReducer} from './portfolioReducer';
 import {userTagsReducer} from './userTagsReducer';
+import { categoriesReducer } from './categoriesReducer';
 
 
 export const rootReducer = combineReducers({
@@ -19,7 +20,7 @@ export const rootReducer = combineReducers({
     activeBarters: activeBartersReducer,
     declinedBarters: declinedBarterReducer,
     endedBarters: endedBarterReducer,
-
+    categories:categoriesReducer,
 
     portfolio: portfolioReducer,
     userTags: userTagsReducer,
