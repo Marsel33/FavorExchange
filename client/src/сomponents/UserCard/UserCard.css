@@ -2,3 +2,14 @@
   display: flex;
   justify-content: space-between;
 }
+
+.avatar {
+  width: 400px;
+    height: 300px;
+    object-fit: cover;
+}
+
+.userCard {
+  display: flex;
+  flex-direction: column;
+}

@@ -33,7 +33,6 @@ const TestPoly = () => {
     }, [])
     console.log('prooooooofile', meProfile)
     useEffect(() => {
-        console.log('hueta')
         if (meProfile[0]) {
             dispatch(thunkGetAllActiveBartersAction(meProfile[0].id))
             dispatch(thunkGetAllDecliendBartersAction(meProfile[0].id))

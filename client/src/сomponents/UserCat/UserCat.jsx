@@ -13,7 +13,7 @@ const UserCat = () => {
 
   const allUserTags = useSelector(state => state.userTags)
   const allcat = useSelector(state => state.userCat)
-
+console.log('_-----------------> allcat',allcat)
   const dispatch = useDispatch();
   const { id } = useParams();
 
@@ -36,7 +36,7 @@ const UserCat = () => {
     console.log('12345');
     e.preventDefault();
     dispatch(getCat(inputValue, id))
-
+    setClick(false)
 
     console.log(inputValue)
   }
@@ -58,7 +58,7 @@ const UserCat = () => {
           name="basic"
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 16 }}
-
+          className="formCat"
         >
           <Form.Item>
             <Select
@@ -69,7 +69,7 @@ const UserCat = () => {
               filterOption={(input, option) =>
                 option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
               }
-
+              style={{ width: 200 }}
             >
               {allcat.map(el =>
                 <Option name='catId' value={el.id}>{el.title}</Option>
@@ -87,23 +87,25 @@ const UserCat = () => {
               onChange={inputHendler} />
           </Form.Item>
 
+          <div style={{dispaly: 'flex'}}>
 
-          <Button className="ant-btn-primary" type="primary" onClick={submitHandler}>
-            добавить
-          </Button>
+            <Button className="ant-btn-primary" type="primary" onClick={submitHandler}>
+              добавить
+            </Button>
 
 
-          <Button className="ant-btn-primary" type="primary" onClick={clickHandler}>
-            отмена
-          </Button>
+            <Button className="ant-btn-primary" type="primary" onClick={clickHandler}>
+              закрыть
+            </Button>
+          </div>
         </form>
 
         :
-        <Button  type="primary" onClick={clickHandler}>добавить категорию</Button>}
+        <Button type="primary" onClick={clickHandler}>добавить категорию</Button>}
       <div>
 
         {allUserTags.map(el =>
-          < UserCatcard key={el.id} title={el.title} />
+          < UserCatcard key={el.id} title={el.title} tagId={el.id} />
         )}
       </div>
 

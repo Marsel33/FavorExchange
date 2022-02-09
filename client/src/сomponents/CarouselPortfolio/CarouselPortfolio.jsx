@@ -23,25 +23,21 @@ const CarouselPortfolio = ({ id }) => {
 
   return (
     <>
-      <Row>
+        <Col sm={12} >
         < NewPortfoliio />
-        <Col sm={8} offset={2} >
 
           <Carousel autoplay>
             {userPortfolio.map(el =>
 
-              <div>
                 <img src={el.img} style={{ height: '400px', width: '400px' }} />
-              </div>
 
             )}
           </Carousel>,
         </Col>
-        <Col sm={8}>
+        <Col sm={12}>
           < ActivCardTasck />
         </Col>
 
-      </Row>
     </>
 
 
