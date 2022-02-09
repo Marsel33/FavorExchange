@@ -14,6 +14,7 @@ export const GET_ALL_DECLINE_BARTERS = 'GET_ALL_DECLINE_BARTERS'
 export const USER_REGISTER = 'USER_REGISTER'
 export const USER_LOGIN = 'USER_LOGIN'
 export const USER_LOGOUT = 'USER_LOGOUT'
+export const SET_PROFILE = 'SET_PROFILE'
 export const GET_ALL_CAT = 'GET_ALL_CAT';
 export const GET_USER_TAGS = 'USER_TAGS';
 export const END_BARTER = 'END_BARTER'

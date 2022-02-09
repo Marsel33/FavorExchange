@@ -2,7 +2,7 @@ const initState = {
 
 
     profile: [],
-    user: 1,
+    user: null,
     userCat: [],
     reqBarters: [],
     activeBarters: [],

@@ -13,7 +13,7 @@ const UserCat = () => {
 
   const allUserTags = useSelector(state => state.userTags)
   const allcat = useSelector(state => state.userCat)
-
+console.log('_-----------------> allcat',allcat)
   const dispatch = useDispatch();
   const { id } = useParams();
 

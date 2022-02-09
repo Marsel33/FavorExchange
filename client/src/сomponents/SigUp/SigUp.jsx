@@ -53,21 +53,17 @@ const SigUp = () => {
   const user = useSelector(state => state.user )
   const [isModalActive, setIsModalActive] = useState(false)
 
-
   const onFinish = (values) => {
     dispatch(thunkUserRegisterAction(inputs))
     setInputs({name: '', email:'', password:''})
-    console.log("Received values of form: ", values)
     setVisible(true)
   }
 
   const DemoBox = (props) => <p className={`height-${props.value}`}>{props.children}</p>
 
-
   const inputHandler = (e) => {
     setInputs(prev => ({...prev, [e.target.name]: e.target.value}))
   }
-
 
   return (
     <>
@@ -155,87 +151,6 @@ const SigUp = () => {
               </Button>
             </Form.Item>
           </Form>}
-          {/*<Form*/}
-          {/*  {...formItemLayout}*/}
-          {/*  form={form}*/}
-          {/*  name="register"*/}
-          {/*  onFinish={onFinish}*/}
-          {/*  initialValues={{*/}
-          {/*    residence: ["zhejiang", "hangzhou", "xihu"],*/}
-          {/*    prefix: "86",*/}
-          {/*  }}*/}
-          {/*  scrollToFirstError*/}
-          {/*>*/}
-          {/*  <Form.Item*/}
-          {/*    name="name"*/}
-          {/*    label="Nickname"*/}
-          {/*    tooltip="What do you want others to call you?"*/}
-          {/*    rules={[*/}
-          {/*      {*/}
-          {/*        required: true,*/}
-          {/*        message: "Please input your nickname!",*/}
-          {/*        whitespace: true,*/}
-          {/*      },*/}
-          {/*    ]}*/}
-          {/*  >*/}
-          {/*    <Input*/}
-          {/*        id='name'*/}
-          {/*        type='text'*/}
-          {/*        name='name'*/}
-          {/*        onChange={inputHandler}*/}
-          {/*        value={inputs.name}*/}
-          {/*    />*/}
-          {/*  </Form.Item>*/}
-
-          {/*  <Form.Item*/}
-          {/*    name="email"*/}
-          {/*    label="E-mail"*/}
-          {/*    rules={[*/}
-          {/*      {*/}
-          {/*        type: "email",*/}
-          {/*        message: "The input is not valid E-mail!",*/}
-          {/*      },*/}
-          {/*      {*/}
-          {/*        required: true,*/}
-          {/*        message: "Please input your E-mail!",*/}
-          {/*      },*/}
-          {/*    ]}*/}
-          {/*  >*/}
-          {/*    <Input*/}
-          {/*        id='email'*/}
-          {/*        type='email'*/}
-          {/*        name='email'*/}
-          {/*        onChange={inputHandler}*/}
-          {/*        value={inputs.email}*/}
-          {/*    />*/}
-          {/*  </Form.Item>*/}
-
-          {/*  <Form.Item*/}
-          {/*    name="password"*/}
-          {/*    label="Password"*/}
-          {/*    rules={[*/}
-          {/*      {*/}
-          {/*        required: true,*/}
-          {/*        message: "Please input your password!",*/}
-          {/*      },*/}
-          {/*    ]}*/}
-          {/*    hasFeedback*/}
-          {/*  >*/}
-          {/*    <Input.Password*/}
-          {/*        id='password'*/}
-          {/*        type='password'*/}
-          {/*        name='password'*/}
-          {/*        onChange={inputHandler}*/}
-          {/*        value={inputs.password}*/}
-          {/*    />*/}
-          {/*  </Form.Item>*/}
-
-          {/*  <Form.Item {...tailFormItemLayout}>*/}
-          {/*    <Button type="primary" htmlType="submit">*/}
-          {/*      Register*/}
-          {/*    </Button>*/}
-          {/*  </Form.Item>*/}
-          {/*</Form>*/}
         </Col>
       </Row>
     </>
