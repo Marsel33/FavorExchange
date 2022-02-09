@@ -28,28 +28,28 @@ class UserController {
     }
 
 
+    async signin(req, res) {
+        console.log(req.body)
+        const {email, password} = req.body;
+        if (email && password) {
+            try {
+                const currentUser = await Users.findOne({where: {email}})
+                console.log(currentUser)
+                if (bcrypt.compare(password, currentUser.dataValues.password)) {
+                    req.session.user = {id: currentUser.dataValues.id, name: currentUser.dataValues.name}
+                    return res.json({user: {id: currentUser.dataValues.id, name: currentUser.dataValues.name}})
+                } else {
+                    return res.sendStatus(500)
+                }
+            } catch (err) {
+                console.log(err)
+                return res.sendStatus(500)
+            }
+        } else {
+            return res.sendStatus(500)
+        }
+    }
 
-async signin(req, res){
-    console.log(req.body)
-    const {email, password} = req.body;
-    if(email && password){
-        try{
-            const currentUser = await Users.findOne({where:{email}})
-            console.log(currentUser)
-            if (bcrypt.compare(password, currentUser.dataValues.password)) {
-                req.session.user = {id:currentUser.dataValues.id, name:currentUser.dataValues.name}
-              return res.json({user:{id:currentUser.dataValues.id, name:currentUser.dataValues.name}})
-          } else {
-              return res.sendStatus(500)
-          }
-      }catch(err){
-          console.log(err)
-          return res.sendStatus(500)
-      }
-    }else{
-        return res.sendStatus(500)
-  }
-}
 }
 
 module.exports = new UserController()

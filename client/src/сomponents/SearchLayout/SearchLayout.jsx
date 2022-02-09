@@ -1,7 +1,7 @@
 import {Row, Col, Slider, Typography } from 'antd'
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { allProfiles } from '../../Redux/actions/profileAction';
+import { allProfiles, thunkAllProfiles } from '../../Redux/actions/profileAction';
 import SearchCategory from '../SearchCategory/SearchCategory'
 import { MapCollectionTest } from '../SearchMap/MapCollectionTest';
 import SearchCheck from './SearchComponents/SearchCheck';
@@ -15,12 +15,15 @@ const SearchLayout = () => {
 
   const [rows, setRows ] = useState(5)   
 
+
+  const [queryData, setQueryData] = useState({category_id: '', tag_id: ''})
+
   const dispatch = useDispatch()
   
   const users = useSelector(state => state.profile)
 
-  useEffect(() => {
-    dispatch(allProfiles())
+  useEffect(() => { 
+    dispatch(thunkAllProfiles(queryData))
   }, [])
   
     return (

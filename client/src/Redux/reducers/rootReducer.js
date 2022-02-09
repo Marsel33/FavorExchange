@@ -1,4 +1,3 @@
-
 import {combineReducers} from 'redux';
 import {profileReducer} from './profileReducer';
 import {usersReducer} from './usersReducer';
@@ -7,8 +6,10 @@ import {userCatReducer} from './userCatReducer';
 import {reqBarterReducer} from "./reqBarterReducer";
 import {activeBartersReducer} from "./activeBartersReducer";
 import {declinedBarterReducer} from "./declinedBarterReducer";
-import { portfolioReducer } from './portfolioReducer';
-import { userTagsReducer } from './userTagsReducer';
+import {endedBarterReducer} from "./endedBarterReducer";
+import {portfolioReducer} from './portfolioReducer';
+import {userTagsReducer} from './userTagsReducer';
+import { categoriesReducer } from './categoriesReducer';
 
 
 export const rootReducer = combineReducers({
@@ -17,9 +18,12 @@ export const rootReducer = combineReducers({
     userCat: userCatReducer,
     reqBarters: reqBarterReducer,
     activeBarters: activeBartersReducer,
-    portfolio:portfolioReducer,
     declinedBarters: declinedBarterReducer,
-    userTags:userTagsReducer,
+    endedBarters: endedBarterReducer,
+    categories:categoriesReducer,
+
+    portfolio: portfolioReducer,
+    userTags: userTagsReducer,
 })
 
 
