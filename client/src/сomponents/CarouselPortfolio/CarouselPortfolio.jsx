@@ -23,9 +23,8 @@ const CarouselPortfolio = ({ id }) => {
 
   return (
     <>
-      <Row>
+        <Col sm={12} >
         < NewPortfoliio />
-        <Col sm={8} offset={2} >
 
           <Carousel autoplay>
             {userPortfolio.map(el =>
@@ -37,11 +36,10 @@ const CarouselPortfolio = ({ id }) => {
             )}
           </Carousel>,
         </Col>
-        <Col sm={8}>
+        <Col sm={12}>
           < ActivCardTasck />
         </Col>
 
-      </Row>
     </>
 
 

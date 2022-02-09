@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { oneProfile } from '../../Redux/actions/profileAction';
 import { useParams } from 'react-router-dom';
 import UserCard from '../UserCard/UserCard';
+import { Row } from 'antd';
 
 const UserPage = () => {
 
@@ -22,18 +23,29 @@ const UserPage = () => {
 
 
   return (
-    < div className={styles.userPage}>
-      {meProfile.map(el =>
-        <UserCard key={el.id} name={el.name} description={el.description} img={el.img} userId={el.user_id}
-          id={el.id} />
-      )}
-      {meProfile.map(el =>
-        <CarouselPortfolio key={el.id} id={el.id} />
-      )}
+    <>
+      <Row >
+
+        {meProfile.map(el =>
+          <UserCard key={el.id} name={el.name} description={el.description} img={el.img} userId={el.user_id}
+            id={el.id} />
+        )}
+      </Row>
+
+      <Row>
+        {meProfile.map(el =>
+          <CarouselPortfolio key={el.id} id={el.id} />
+        )
+        }
+      </Row>
+    </>
 
 
 
-    </div>
+
+
+
+
   )
 
 }

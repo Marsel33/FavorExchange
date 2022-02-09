@@ -1,4 +1,4 @@
-import { Button } from "antd";
+import { Button, Input } from "antd";
 import Modal from "antd/lib/modal/Modal";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { useState } from "react";
@@ -52,6 +52,7 @@ const NewPortfoliio = () => {
         getDownloadURL(uploadTask.snapshot.ref)
           .then(url => {
             dispatch(getPortfolio(url, id))
+            setIsModalVisible(false)
           })
       }
     )
@@ -67,7 +68,7 @@ const NewPortfoliio = () => {
           добавить фото в портфолио
         </Button>
         <Modal title="Basic Modal" visible={isModalVisible} onOk={handleUpload} onCancel={handleCancel}>
-          <input type='file' name="img" onChange={handleChange} />
+          <Input type='file' name="img" onChange={handleChange} />
         </Modal>
     </>
   )

@@ -57,6 +57,8 @@ const EditPorofile = ({ id }) => {
     setInputs(prev => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
+  console.log('img ', inputs)
+
   return (
       <>
         <Button type="primary" onClick={showModal}>
