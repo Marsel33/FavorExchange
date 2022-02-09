@@ -1,13 +1,14 @@
-import { Layout, Menu, Statistic } from 'antd';
+import {Layout, Menu, Statistic} from 'antd';
 import {
-  AliwangwangOutlined,
-  BellOutlined,
-  ExportOutlined, HomeOutlined,
-  SearchOutlined,
-  SelectOutlined,
-  UserOutlined
+    AliwangwangOutlined,
+    BellOutlined,
+    ExportOutlined,
+    HomeOutlined,
+    SearchOutlined,
+    SelectOutlined,
+    UserOutlined
 } from "@ant-design/icons";
-import { Link, Route, Routes, useNavigate } from "react-router-dom";
+import {Link, Route, Routes, useNavigate} from "react-router-dom";
 import HomePage from "../сomponents/HomePage/HomePage";
 import UserPage from "../сomponents/userPage/UserPage";
 import SearchLayout from "../сomponents/SearchLayout/SearchLayout";
@@ -17,13 +18,13 @@ import SigIn from "../сomponents/SigIn/SigIn";
 import SigUp from '../сomponents/SigUp/SigUp';
 import TestPoly from "../сomponents/TestPoly/TestPoly";
 import EditPorofile from '../сomponents/EditProfile/EditProfile';
-import { thunkLogoutAction } from "../Redux/actions/thunkActions/userActions/thunkLogoutAction";
-import { useDispatch, useSelector } from "react-redux";
-import { thunkGetAllBarterAction } from '../Redux/actions/thunkActions/reqBarters/thunkGetAllBarterAction';
-import Notefication from '../сomponents/Notefication/Notefication';
-import { Footer } from "antd/es/layout/layout";
+import {thunkLogoutAction} from "../Redux/actions/thunkActions/userActions/thunkLogoutAction";
+import {useDispatch, useSelector} from "react-redux";
+import {thunkGetAllBarterAction} from '../Redux/actions/thunkActions/reqBarters/thunkGetAllBarterAction';
+import {Footer} from "antd/es/layout/layout";
+import Notefication from "../сomponents/Notefication/Notefication";
 
-const { Header } = Layout;
+const {Header} = Layout;
 
 //------------>>>>>>  Это для socket    <<<<<-------------------
 // const socket = io.connect('http://localhost:3001')
