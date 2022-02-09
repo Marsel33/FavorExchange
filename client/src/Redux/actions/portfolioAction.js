@@ -14,7 +14,7 @@ export const setPprtfolio = (value) => {
 export const getPortfolio = (img, id) => async (dispatch) => {
   console.log(img)
   const res = await axios.post(`/portfolio/${id}`, { img })
-  dispatch(setPprtfolio(res.data))
+  dispatch(setPprtfolio(res.data.portfolio))
 }
 
 

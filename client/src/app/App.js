@@ -1,32 +1,30 @@
-import {Layout, Menu} from 'antd';
+import {Layout, Menu, Statistic} from 'antd';
 import {
     AliwangwangOutlined,
-    ExportOutlined,
-    HomeOutlined,
+    BellOutlined,
+    ExportOutlined, HomeOutlined,
     SearchOutlined,
     SelectOutlined,
     UserOutlined
 } from "@ant-design/icons";
 import {Link, Route, Routes, useNavigate} from "react-router-dom";
+
+import HomePage from "../сomponents/HomePage/HomePage";
+import UserPage from "../сomponents/userPage/UserPage";
+import SearchLayout from "../сomponents/SearchLayout/SearchLayout";
+import UserHistory from "../сomponents/UserHistory/UserHistory";
+import Chat from '../сomponents/Chat/Chat';
+import SigIn from "../сomponents/SigIn/SigIn";
+import SigUp from '../сomponents/SigUp/SigUp';
+import TestPoly from "../сomponents/TestPoly/TestPoly";
+import EditPorofile from '../сomponents/EditProfile/EditProfile';
 import {thunkLogoutAction} from "../Redux/actions/thunkActions/userActions/thunkLogoutAction";
-import {useDispatch} from "react-redux";
-import HomePage from "../components/HomePage/HomePage";
-import UserPage from "../components/userPage/UserPage";
-import SearchLayout from "../components/SearchLayout/SearchLayout";
-import UserHistory from "../components/UserHistory/UserHistory";
-import Chat from "../components/Chat/Chat";
-import SigIn from "../components/SigIn/SigIn";
-import SigUp from "../components/SigUp/SigUp";
-import TestPoly from "../components/TestPoly/TestPoly";
-import EditPorofile from "../components/EditProfile/EditProfile";
-import React, {useEffect, useRef} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {thunkGetAllBarterAction} from '../Redux/actions/thunkActions/reqBarters/thunkGetAllBarterAction';
+import Notefication from '../сomponents/Notefication/Notefication';
 import {Footer} from "antd/es/layout/layout";
-import { io } from 'socket.io-client'
 
 const {Header} = Layout;
-
-
-
 
 //------------>>>>>>  Это для socket    <<<<<-------------------
 // const socket = io.connect('http://localhost:3001')
@@ -55,17 +53,27 @@ function App() {
     //------------>>>>>>  Это для socket    <<<<<-------------------
 
     const navigate = useNavigate()
+    const meProfile = useSelector(state => state.profile);
     const dispatch = useDispatch()
-    function plohoiLogout(e){
+
+
+    function requestHandler(e) {
+        e.preventDefault()
+        dispatch(thunkGetAllBarterAction(Number(meProfile[0].id)))
+
+    }
+
+    function plohoiLogout(e) {
         e.preventDefault()
         dispatch(thunkLogoutAction())
         navigate('/')
     }
+
     return (
         <>
             <Header>
-                    <div className="logo"/>
-                    <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
+                <div className="logo"/>
+                <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
 
                         <Menu.Item key='2' style={{margin: '0 10px 0 0'}}>
                             <Link to={'/'}> <HomeOutlined /> </Link>
@@ -91,7 +99,13 @@ function App() {
                             <Link to={'/chat'}> <AliwangwangOutlined /> </Link>
                         </Menu.Item>
                     </Menu>
-                </Header>
+                <div style={{margin: '0 10px'}}>
+                    <Link to={'/notefication'}>
+                        <Statistic style={{backgroundColor: 'red'}} value={2}
+                                   prefix={<BellOutlined type="primary" onClick={requestHandler}/>}/>
+                    </Link>
+                </div>
+            </Header>
 
             <Routes>
                 <Route path='/' element={<HomePage/>}/>
@@ -102,8 +116,9 @@ function App() {
                 <Route path='/signin' element={< SigIn/>}/>
                 <Route path='/signup' element={< SigUp/>}/>
                 <Route path='/test/:id' element={< TestPoly/>}/>
-                <Route path='/editProfile' element={<EditPorofile />} />
+                <Route path='/editProfile' element={<EditPorofile/>}/>
                 <Route path='/logout' element={<HomePage/>}/>
+                <Route path='/notefication' element={<Notefication/>}/>
             </Routes>
 
             <Footer
