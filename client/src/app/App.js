@@ -1,5 +1,4 @@
 import {Layout, Menu, Statistic} from 'antd';
-
 import {
     AliwangwangOutlined,
     BellOutlined,
@@ -19,14 +18,11 @@ import SigIn from "../сomponents/SigIn/SigIn";
 import SigUp from '../сomponents/SigUp/SigUp';
 import TestPoly from "../сomponents/TestPoly/TestPoly";
 import EditPorofile from '../сomponents/EditProfile/EditProfile';
-
 import {thunkLogoutAction} from "../Redux/actions/thunkActions/userActions/thunkLogoutAction";
 import {useDispatch, useSelector} from "react-redux";
 import {thunkGetAllBarterAction} from '../Redux/actions/thunkActions/reqBarters/thunkGetAllBarterAction';
-import Notefication from "../сomponents/Notefication/Notefication";
-
-
 import {Footer} from "antd/es/layout/layout";
+import Notefication from "../сomponents/Notefication/Notefication";
 
 const {Header} = Layout;
 
@@ -54,23 +50,53 @@ function App() {
     //     socketRef.current.emit('player-connected', { username:12, userId:1 })
     //     })
     //------------>>>>>>  Это для socket    <<<<<-------------------
-
     const navigate = useNavigate()
-    const meProfile = useSelector(state => state.profile);
+    const reqBarters = useSelector(state => state.reqBarters)
+    const user = useSelector(state => state.user)
+    console.log('user--------------.>', user)
+    // let temp = reqBarters.pop()
+    // console.log('temp ==============>',temp)
     const dispatch = useDispatch()
 
 
     function requestHandler(e) {
         e.preventDefault()
-        dispatch(thunkGetAllBarterAction(Number(meProfile[0].id)))
+        dispatch(thunkGetAllBarterAction(Number(user)))  //todo user init state
 
     }
+
 
     function plohoiLogout(e) {
         e.preventDefault()
         dispatch(thunkLogoutAction())
         navigate('/')
     }
+
+    //------------>>>>>>  Это для socket    <<<<<-------------------
+    // socket.emit('player-connected', 'Alesha')
+    // const socketRef = useRef(null)
+
+    // useEffect(() => {
+    //     // создаем экземпляр сокета, передаем ему адрес сервера
+    //     // и записываем объект с названием комнаты в строку запроса "рукопожатия"
+    //     // socket.handshake.query.roomId
+    //     socketRef.current = io('http://localhost:8000', {
+    //         query: { id:1 },
+    //         transports: ['websockets']
+    //     })
+    //
+    //     // отправляем событие добавления пользователя,
+    //     // в качестве данных передаем объект с именем и id пользователя
+    //     socketRef.current.emit('player-connected', { username:12, userId:1 })
+    //     })
+    //------------>>>>>>  Это для socket    <<<<<-------------------
+
+
+    // useEffect(() => {
+
+    //   dispatch(thunkGetAllBarterAction(Number(user)))
+    // }, [])
+
 
     return (
         <>
@@ -86,7 +112,6 @@ function App() {
                         <Link to={'/signup'}> <ExportOutlined/> </Link>
                     </Menu.Item>
 
-
                     <Menu.Item key='3'>
                         <Link to={'/signin'}> <UserOutlined/> </Link>
                     </Menu.Item>
@@ -94,7 +119,6 @@ function App() {
                     <Menu.Item key='5' style={{margin: '0 10px'}}>
                         <Link onClick={plohoiLogout} to={'/logout'}> <SelectOutlined/> </Link>
                     </Menu.Item>
-
 
                     <Menu.Item key='6' style={{margin: '0 10px'}}>
                         <Link to={'/searchPage'}> <SearchOutlined/> </Link>
@@ -106,7 +130,7 @@ function App() {
 
                     <Menu.Item style={{margin: '0 10px'}}>
                         <Link to={'/notefication'}>
-                            <Statistic style={{backgroundColor: 'red'}} value={2}
+                            <Statistic style={{backgroundColor: 'red'}} value={reqBarters.length}
                                        prefix={<BellOutlined type="primary" onClick={requestHandler}/>}/>
                         </Link>
                     </Menu.Item>
