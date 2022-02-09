@@ -8,7 +8,6 @@ import {
     UserOutlined
 } from "@ant-design/icons";
 import {Link, Route, Routes, useNavigate} from "react-router-dom";
-
 import HomePage from "../сomponents/HomePage/HomePage";
 import UserPage from "../сomponents/userPage/UserPage";
 import SearchLayout from "../сomponents/SearchLayout/SearchLayout";
@@ -32,7 +31,6 @@ const {Header} = Layout;
 
 
 function App() {
-
     //------------>>>>>>  Это для socket    <<<<<-------------------
     // socket.emit('player-connected', 'Alesha')
     // const socketRef = useRef(null)
@@ -63,7 +61,7 @@ function App() {
 
     }
 
-    function plohoiLogout(e) {
+    function plohoiLogout(e){
         e.preventDefault()
         dispatch(thunkLogoutAction())
         navigate('/')
@@ -98,13 +96,13 @@ function App() {
                         <Menu.Item  key='7' style={{margin: '0 10px'}}>
                             <Link to={'/chat'}> <AliwangwangOutlined /> </Link>
                         </Menu.Item>
+
+                        <Menu.Item style={{ margin: '0 10px' }}>
+                            <Link to={'/notefication'}>
+                               <Statistic style={{ backgroundColor: 'red' }} value={2} prefix={<BellOutlined type="primary" onClick={requestHandler} />} />
+                            </Link>
+                        </Menu.Item>
                     </Menu>
-                <div style={{margin: '0 10px'}}>
-                    <Link to={'/notefication'}>
-                        <Statistic style={{backgroundColor: 'red'}} value={2}
-                                   prefix={<BellOutlined type="primary" onClick={requestHandler}/>}/>
-                    </Link>
-                </div>
             </Header>
 
             <Routes>
