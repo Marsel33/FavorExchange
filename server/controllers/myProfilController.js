@@ -52,6 +52,7 @@ class MyProfileController {
             const newProfile = await Profils.create({img, name, description, user_id: Number(id)})
             const geolocation = await MapProfil.create({adress, profil_id: Number(id)})
             if (newProfile) {
+                console.log(newProfile)
                 res.json({newProfile})
             } else {
                 res.js
