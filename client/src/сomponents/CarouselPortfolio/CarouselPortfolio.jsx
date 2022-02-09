@@ -29,9 +29,7 @@ const CarouselPortfolio = ({ id }) => {
           <Carousel autoplay>
             {userPortfolio.map(el =>
 
-              <div>
                 <img src={el.img} style={{ height: '400px', width: '400px' }} />
-              </div>
 
             )}
           </Carousel>,

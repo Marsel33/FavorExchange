@@ -1,7 +1,6 @@
 import { Layout, Menu, Statistic } from 'antd';
 import { BellOutlined } from "@ant-design/icons";
 import { Link, Route, Routes } from "react-router-dom";
-
 import HomePage from "../сomponents/HomePage/HomePage";
 import UserPage from "../сomponents/userPage/UserPage";
 import SearchLayout from "../сomponents/SearchLayout/SearchLayout";
@@ -15,8 +14,7 @@ import { thunkLogoutAction } from "../Redux/actions/thunkActions/userActions/thu
 import { useDispatch, useSelector } from "react-redux";
 import { thunkGetAllBarterAction } from '../Redux/actions/thunkActions/reqBarters/thunkGetAllBarterAction';
 import Notefication from '../сomponents/Notefication/Notefication';
-import { Footer } from 'antd/lib/layout/layout';
-import { useCallback, useEffect } from 'react';
+import { useEffect } from 'react';
 
 
 const { Header } = Layout;

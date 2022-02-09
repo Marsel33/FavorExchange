@@ -26,7 +26,7 @@ const UserPage = () => {
     <>
       <Row >
 
-        {meProfile.map(el =>
+        {meProfile?.map(el =>
           <UserCard key={el.id} name={el.name} description={el.description} img={el.img} userId={el.user_id}
             id={el.id} />
         )}
