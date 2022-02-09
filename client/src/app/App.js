@@ -31,7 +31,6 @@ const { Header } = Layout;
 
 
 function App() {
-  const meProfile = useSelector(state => state.profile);
   const reqBarters = useSelector(state => state.reqBarters)
   const user = useSelector(state => state.user)
   console.log('user--------------.>',user)
