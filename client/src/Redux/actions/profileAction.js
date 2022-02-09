@@ -27,11 +27,8 @@ export const getAvatar = (value, id) => async (dispatch) => {
   dispatch(setAvatar(value))
 }
 
-
-export const allProfiles = () => async(dispatch) => {
-  const res = await axios('/myprofile')
-  console.log(res.data);
+export const thunkAllProfiles = (data) => async(dispatch) => {
+  const res = await axios.post('/find/categories', data)
   dispatch(setProfiles(res.data))
-
 }
 
