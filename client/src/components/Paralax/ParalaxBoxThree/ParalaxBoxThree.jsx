@@ -1,6 +1,6 @@
 import { Parallax } from 'react-parallax';
-import vstrechnye from './img/vstrechnye-postavki-tovara.jpeg'
-import style from './Paralax.module.css'
+import vstrechnye from '../img/job_svarka.jpeg'
+import style from '../Paralax.module.css'
 
 const ParalaxBoxThree = () => (
     <Parallax className={style.image} bgImage={vstrechnye} strength={800}>

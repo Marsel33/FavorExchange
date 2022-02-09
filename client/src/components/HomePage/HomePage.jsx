@@ -1,12 +1,11 @@
 import React from 'react';
-
-import { Layout, Menu, Breadcrumb } from 'antd';
-import ParalaxBoxOne from '../Paralax/ParalaxBoxOne'
-import ParalaxBoxTwo from '../Paralax/ParalaxBoxTwo'
-import ParalaxBoxThree from '../Paralax/ParalaxBoxThree'
+import { Layout } from 'antd';
 import Text from '../Paralax/Text/Text'
+import ParalaxBoxOne from "../Paralax/ParalaxBoxOne/ParalaxBoxOne";
+import ParalaxBoxTwo from "../Paralax/ParalaxBoxTwo/ParalaxBoxTwo";
+import ParalaxBoxThree from "../Paralax/ParalaxBoxThree/ParalaxBoxThree";
 
-const { Header, Content, Footer } = Layout;
+const { Content} = Layout;
 
 
 const HomePage = () => {
@@ -20,7 +19,6 @@ const HomePage = () => {
           <Text/>
           <ParalaxBoxThree/>
       </Content>
-      <Footer style={{ textAlign: 'center' }}>Favor_Exchange ©2022 Created by a group of united thinkers </Footer>
     </Layout>
   );
 };

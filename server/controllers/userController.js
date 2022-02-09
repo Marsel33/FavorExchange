@@ -17,7 +17,7 @@ class UserController {
             try {
                 const currentUser = await Users.create({...req.body, password: cryptPass})
                 req.session.user = {id: currentUser.id, name: currentUser.name}
-                return res.json({user: {id: currentUser.id, name: currentUser.name}})
+                return res.json({user: {id: currentUser.id, name: currentUser.name, email: currentUser.email}})
             } catch (err) {
                 console.log(err)
                 return res.sendStatus(500)

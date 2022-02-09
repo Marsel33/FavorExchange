@@ -1,6 +1,6 @@
 import { Parallax } from 'react-parallax';
-import avrasya from './img/avrasya_large.jpeg'
-import style from './Paralax.module.css'
+import avrasya from '../img/elecktro_job.jpeg'
+import style from '../Paralax.module.css'
 
 const ParalaxBoxTwo = () => (
     <Parallax className={style.image} bgImage={avrasya} strength={800}>

@@ -15,7 +15,6 @@ const SigIn = () => {
   const navigate = useNavigate()
 
 
-
   const inputsHandler = (e) => {
 
     setInputs( prev => ({...prev, [e.target.name]: e.target.value}))
