@@ -21,7 +21,6 @@ const ActivCardTasck = () => {
   console.log('123================>', activeBarters)
   function endHandler(e) {
     e.preventDefault()
-    console.log('iddddddddddddddddd-+>>>>', e.target.id)
     dispatch(thunkEndBarterAction(e.target.id))
     dispatch(thunkGetAllEndedBarterAction(user))
     dispatch(thunkGetAllActiveBartersAction(user)) ////toto не забыть поменять user в init!!!!!!!
@@ -32,7 +31,7 @@ console.log(user)
 
   useEffect(() => {
     if (user) {
-      dispatch(thunkGetAllActiveBartersAction(user))
+      dispatch(thunkGetAllActiveBartersAction(user.id))
     }
   }, [activeBarters.length])
 

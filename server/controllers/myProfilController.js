@@ -29,21 +29,21 @@ class MyProfileController {
 
 
     async getProfile(req, res) {
-        try {
-            const {id} = req.params
-            const profile = await Profils.findOne({where: {user_id: Number(id)}})
-            if (profile) {
-                const starsProfile = await Reitings.findAll({where: {profil_id: profile.id}})
-                const reiting = starsProfile.reduce((el, acc) => (acc += el.star), 0)
-                const amountDeals = starsProfile.length
-                res.json({profile, reiting, amountDeals})
-            } else {
-                res.json('\'Пожалуйста, дополните информацию о себе\'')
-            }
-        } catch (e) {
-            console.log(e);
-        }
-    }
+      try {
+          const {id} = req.params
+          const profile = await Profils.findOne({where: {user_id: Number(id)}})
+          if (profile) {
+              const starsProfile = await Reitings.findAll({where: {profil_id: profile.id}})
+              const reiting = starsProfile.reduce((el, acc) => (acc += el.star), 0)
+              const amountDeals = starsProfile.length
+              res.json({profile, reiting, amountDeals})
+          } else {
+              res.json('\'Пожалуйста, дополните информацию о себе\'')
+          }
+      } catch (e) {
+          console.log(e);
+      }
+  }
 
     async createProfile(req, res) {
         try {

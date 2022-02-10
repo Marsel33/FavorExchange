@@ -14,7 +14,7 @@ export const oneProfile = (id) => (dispatch) => {
   axios(`/myprofile/${id}`)
     .then(res => dispatch({ type: GET_PROFILE, payload: res.data.profile }))
 }
-
+//
 export const setAvatar = (value) => {
   return {
     type: SET_IMG,

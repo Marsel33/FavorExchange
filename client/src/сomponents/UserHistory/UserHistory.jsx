@@ -1,7 +1,7 @@
 import { Card, Input } from "antd";
 import Modal from "antd/lib/modal/Modal";
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector, useStore } from "react-redux";
 import { thunkGetAllEndedBarterAction } from "../../Redux/actions/thunkActions/endedBarters/thunkGetAllEndedBarterAction";
 import { thunkCreateFeedbackAC } from "../../Redux/actions/thunkActions/thunkCreateFeedbackAC";
 import CardTasck from "../CardTasck/CardTasck";
@@ -11,12 +11,14 @@ const UserHistory = () => {
 
   const dispatch = useDispatch()
   const endedBarters = useSelector(state => state.endedBarters)
+  const allComments = useSelector(state => state.comment)
   const user = useSelector(state => state.user)
   const [isModalVisible, setIsModalVisible] = useState(false);
-
+  // const [inputsComment, setInputComment] = useState({ comment: '', star: '' });
+  console.log(allComments, '-----------=> allcomment')
 
   useEffect(() => {
-    dispatch(thunkGetAllEndedBarterAction(user)) ///user не забудь поменять)
+    dispatch(thunkGetAllEndedBarterAction(user.id)) ///user не забудь поменять)
 
   }, [endedBarters.length])
 
@@ -37,8 +39,8 @@ const UserHistory = () => {
 
   function reitingHandler(e) {
     e.preventDefault()
-    const data = { comment, star } //
-    // console.log('pisem sanky', {comment, star})
+    const data = { comment, star }
+    console.log('pisem sanky', { comment, star })
     dispatch(thunkCreateFeedbackAC(data))
   }
 
@@ -49,6 +51,14 @@ const UserHistory = () => {
   const handleCancel = () => {
     setIsModalVisible(false);
   };
+
+  // const inputChanch = (e) => {
+  //   setInputComment(prev => ({ ...prev, [e.target.name]: e.target.value }))
+  // }
+
+  // const submitHandler = (e) => {
+  //   dispatch(getComment(inputsComment))
+  // }
 
   return (
     <>
@@ -62,10 +72,12 @@ const UserHistory = () => {
             if (e.status == 'ended') {
               return (<div>
 
-                <Card title={e.offer} extra={<button id={e.barterId} onClick={showModal}>feedback</button>} style={{ width: 300 }}>
-                  <p>комент с формы </p>
+                {allComments.map(el =>
+                  <Card title={e.offer} extra={<button id={e.barterId} onClick={showModal}>feedback</button>} style={{ width: 300 }}>
+                    <p>{el.comment} </p>
 
-                </Card>
+                  </Card>
+                )}
 
                 <Modal className="ant-modal-content" title="feedback" visible={isModalVisible} onOk={reitingHandler} onCancel={handleCancel}>
                   <Input className="ant-input" type='text' name="comment" placeholder="comment" onChange={commentHandler} />
