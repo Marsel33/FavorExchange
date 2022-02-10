@@ -1,35 +1,30 @@
-import { ControlOutlined } from "@ant-design/icons";
-import { Card } from "antd";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
-import { allTags, dellTag } from "../../Redux/actions/userTagsAction";
-import style from './CardStyle.css'
+import {Card} from "antd";
+import {useDispatch} from "react-redux";
+import {useParams} from "react-router-dom";
+import {allTags, dellTag} from "../../Redux/actions/userTagsAction";
 
 
-const UserCatcard = ({ tagId, title }) => {
-  const dispatch = useDispatch()
-  const { id } = useParams()
+const UserCatcard = ({tagId, title}) => {
+    const dispatch = useDispatch()
+    const {id} = useParams()
 
-  const dellTagHandelr = (e) => {
+    const dellTagHandelr = (e) => {
 
-    dispatch(dellTag(e.target.id))
-    dispatch(allTags(id))
-  }
-
-
-
-  return (
+        dispatch(dellTag(e.target.id))
+        dispatch(allTags(id))
+    }
 
 
-    <Card  style={{ width: 300 }}>
-      <p> {title}</p>
-      <button id={tagId} onClick={dellTagHandelr}>удалить тег</button>
+    return (
 
-    </Card>
-  )
+
+        <Card style={{width: 300}}>
+            <p> {title}</p>
+            <button id={tagId} onClick={dellTagHandelr}>удалить</button>
+
+        </Card>
+    )
 }
-
 
 
 export default UserCatcard;
