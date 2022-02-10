@@ -38,7 +38,8 @@ const UserCard = ({ img, id, userId, description, name }) => {
   };
 
   const handleOk = () => {
-    dispatch(thunkGetAllBarterAction(Number(user)))
+    console.log('юзер id в санках',user.id)
+    dispatch(thunkGetAllBarterAction(user.id))
     setIsModalVisible(false);
   };
 
@@ -58,7 +59,7 @@ const UserCard = ({ img, id, userId, description, name }) => {
 
   function barterHandler(e) {
     e.preventDefault()
-    const data = { title, service, offer, id: 1, opponentId: Number(id) } // TODO CHANGE ID TO ACTIVE PROFILE
+    const data = { title, service, offer, id: 1, opponentId: Number(user) } // TODO CHANGE ID TO ACTIVE PROFILE
     dispatch(thunkSetNewBarterAction(data))
   }
 
@@ -102,11 +103,11 @@ const UserCard = ({ img, id, userId, description, name }) => {
           <StarOutlined />
           <StarOutlined />
           <StarOutlined />
-
-          <Button type="primary" onClick={showModal}>
+{!user ?  <Button type="primary" onClick={showModal}>
             сотрудничать
           </Button>
-
+: '' }
+         
           <Modal title="Basic Modal" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
 
             <form
