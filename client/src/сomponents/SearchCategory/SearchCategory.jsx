@@ -33,7 +33,6 @@ const columns = [
         title: 'Адрес',
         dataIndex: 'adress',
         key:'adress',
-        // render: (website) => <Image src={image} alt="" width={150} />
     },
     {
         title: 'Фото',
