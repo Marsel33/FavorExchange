@@ -16,14 +16,14 @@ const UserPage = () => {
 
 
 
-    useEffect(() => {
-        dispatch(oneProfile(id))
-    }, [])
+    // useEffect(() => {
+    //     // dispatch(oneProfile(id))
+    // }, [])
 
 
     return (
         < div className={styles.userPage}>
-            {meProfile?.map(el =>
+            {meProfile && meProfile?.map(el =>
                 <UserCard key={el.id} name={el.name} description={el.description} img={el.img} userId={el.user_id}
                           id={el.id}/>
             )}

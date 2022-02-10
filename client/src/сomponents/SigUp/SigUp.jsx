@@ -8,10 +8,9 @@ import {
   Button,
 } from "antd"
 import {useDispatch, useSelector} from "react-redux";
-import {getUser} from "../../Redux/actions/userAction";
 import CreateModalForm from "../CreateModalForm/CreateModalForm";
 import {thunkUserRegisterAction} from "../../Redux/actions/thunkActions/userActions/thunkUserRegisterAction";
-
+import './SigUp.css'
 const formItemLayout = {
   labelCol: {
     xs: {
@@ -69,6 +68,7 @@ const SigUp = () => {
     <>
       <Row>
         <Col span={10} offset={6}>
+          {/*<Content style={{ padding: '0' }}>*/}
           <DemoBox value={50} />
           {user ? <CreateModalForm visible={visible} setVisible={setVisible} user={user}/> : <Form
               {...formItemLayout}
@@ -151,6 +151,7 @@ const SigUp = () => {
               </Button>
             </Form.Item>
           </Form>}
+          {/*</Content>*/}
         </Col>
       </Row>
     </>

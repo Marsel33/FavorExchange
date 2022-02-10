@@ -1,4 +1,5 @@
 import {Layout, Menu, Statistic} from 'antd';
+import "./App.less"
 import {
     AliwangwangOutlined,
     BellOutlined,
@@ -22,6 +23,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {thunkGetAllBarterAction} from '../Redux/actions/thunkActions/reqBarters/thunkGetAllBarterAction';
 import Notefication from '../сomponents/Notefication/Notefication';
 import {Footer} from "antd/es/layout/layout";
+import './App.css'
 
 const {Header} = Layout;
 
@@ -69,9 +71,8 @@ function App() {
 
     return (
         <>
-            <Header>
-                <div className="logo"/>
-                <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
+            <Header className='header-color'>
+                <Menu  theme="dark" mode="horizontal">
 
                         <Menu.Item key='2' style={{margin: '0 10px 0 0'}}>
                             <Link to={'/'}> <HomeOutlined /> </Link>
@@ -102,8 +103,65 @@ function App() {
                                <Statistic style={{ backgroundColor: 'red' }} value={2} prefix={<BellOutlined type="primary" onClick={requestHandler} />} />
                             </Link>
                         </Menu.Item>
+
+                    <Footer className='footer'
+                            style={{ textAlign: 'center'}}>Favor_Exchange ©2022 Created by a group of united thinkers
+                    </Footer>
+
                     </Menu>
             </Header>
+
+            {/*<Navbar collapseOnSelect expand='md' bg='success' variant='success'>*/}
+
+            {/*    <Container className='headerColor'>*/}
+            {/*        <Link to='/'>*/}
+            {/*            <img*/}
+            {/*                src={logo}*/}
+            {/*                height='60'*/}
+            {/*                width='80'*/}
+            {/*                className='d-inline-block align-top rounded-circle'*/}
+            {/*                alt='Logo'*/}
+            {/*            />*/}
+            {/*        </Link>*/}
+            {/*        <Navbar.Toggle aria-controls='responsive-navbar-nav'/>*/}
+            {/*        <Navbar.Collapse id='responsive-navbar-nav'>*/}
+            {/*            <div className= 'm-3'>*/}
+            {/*                <Link to='/'>Home</Link>*/}
+            {/*            </div>*/}
+            {/*            <div className= 'm-3'>*/}
+            {/*                <Link to='/cat'>Cat</Link>*/}
+            {/*            </div>*/}
+            {/*            <div className= 'm-3'>*/}
+            {/*                <Link to='/dog'>Dog</Link>*/}
+            {/*            </div>*/}
+            {/*            <div className= 'm-3'>*/}
+            {/*                <Link to='/favorite'>Favorite</Link>*/}
+            {/*            </div>*/}
+            {/*        </Navbar.Collapse>*/}
+            {/*    </Container>*/}
+            {/*</Navbar>*/}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
             <Routes>
                 <Route path='/' element={<HomePage/>}/>
@@ -119,9 +177,7 @@ function App() {
                 <Route path='/notefication' element={<Notefication/>}/>
             </Routes>
 
-            <Footer
-                style={{ textAlign: 'center' }}>Favor_Exchange ©2022 Created by a group of united thinkers
-            </Footer>
+
         </>
     );
 }

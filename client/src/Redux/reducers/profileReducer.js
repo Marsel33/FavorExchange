@@ -15,7 +15,7 @@ export const profileReducer = (state = [], action) => {
         return payload
 
     case SET_PROFILE:
-      return payload
+      return [payload]
 
     case GET_PROFILE_FOR_CATEGORIES:
       return payload
