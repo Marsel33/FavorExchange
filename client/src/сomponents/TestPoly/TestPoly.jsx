@@ -15,6 +15,7 @@ import {
 import {thunkGetAllEndedBarterAction} from "../../Redux/actions/thunkActions/endedBarters/thunkGetAllEndedBarterAction";
 import {thunkEndBarterAction} from "../../Redux/actions/thunkActions/reqBarters/thunkEndBarterAction";
 import {thunkCreateFeedbackAC} from "../../Redux/actions/thunkActions/thunkCreateFeedbackAC";
+import {deleteDeclineBarterAction} from "../../Redux/actions/thunkActions/declinedBarters/deleteDeclineBarterAction";
 
 const TestPoly = () => {
     const {id} = useParams()
@@ -33,14 +34,14 @@ const TestPoly = () => {
     }, [])
     console.log('prooooooofile', meProfile)
     useEffect(() => {
-        console.log('hueta')
+
         if (meProfile[0]) {
             dispatch(thunkGetAllActiveBartersAction(meProfile[0].id))
             dispatch(thunkGetAllDecliendBartersAction(meProfile[0].id))
             dispatch(thunkGetAllEndedBarterAction(meProfile[0].id))
             dispatch(thunkGetAllEndedBarterAction(meProfile[0].id))
         }
-    }, [meProfile[0], reqBarters.length, activeBarters.length, declinedBarters.length, endedBarters.length])
+    }, [meProfile[0], reqBarters.length, activeBarters.length, endedBarters.length])
 
     console.log(activeBarters)
 
@@ -112,9 +113,15 @@ const TestPoly = () => {
 
     function reitingHandler(e) {
         e.preventDefault()
-        const data = {comment, star} //
+        const data = {comment, star}
         // console.log('pisem sanky', {comment, star})
         dispatch(thunkCreateFeedbackAC(data))
+    }
+
+    function delHandler(e) {
+        e.preventDefault()
+        console.log('rabotayyyyyy')
+        dispatch(deleteDeclineBarterAction(e.target.id))
     }
 
     return (
@@ -209,7 +216,9 @@ const TestPoly = () => {
                                 if (e.status == 'declined') {
                                     return (<div>
                                         {e.offer}
-                                        <button>del</button>
+                                        <button onClick={delHandler}
+                                                id={e.barterId}>del
+                                        </button>
 
                                     </div>)
                                 }

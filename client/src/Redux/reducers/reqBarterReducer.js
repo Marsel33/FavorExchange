@@ -4,6 +4,7 @@ import {ACCEPT_BARTER, DECLINE_BARTER, GET_ALL_BARTERS} from "../types/types";
 export const reqBarterReducer = (state = initState, action) => {
     switch (action.type) {
         case GET_ALL_BARTERS:
+          console.log('action===================>',action)
             return action.payload.filter(e => e.status === 'requested')
         case ACCEPT_BARTER:
             const tempAcc = [...state]

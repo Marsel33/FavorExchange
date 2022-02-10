@@ -1,132 +1,136 @@
-import styles from '../userPage/styles.module.css'
-import {Button, Card} from 'antd';
-import {Link} from 'react-router-dom';
+import style from './UserCard.css'
+import { Button, Card, Col, Input } from 'antd';
+import { Link } from 'react-router-dom';
 import UserCat from '../UserCat/UserCat';
 
 import EditPorofile from '../EditProfile/EditProfile';
-import {StarOutlined} from '@ant-design/icons';
+import { StarOutlined } from '@ant-design/icons';
 import Modal from 'antd/lib/modal/Modal';
-import {useEffect, useState} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
-import {thunkSetNewBarterAction} from '../../Redux/actions/thunkActions/reqBarters/thunkSetNewBarterAction';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { thunkSetNewBarterAction } from '../../Redux/actions/thunkActions/reqBarters/thunkSetNewBarterAction';
 import {
   thunkGetAllActiveBartersAction
 } from '../../Redux/actions/thunkActions/activeBarters/thunkGetAllActiveBartersAction';
-import {thunkGetAllEndedBarterAction} from '../../Redux/actions/thunkActions/endedBarters/thunkGetAllEndedBarterAction';
+import { thunkGetAllEndedBarterAction } from '../../Redux/actions/thunkActions/endedBarters/thunkGetAllEndedBarterAction';
 import {
   thunkGetAllDecliendBartersAction
 } from '../../Redux/actions/thunkActions/declinedBarters/thunkGetAllDecliendBartersAction';
+import { thunkGetAllBarterAction } from '../../Redux/actions/thunkActions/reqBarters/thunkGetAllBarterAction';
 
-const {Meta} = Card;
+const { Meta } = Card;
 
-const UserCard = ({img, id, userId, description, name}) => {
-    const size = 'large'
-
-
-    const dispatch = useDispatch()
-    const [title, setTitle] = useState('')
-    const [service, setService] = useState('')
-    const [offer, setOffer] = useState('')
-    const meProfile = useSelector(state => state.profile);
-
-    const [isModalVisible, setIsModalVisible] = useState(false);
-
-    const showModal = () => {
-        setIsModalVisible(true);
-    };
-
-    const handleOk = () => {
-        setIsModalVisible(false);
-    };
-
-    const handleCancel = () => {
-        setIsModalVisible(false);
-    };
+const UserCard = ({ img, id, userId, description, name }) => {
+  const size = 'large'
 
 
-    useEffect(() => {
-        console.log('hueta')
-        if (meProfile[0]) {
-            dispatch(thunkGetAllActiveBartersAction(meProfile[0].id))
-            dispatch(thunkGetAllDecliendBartersAction(meProfile[0].id))
-            dispatch(thunkGetAllEndedBarterAction(meProfile[0].id))
-        }
-    }, [meProfile[0]])
+  const dispatch = useDispatch()
+  const [title, setTitle] = useState('')
+  const [service, setService] = useState('')
+  const [offer, setOffer] = useState('')
+  const meProfile = useSelector(state => state.profile);
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const user = useSelector(state => state.user)
 
 
-    function barterHandler(e) {
-        e.preventDefault()
-        const data = {title, service, offer, id: 1, opponentId: Number(id)} // TODO CHANGE ID TO ACTIVE PROFILE
-        dispatch(thunkSetNewBarterAction(data))
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleOk = () => {
+    console.log('юзер id в санках',user.id)
+    dispatch(thunkGetAllBarterAction(user.id))
+    setIsModalVisible(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
+
+
+  useEffect(() => {
+    if (meProfile[0]) {
+      dispatch(thunkGetAllActiveBartersAction(meProfile[0].id))
+      dispatch(thunkGetAllDecliendBartersAction(meProfile[0].id))
+      dispatch(thunkGetAllEndedBarterAction(meProfile[0].id))
     }
-
-    function titleHandler(e) {
-        e.preventDefault()
-        setTitle(e.target.value)
-    }
-
-    function serviceHandler(e) {
-        e.preventDefault()
-        setService(e.target.value)
-    }
-
-    function offerHandler(e) {
-        e.preventDefault()
-        setOffer(e.target.value)
-    }
-
-    return (
-        <>
-            {console.log(img)}
-
-            <div className={"mywrapper"}>
-                < UserCat/>
+  }, [meProfile[0]])
 
 
-                <Card
-                    hoverable
-                    style={{width: 400, fontSize: 24, height: 500}}
-                    cover={<img className={styles.ava} alt="example" src={img}/>}
-                >
-                    <Meta title={name} description={description}/>
+  function barterHandler(e) {
+    e.preventDefault()
+    const data = { title, service, offer, id: 1, opponentId: Number(user) } // TODO CHANGE ID TO ACTIVE PROFILE
+    dispatch(thunkSetNewBarterAction(data))
+  }
 
-                    <Link to={'/UserHistory'}>
-                        <Button danger size={size} className={styles.button}>закрытые зделки</Button>
-                    </Link>
+  function titleHandler(e) {
+    e.preventDefault()
+    setTitle(e.target.value)
+  }
 
-                    <EditPorofile key={id} description={description} name={name} id={id}/>
-                    <StarOutlined/>
-                    <StarOutlined/>
-                    <StarOutlined/>
-                    <StarOutlined/>
-                    <StarOutlined/>
+  function serviceHandler(e) {
+    e.preventDefault()
+    setService(e.target.value)
+  }
 
-                    <Button type="primary" onClick={showModal}>
-                        сотрудничать
-                    </Button>
-                    <Modal title="Basic Modal" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
+  function offerHandler(e) {
+    e.preventDefault()
+    setOffer(e.target.value)
+  }
 
+  return (
+    <>
+      <Col sm={12}>
+        < UserCat />
+      </Col>
 
-                        <form
-                            onSubmit={barterHandler}
-                            style={{
-                                display: 'flex',
-                                flexDirection: 'column',
-                                width: '20%'
-                            }}>
-                            <label htmlFor="title">title</label>
-                            <input type="text" name="title" onChange={titleHandler}/>
-                            <label htmlFor="service">service</label>
-                            <input type="text" name="service" onChange={serviceHandler}/>
-                            <label htmlFor="offer">offer</label>
-                            <input type="text" name="offer" onChange={offerHandler}/>
-                            <input type="submit"/>
-                        </form>
-                    </Modal>
-                </Card>
-            </div>
-        </>
-    )
+      <Col sm={12}>
+        <Card
+          hoverable
+          style={{ width: 400, fontSize: 24, height: 500 }}
+          cover={<img className={'avatar'} alt="example" src={img} />}
+          className='userCard'
+        >
+          <Meta title={name} description={description} />
+
+          <Link to={'/UserHistory'}>
+            <Button danger size={size}>закрытые зделки</Button>
+          </Link>
+
+          <EditPorofile key={id} description={description} name={name} id={id} />
+          <StarOutlined />
+          <StarOutlined />
+          <StarOutlined />
+          <StarOutlined />
+          <StarOutlined />
+{!user ?  <Button type="primary" onClick={showModal}>
+            сотрудничать
+          </Button>
+: '' }
+         
+          <Modal title="Basic Modal" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
+
+            <form
+              onSubmit={barterHandler}
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                width: '70%'
+              }}>
+              <label htmlFor="title">title</label>
+              <Input type="text" name="title" onChange={titleHandler} />
+              <label htmlFor="service">service</label>
+              <Input type="text" name="service" onChange={serviceHandler} />
+              <label htmlFor="offer">offer</label>
+              <Input type="text" name="offer" onChange={offerHandler} />
+              <Input type='submit' />
+            </form>
+
+          </Modal>
+        </Card>
+      </Col>
+    </>
+  )
 }
 
 export default UserCard
