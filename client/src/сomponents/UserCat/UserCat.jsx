@@ -10,6 +10,7 @@ import { allTags } from "../../Redux/actions/userTagsAction";
 import style from './style.css'
 
 const UserCat = () => {
+  const user = useSelector(state => state.user)
 
   const allUserTags = useSelector(state => state.userTags)
   const allcat = useSelector(state => state.userCat)
@@ -53,6 +54,7 @@ console.log('_-----------------> allcat',allcat)
 
   return (
     <>
+
       {click ?
         <form
           name="basic"
@@ -102,6 +104,7 @@ console.log('_-----------------> allcat',allcat)
 
         :
         <Button type="primary" onClick={clickHandler}>добавить категорию</Button>}
+        
       <div>
 
         {allUserTags.map(el =>

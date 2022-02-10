@@ -1,7 +1,7 @@
 import { Button, Input } from "antd";
 import Modal from "antd/lib/modal/Modal";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getAvatar } from "../../Redux/actions/profileAction";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { storage } from '../../firebase';
@@ -10,6 +10,7 @@ import style from './style.css'
 
 
 const EditPorofile = ({ id }) => {
+  const user = useSelector(state => state.user)
 
   const [isModalVisible, setIsModalVisible] = useState(false);
 
@@ -31,7 +32,8 @@ const EditPorofile = ({ id }) => {
     }
   }
 
-  const handleUpload = () => {
+  const handleUpload = (e) => {
+    e.preventDefault()
     const storageRef = ref(storage, `/images/${image.name}`)
     const uploadTask = uploadBytesResumable(storageRef, image);
     uploadTask.on(
@@ -61,9 +63,10 @@ const EditPorofile = ({ id }) => {
 
   return (
       <>
-        <Button type="primary" onClick={showModal}>
+{user ?   <Button type="primary" onClick={showModal}>
           редактировать профиль
-        </Button>
+        </Button> : ''}
+      
         <Modal className="ant-modal-content" title="Редактировать профиль" visible={isModalVisible} onOk={handleUpload} onCancel={handleCancel}>
           <Input className="ant-input" type='file' name="img" onChange={handleChange} />
           <Input className="ant-input" type='text' name="name" placeholder="name" onChange={imgHandler} />

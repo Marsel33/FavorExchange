@@ -23,7 +23,6 @@ import {useDispatch, useSelector} from "react-redux";
 import {thunkGetAllBarterAction} from '../Redux/actions/thunkActions/reqBarters/thunkGetAllBarterAction';
 import {Footer} from "antd/es/layout/layout";
 import Notefication from "../сomponents/Notefication/Notefication";
-
 const {Header} = Layout;
 
 //------------>>>>>>  Это для socket    <<<<<-------------------
@@ -43,7 +42,7 @@ function App() {
 
   function requestHandler(e) {
     e.preventDefault()
-    dispatch(thunkGetAllBarterAction(Number(user)))  //todo user init state
+    dispatch(thunkGetAllBarterAction(Number(user.id)))  //todo user init state
 
   }
 

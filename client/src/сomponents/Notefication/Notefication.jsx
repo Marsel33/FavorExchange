@@ -4,6 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {
     thunkGetAllActiveBartersAction
 } from "../../Redux/actions/thunkActions/activeBarters/thunkGetAllActiveBartersAction";
+import { deleteDeclineBarterAction } from "../../Redux/actions/thunkActions/declinedBarters/deleteDeclineBarterAction";
 import {
     thunkGetAllDecliendBartersAction
 } from "../../Redux/actions/thunkActions/declinedBarters/thunkGetAllDecliendBartersAction";
@@ -35,6 +36,13 @@ const Notefication = () => {
         dispatch(thunkGetAllBarterAction(Number(user))) //toto не забыть поменять user в init!!!!!!!
     }
 
+
+    function delHandler(e) {
+      e.preventDefault()
+      console.log('rabotayyyyyy')
+      dispatch(deleteDeclineBarterAction(e.target.id))
+  }
+
     useEffect(() => {
         console.log(123000);
         if (user) {
@@ -42,6 +50,9 @@ const Notefication = () => {
             dispatch(thunkGetAllBarterAction(Number(user))) //toto не забыть поменять user в init!!!!!!!
         }
     }, [])
+
+
+
 
 
     console.log('1111111111111', reqBarters)
@@ -83,7 +94,7 @@ const Notefication = () => {
                                     return (<div>
                                         <Card title={e.offer} style={{width: 300}}>
 
-                                            <button id={e.barterId}>удалить</button>
+                                            <button id={e.barterId} onClick={delHandler}>удалить</button>
                                         </Card>
                                     </div>)
                                 }

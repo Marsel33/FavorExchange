@@ -14,7 +14,11 @@ const UserPage = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const meProfile = useSelector(state => state.profile);
+  const user = useSelector(state => state.user);
 
+  console.log(user, '==================> user')
+
+  console.log('profile userPage-------->',meProfile)
 
 
   useEffect(() => {
