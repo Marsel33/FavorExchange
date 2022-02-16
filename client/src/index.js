@@ -10,8 +10,9 @@ import axios from 'axios';
 
 import store from './Redux/store/store';
 
-
-axios.defaults.baseURL = 'http://localhost:3001/';
+// axios.defaults.headers = {}
+// axios.defaults.withCredentials = true
+axios.defaults.baseURL = 'http://localhost:3001'//https://favour-exchange-project.herokuapp.com/api'
 axios.defaults.withCredentials = true;
 
 

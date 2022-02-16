@@ -1,11 +1,10 @@
-import { Card, Input } from "antd";
+import {Card, Input} from "antd";
 import Modal from "antd/lib/modal/Modal";
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector, useStore } from "react-redux";
-import { thunkGetAllEndedBarterAction } from "../../Redux/actions/thunkActions/endedBarters/thunkGetAllEndedBarterAction";
-import { thunkCreateFeedbackAC } from "../../Redux/actions/thunkActions/thunkCreateFeedbackAC";
+import {useEffect, useState} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {thunkGetAllEndedBarterAction} from "../../Redux/actions/thunkActions/endedBarters/thunkGetAllEndedBarterAction";
+import {thunkCreateFeedbackAC} from "../../Redux/actions/thunkActions/thunkCreateFeedbackAC";
 import CardTasck from "../CardTasck/CardTasck";
-import styles from '../userPage/styles.module.css'
 
 const UserHistory = () => {
 
@@ -73,7 +72,7 @@ const UserHistory = () => {
               return (<div>
 
                 {allComments.map(el =>
-                  <Card title={e.offer} extra={<button id={e.barterId} onClick={showModal}>feedback</button>} style={{ width: 300 }}>
+                  <Card title={e.offer} extra={<button className='btn' id={e.barterId} onClick={showModal}>feedback</button>} style={{ width: 300 }}>
                     <p>{el.comment} </p>
 
                   </Card>

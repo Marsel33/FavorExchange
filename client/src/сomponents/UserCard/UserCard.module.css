@@ -1,0 +1,63 @@
+.mywrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.avatar {
+    margin: 0 auto;
+    width: 450px;
+    height: 500px;
+    object-fit: cover;
+}
+.idUserCard {
+
+}
+
+.userCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border: 2px solid black;
+}
+
+.userCardWrapper {
+    /*display: flex;*/
+    height: 100%;
+    margin: 20px 50px 0 50px;
+    padding: 10px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    align-items: center;
+}
+
+.btn {
+    text-decoration: none;
+    display: inline-block;
+    color: white;
+    padding: 0 5px;
+    margin: 10px 20px;
+    border-radius: 10px;
+    font-family: 'Montserrat', sans-serif;
+    /* text-transform: uppercase; */
+    letter-spacing: 2px;
+    background: linear-gradient(to right, #9EEFE1 0%, #FFC5CA 51%, #9EEFE1 100%);
+    background-size: 200% auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .1);
+    transition: .5s;
+    width: 100px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-position: right center;
+}
+
+#userCard {
+    /* background-color: #9EEFE1 ; */
+    background-color: rgba(0, 0, 0, 0);
+    height: 480px;
+    width: 280px;
+    margin-left: 65px;
+    border-radius: 5px;
+}

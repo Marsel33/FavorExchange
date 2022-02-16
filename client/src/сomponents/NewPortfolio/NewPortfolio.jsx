@@ -1,4 +1,4 @@
-import {Button, Input} from "antd";
+import {Input} from "antd";
 import Modal from "antd/lib/modal/Modal";
 import {getDownloadURL, ref, uploadBytesResumable} from "firebase/storage";
 import {useState} from "react";
@@ -10,7 +10,6 @@ import {storage} from "../../firebase";
 const NewPortfoliio = () => {
 
     const {id} = useParams();
-    console.log(id)
     const dispatch = useDispatch()
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [image, setImage] = useState(null)
@@ -63,9 +62,9 @@ const NewPortfoliio = () => {
 
     return (
         <>
-            {user ? <Button type="primary" onClick={showModal}>
+            {Number(user?.id) === Number(id) ? <button className='btn'  onClick={showModal}>
                 Дополнить портфолио
-            </Button> : ''}
+            </button> : ''}
 
             <Modal title="Basic Modal" visible={isModalVisible} onOk={handleUpload} onCancel={handleCancel}>
                 <Input type='file' name="img" onChange={handleChange}/>

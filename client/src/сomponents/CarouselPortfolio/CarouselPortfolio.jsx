@@ -1,47 +1,38 @@
+import {Carousel, Col} from 'antd';
+import {useEffect} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {allProfile} from '../../Redux/actions/portfolioAction';
+import style from './Carusek.css'
 
-import { Carousel } from 'antd';
-import { Row, Col } from 'antd';
-import axios from 'axios';
-import { useEffect } from 'react';
-import { useState } from 'react';
-import { useDispatch, useSelector, useStore } from 'react-redux';
-import { allProfile } from '../../Redux/actions/portfolioAction';
-import ActivCardTasck from '../ActivCardTusk/ActivCardTusk';
-import CardTasck from '../CardTasck/CardTasck';
-import NewPortfoliio from '../NewPortfolio/NewPortfolio';
+const CarouselPortfolio = ({id, userId}) => {
 
-const CarouselPortfolio = ({ id }) => {
+    const dispatch = useDispatch()
+    const userPortfolio = useSelector(state => state.portfolio)
 
-  const dispatch = useDispatch()
-  const userPortfolio = useSelector(state => state.portfolio)
+    useEffect(() => {
 
-  console.log(userPortfolio)
-  useEffect(() => {
+        dispatch(allProfile(id))
+    }, [])
 
-    dispatch(allProfile(id))
-  }, [])
+    return (
+        <>
+            <Col>
+               <div className={style.wrapperCarusel}>
+                   <Carousel style={{maxHeight:'600px', height: '100%', marginTop: '10%'}} autoplay>
 
-  return (
-    <>
-        <Col sm={12} >
-        < NewPortfoliio />
+                       {userPortfolio.map(el =>
 
-          <Carousel autoplay>
-            {userPortfolio.map(el =>
-
-                <img src={el.img} style={{ height: '400px', width: '400px' }} />
-
-            )}
-          </Carousel>,
-        </Col>
-        <Col sm={12}>
-          < ActivCardTasck />
-        </Col>
-
-    </>
+                           <img src={el.img} style={{height: '400px', width: '400px'}}/>
+                       )}
+                   </Carousel>
+               </div>
+            </Col>
 
 
-  )
+        </>
+
+
+    )
 }
 
 export default CarouselPortfolio

@@ -10,6 +10,7 @@ const FileStore = require('session-file-store')(session);
 
 
 const index = require('./routes/index');
+const {idAndName} = require("./middleware/allMiddleware");
 
 const PORT = 3001;
 const app = express();
@@ -26,26 +27,31 @@ app.use(morgan('dev'));
 
 app.use(cors({
     credentials: true,
-    origin: 'http://localhost:3000',
+
+    origin: true,
 }));
+// app.use(function (req, res, next) {
+//     res.header("Access-Control-Allow-Origin", "https://favour-exchange-project.herokuapp.com"); // update to match the domain you will make the request from
+//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//     next();
+// });
 
 app.use(
     session({
-      name:'sid',
-      store: new FileStore({}),
-      saveUninitialized: false,
-      secret: 'lalalalal',
-      resave: false,
+        name: 'sid',
+        store: new FileStore(),
+        saveUninitialized: false,
+        secret: 'lalalalal',
+        resave: false,
     })
 );
 
 
-app.use('/', index);
+app.use('/', idAndName, index);
 
 app.listen(PORT, () => {
     console.log('Server start on port ', PORT)
 })
-
 
 
 // module.exports = app

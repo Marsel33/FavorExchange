@@ -1,7 +1,6 @@
-import {Button, Card, Col, Input} from 'antd';
+import {Card, Input} from 'antd';
+import style from './UserCard.module.css'
 import {Link} from 'react-router-dom';
-import UserCat from '../UserCat/UserCat';
-
 import EditPorofile from '../EditProfile/EditProfile';
 import {StarOutlined} from '@ant-design/icons';
 import Modal from 'antd/lib/modal/Modal';
@@ -16,6 +15,7 @@ import {
     thunkGetAllDecliendBartersAction
 } from '../../Redux/actions/thunkActions/declinedBarters/thunkGetAllDecliendBartersAction';
 import {thunkGetAllBarterAction} from '../../Redux/actions/thunkActions/reqBarters/thunkGetAllBarterAction';
+import NewPortfoliio from "../NewPortfolio/NewPortfolio";
 
 const {Meta} = Card;
 
@@ -57,7 +57,7 @@ const UserCard = ({img, id, userId, description, name}) => {
 
     function barterHandler(e) {
         e.preventDefault()
-        const data = {title, service, offer, id: id, opponentId: Number(user)} // TODO CHANGE ID TO ACTIVE PROFILE
+        const data = {title, service, offer, id: id, opponentId: Number(user.id)} // TODO CHANGE ID TO ACTIVE PROFILE
         dispatch(thunkSetNewBarterAction(data))
     }
 
@@ -77,34 +77,49 @@ const UserCard = ({img, id, userId, description, name}) => {
     }
 
     return (
-        <>
-            <Col sm={12}>
-                < UserCat/>
-            </Col>
+        <div style={{maxHeight: '100%'}}>
 
-            <Col sm={12}>
-                <Card
+
+                <Card id='userCard'
                     hoverable
-                    style={{width: 400, fontSize: 24, height: 500}}
-                    cover={<img className={'avatar'} alt="Добавьте фото "
-                                src={img ? img : 'https://windows10free.ru/uploads/posts/2017-02/1487679899_icon-user-640x640.png'}/>}
-                    className='userCard'
+                    style={{
+                        height: '100%',
+                        display: 'flex',
+                        flexDirection:'column',
+                    justifyContent: 'space-evenly'}}
+                    cover={<img style={{maxHeight:"80%"}} alt="Добавьте фото "
+                                src={img ? img : 'https://osipbove.ru/design/image/otzyvy/no_avatar.jpg'}/>}
+                    className={style['cardWrapper']
+
+                }
                 >
-                    <Meta title={name} description={description}/>
+                    {/*title={name} description={description}*/}
+                    <div>
+                     {/*cover={<div style={{maxHeight:'30%'}}>*/}
+                        <div style={{}}>
+                            {meProfile[0].name}
+                        </div>
+                        {/*<div>{meProfile[0].description}</div>*/}
+                        <Link to={'/UserHistory'}>
+                            <button >История добрых дел</button>
+                        </Link>
+                        <EditPorofile key={id} description={description} name={name} id={id}/>
+                        <NewPortfoliio/>
+                    {/*</div>}>*/}
 
-                    <Link to={'/UserHistory'}>
-                        <Button danger size={size}>История добрых дел</Button>
-                    </Link>
+                    </div>
 
-                    <EditPorofile key={id} description={description} name={name} id={id}/>
+
+<div>
                     <StarOutlined/>
                     <StarOutlined/>
                     <StarOutlined/>
                     <StarOutlined/>
                     <StarOutlined/>
-                    {!user ? <Button type="primary" onClick={showModal}>
-                            Преложить бартер
-                        </Button>
+</div>
+                    {Number(user?.id) !== Number(id) ? <button className={style.btn}  type="primary" onClick={showModal}>
+                            бартер
+                        </button>
                         : ''}
 
                     <Modal title="Basic Modal" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
@@ -127,8 +142,8 @@ const UserCard = ({img, id, userId, description, name}) => {
 
                     </Modal>
                 </Card>
-            </Col>
-        </>
+
+        </div>
     )
 }
 

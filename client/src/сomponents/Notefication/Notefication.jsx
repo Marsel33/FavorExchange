@@ -4,7 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {
     thunkGetAllActiveBartersAction
 } from "../../Redux/actions/thunkActions/activeBarters/thunkGetAllActiveBartersAction";
-import { deleteDeclineBarterAction } from "../../Redux/actions/thunkActions/declinedBarters/deleteDeclineBarterAction";
+import {deleteDeclineBarterAction} from "../../Redux/actions/thunkActions/declinedBarters/deleteDeclineBarterAction";
 import {
     thunkGetAllDecliendBartersAction
 } from "../../Redux/actions/thunkActions/declinedBarters/thunkGetAllDecliendBartersAction";
@@ -91,8 +91,8 @@ const Notefication = () => {
                             {declinedBarters && declinedBarters.map(e => {
                                 console.log(e)
                                 if (e.status == 'declined') {
-                                    return (<div>
-                                        <Card title={e.offer} style={{width: 300}}>
+                                    return (<div style={{}}>
+                                        <Card title={e.offer} style={{}}>
 
                                             <button id={e.barterId} onClick={delHandler}>удалить</button>
                                         </Card>

@@ -17,7 +17,7 @@
 //         io.emit('player-connected', chatPlayers)
 //     })
 //     socket.on('player-disconnected', (name) => {
-//         chatPlayers =  chatPlayers.filter(chatPlayer => chatPlayer.name !== name)
+//         chatPlayers = chatPlayers.filter(chatPlayer => chatPlayer.name !== name)
 //         io.emit('player-disconnected', chatPlayers)
 //     })
 //
@@ -50,20 +50,20 @@
 //             socket.join(Number(roomId))
 //             const currentRoom = await BattleRoom.findOne({where: {id: Number(roomId)}})
 //             console.log('============================================')
-//             console.log('room============>',currentRoom)
+//             console.log('room============>', currentRoom)
 //             console.log('============================================')
 //
 //             const initial_character = arr.find(e => {
 //                 return (e.player.id === currentRoom.initial_character_id)
 //             })
 //             console.log('============================================')
-//             console.log('initial_character============>',initial_character)
+//             console.log('initial_character============>', initial_character)
 //             console.log('============================================')
 //             const opponent = arr.find(e => {
 //                 return (e.player.id === currentRoom.opponent_id)
 //             })
 //             console.log('============================================')
-//             console.log('opponent============>',opponent)
+//             console.log('opponent============>', opponent)
 //             console.log('============================================')
 //             socket.to(roomId).emit('join-room-watcher',
 //                 {current_room: currentRoom.id, initial_character, opponent})
@@ -93,13 +93,13 @@
 //         const player_one = battle.find(e => e.player.id === player.id)
 //         const message = 'Holy Christ'
 //         if (player_one) {
-//             if (player_two){
+//             if (player_two) {
 //                 const db_room = await BattleRoom.findByPk(Number(room.id))
 //                 io.to(room.id).emit('send-message',
 //                     ({message, db_room, player_two, player_one}))
 //                 io.to(room.id).emit('send-message-to-watcher',
 //                     ({message, db_room, player_two, player_one}))
-//                 storage = storage.filter(el => el.id !==room.id)
+//                 storage = storage.filter(el => el.id !== room.id)
 //                 battle = []
 //             }
 //         }

@@ -1,4 +1,4 @@
-import { Image, Table, Typography } from 'antd'
+import {Image, Table, Typography} from 'antd'
 
 
 const columns = [
@@ -32,7 +32,7 @@ const columns = [
     {
         title: 'Адрес',
         dataIndex: 'adress',
-        key:'adress',
+        key: 'adress',
     },
     {
         title: 'Фото',
@@ -45,22 +45,20 @@ const columns = [
 ]
 
 
-
-
-
 const SearchCategory = ({rows = 5, users, key}) => {
- 
-  const dataSource = users.map(item => (item))    
+
+    const dataSource = users.map(item => (item))
 
     return (
-        <Table 
+        <Table
             dataSource={dataSource}
-            columns = {columns}
-            pagination = {{
+            columns={columns}
+            pagination={{
                 // pageSize: rows,
                 // pageSize: '5', 
-                showSizeChanger: true, 
-                pageSizeOptions: [1, 2, 3, 5, 10]
+                showSizeChanger: true,
+                // pageSizeOptions: [1, 2, 3, 5, 10]
+                pageSizeOptions: [1, 2, 3]
             }}
         />
     )

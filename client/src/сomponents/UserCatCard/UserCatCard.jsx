@@ -1,5 +1,5 @@
 import {Card} from "antd";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {useParams} from "react-router-dom";
 import {allTags, dellTag} from "../../Redux/actions/userTagsAction";
 
@@ -7,7 +7,7 @@ import {allTags, dellTag} from "../../Redux/actions/userTagsAction";
 const UserCatcard = ({tagId, title}) => {
     const dispatch = useDispatch()
     const {id} = useParams()
-
+    const user = useSelector(state => state.user)
     const dellTagHandelr = (e) => {
 
         dispatch(dellTag(e.target.id))
@@ -18,9 +18,9 @@ const UserCatcard = ({tagId, title}) => {
     return (
 
 
-        <Card style={{width: 300}}>
+        <Card style={{width: '100%'}}>
             <p> {title}</p>
-            <button id={tagId} onClick={dellTagHandelr}>удалить</button>
+            {Number(user?.id) === Number(id) ? <button className='btn' id={tagId} onClick={dellTagHandelr}>удалить</button> : ''}
 
         </Card>
     )

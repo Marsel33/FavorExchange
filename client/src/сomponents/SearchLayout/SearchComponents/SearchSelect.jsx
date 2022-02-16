@@ -1,8 +1,8 @@
-import { Button, Select } from 'antd'
-import { useEffect, useRef, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { thunkGetAllCategoriesAction } from '../../../Redux/actions/search/thunkGetAllCategoriesAction'
-import { thunkSearchForCategories } from '../../../Redux/actions/search/thunkSearchForCategories'
+import {Button, Select} from 'antd'
+import {useEffect, useRef, useState} from 'react'
+import {useDispatch, useSelector} from 'react-redux'
+import {thunkGetAllCategoriesAction} from '../../../Redux/actions/search/thunkGetAllCategoriesAction'
+import {thunkSearchForCategories} from '../../../Redux/actions/search/thunkSearchForCategories'
 
 const SearchSelect = ({setProfiles, users}) => {
 
@@ -99,7 +99,7 @@ const SearchSelect = ({setProfiles, users}) => {
                     '<br/>',
                     `Описание: ${description}`,
                     '<br/>',
-                    `Подробнее: <a href="http://localhost:3000/user/${id}">Страница профиля</a>`,
+                    `Подробнее: <a href="http://localhost:3000/user/${id}">Страница профиля</a>`,//http://localhost:3000 https://favour-exchange-project.herokuapp.com/api
                     '</address>'
                 ].join('')           
                 }, {

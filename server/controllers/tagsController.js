@@ -1,4 +1,4 @@
-const {Tags, Categories} = require('../db/models')
+const {Tags, Categories, ProfilEntries} = require('../db/models')
 
 
 class TagsController {
@@ -45,7 +45,7 @@ class TagsController {
     async getAllTags(req, res) {
         const {id} = req.params
         try {
-            const allTags = await Tags.findAll({include: {model:Categories},where:{profil_id:Number(id)}})
+            const allTags = await Tags.findAll({include: {model: Categories}, where: {profil_id: Number(id)}})
             if (allTags) {
                 res.json({allTags})
             } else {
@@ -59,8 +59,10 @@ class TagsController {
     async createTag(req, res) {
         const {id} = req.params
         const {title, catId} = req.body
+        console.log(req.body, 'ddddddddddddddddd')
         try {
             const tag = await Tags.create({title, catId, profil_id: Number(id)})
+            await ProfilEntries.create({cat_id: catId, profil_id: Number(id)})
             console.log(tag)
             res.json({tag})
         } catch (e) {

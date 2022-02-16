@@ -1,48 +1,87 @@
-.s {
-  display: flex;
-  justify-content: space-around;
-  font-size: 18px;
+.wrapperUserPage {
+    display: flex;
+    justify-content: space-around;
+    /* margin-top: 30px; */
+    max-height: 65vh;
+    /* padding: 75px; */
+    border-radius: 5px;
+    flex-wrap: nowrap;
+    /*background-image: url('../../images/neutral-abstract-texture-simple-background\ \(1\).jpg');*/
+    background-repeat: no-repeat;
+    /*height: 100vh;*/
+    background-position: center;
+}
+.wrapperCatInside {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.userContainer {
+    max-height: 30%;
 }
 
-
-.constainer {
-  padding: 10px;
-  height: 100vh;
+.wrapperCat {
+    /*overflow-y: scroll;*/
+    /*height: 500px;*/
+    /*width: 450px;*/
+    /*margin: 20px 50px 0 50px;*/
+    /*box-shadow: 0 0 50px rgba(93, 88, 88, 0.5);*/
+    /*border-radius: 15px;*/
+    /*background: transparent;*/
+    /*!* background-color: #fefae0; *!*/
+    /*height: 500px;*/
+    /*width: 450px;*/
+    width: 30%;
+    margin: 20px 50px 0 50px;
+    padding: 10px;
+    box-shadow: 0 0 50px rgb(0 0 0 / 50%);
+    border-radius: 15px;
+    align-items: center;
+    overflow: auto;
 }
 
+.wrapperCarusel {
+    /*height: 500px;*/
+    /*width: 450px;*/
+    align-items: center;
+    width: 30%;
+    margin: 20px 50px 0 50px;
 
-.contentStyle  {
-  height: '250px';
-  width: '600px';
-  color: '#fff';
-  line-height: '160px';
-  text-align: 'center';
-  background: '#364d79';
-};
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
 
-.wrapper {
-  display: flex;
 }
 
-.a {
-  color: red;
+.userCardWrapper {
+    width: 30%;
+    margin: 20px 50px 0 50px;
+    padding: 10px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    align-items: center;
+
+}
+.btn {
+    text-decoration: none;
+    display: inline-block;
+    color: white;
+    padding: 0 5px;
+    margin: 10px 20px;
+    border-radius: 10px;
+    font-family: 'Montserrat', sans-serif;
+    /* text-transform: uppercase; */
+    letter-spacing: 2px;
+    background: linear-gradient(to right, #9EEFE1 0%, #FFC5CA 51%, #9EEFE1 100%);
+    background-size: 200% auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .1);
+    transition: .5s;
+    width: 100px;
+    border: none;
+    cursor: pointer;
 }
 
-
-.skill {
-  width: 400px;
-  border-bottom: 2px solid rgb(133, 133, 161);
-  border-radius: 3px;
-  font-size: 40px;
+.btn:hover {
+    background-position: right center;
 }
-
-.userPage {
-  max-width: 1920px;
-  height: 100vh; 
-  padding: 20px;
-  background-color: rgb(233, 233, 240);
-}
-
-
 
 
